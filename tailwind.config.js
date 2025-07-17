@@ -10,7 +10,7 @@ export default {
         'sans': ['Roboto', 'sans-serif'],
       },
       colors: {
-        'nsus-blue': '#0052FF',
+        'nsus-blue': '#4779C1',
         'nsus-light-blue': '#E6F0FF',
         'nsus-gray': {
           100: '#F7F8FA',
