@@ -84,11 +84,11 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="#/login" onClick={(e) => handleNavigate(e, '#/login')} className="text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors">{t('header_login')}</a>
+            <a href="#/login" onClick={(e) => handleNavigate(e, '#/login')} className="text-base font-medium text-nsus-gray-500 hover:text-nsus-blue transition-colors">{t('header_login')}</a>
             <div className="flex items-center">
-              <button onClick={() => setLanguage('kr')} className={`font-bold transition-colors ${language === 'kr' ? 'text-nsus-gray-900' : 'text-nsus-gray-500 hover:text-nsus-gray-900'}`}>KR</button>
+              <button onClick={() => setLanguage('kr')} className={`font-bold transition-colors ${language === 'kr' ? 'text-nsus-gray-700' : 'text-nsus-gray-500 hover:text-nsus-gray-700'}`}>KR</button>
               <span className="mx-1 text-nsus-gray-300">|</span>
-              <button onClick={() => setLanguage('en')} className={`font-bold transition-colors ${language === 'en' ? 'text-nsus-gray-900' : 'text-nsus-gray-500 hover:text-nsus-gray-900'}`}>EN</button>
+              <button onClick={() => setLanguage('en')} className={`font-bold transition-colors ${language === 'en' ? 'text-nsus-gray-700' : 'text-nsus-gray-500 hover:text-nsus-gray-700'}`}>EN</button>
             </div>
           </div>
           
