@@ -49,10 +49,10 @@ const Header: React.FC = () => {
                 <AnimatePresence>
                   {openDropdown === link.nameKey && link.subLinks && (
                     <motion.div
-                      initial={{ opacity: 0, y: -10 }}
+                      initial={{ opacity: 0, y: -30 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
+                      exit={{ opacity: 0, y: -30 }}
+                      transition={{ duration: 0.5 }}
                       className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-56 bg-white rounded-b-lg shadow-xl ring-1 ring-black ring-opacity-5 z-50"
                     >
                       <div className="py-2">
