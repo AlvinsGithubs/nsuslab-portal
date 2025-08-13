@@ -35,14 +35,14 @@ const Header: React.FC = () => {
             {NAV_LINKS.map((link) => (
               <div
                 key={link.nameKey}
-                className="relative"
+                className="relative group" // group 클래스 추가
                 onMouseEnter={() => setOpenDropdown(link.nameKey)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
                 <a
                   href={link.href}
                   onClick={(e) => handleNavigate(e, link.href)}
-                  className="text-base font-bold uppercase tracking-wider text-nsus-gray-700 hover:text-nsus-blue transition-colors px-4 py-7 flex items-center"
+                  className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-700 hover:text-nsus-blue transition-colors px-4 py-7 flex items-center"
                 >
                   {t(link.nameKey)}
                 </a>

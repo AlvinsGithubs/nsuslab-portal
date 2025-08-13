@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .hover-line-effect {
+    @apply relative inline-block;
+  }
+  .hover-line-effect::after {
+    @apply content-[''] absolute -bottom-1 left-0 h-[2px] w-full bg-black origin-bottom-right scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)];
+  }
+  .group:hover .hover-line-effect::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+}
