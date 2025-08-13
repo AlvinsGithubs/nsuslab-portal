@@ -1,4 +1,5 @@
 
+import { motion, AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 import { NAV_LINKS } from '../constants';
 import MenuIcon from './icons/MenuIcon';
