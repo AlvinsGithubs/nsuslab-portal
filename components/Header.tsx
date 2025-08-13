@@ -23,11 +23,13 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm">
+    <header className="sticky top-0 z-50 bg-nsus-gray-900 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#/" onClick={(e) => handleNavigate(e, '#/')} className="text-2xl font-bold text-nsus-blue">NSUSLAB</a>
+            <a href="#/" onClick={(e) => handleNavigate(e, '#/')}>
+              <img src="https://i.ibb.co/MWhTmRr/nsus-logo.png" alt="NSUS Logo" className="h-9" />
+            </a>
           </div>
 
           {/* === Desktop Menu (Dropdown) === */}
