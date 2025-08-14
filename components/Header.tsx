@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* === Desktop Menu (Mega Menu) === */}
-          <nav className="hidden lg:flex lg:items-center lg:space-x-1">
+          <nav className="hidden lg:flex lg:items-center lg:space-x-2">
             {NAV_LINKS.map((link) => (
               <div
                 key={link.nameKey}
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                   //className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-200 hover:text-white transition-colors px-4 py-5 flex items-center"
                   className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5 flex items-center gap-2">                
                   {t(link.nameKey)}
-                  {link.megaMenu && <ChevronDownIcon className="h-4 w-4 mt-0.5" />}
+                  {link.megaMenu && <ChevronDownIcon className="h-5 w-5 mt-0.5" />}
                 </a>
                 {openDropdown === link.nameKey && link.megaMenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-auto bg-white rounded-b-lg shadow-xl ring-1 ring-black ring-opacity-5 z-50">
