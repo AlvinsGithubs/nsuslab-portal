@@ -10,14 +10,15 @@ const Header: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
-  const handleNavigate = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleNavigate = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    path: string
+  ) => {
     event.preventDefault();
     if (path !== '#') {
       window.location.hash = path;
     }
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
+    if (isMenuOpen) setIsMenuOpen(false);
   };
 
   return (
@@ -26,8 +27,12 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#/" onClick={(e) => handleNavigate(e, '#/')}>
-              <img src="https://i.ibb.co/MWhTmRr/nsus-logo.png" alt="NSUS Logo" className="h-9" />
+            <a href="#/" onClick={(e) => handleNavigate(e, '#/')} className="no-underline">
+              <img
+                src="https://i.ibb.co/MWhTmRr/nsus-logo.png"
+                alt="NSUS Logo"
+                className="h-9"
+              />
             </a>
           </div>
 
@@ -43,9 +48,9 @@ const Header: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavigate(e, link.href)}
-                  className="text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5"
+                  className="no-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5"
                 >
-                  {/* 텍스트와 아이콘을 한 줄로, 텍스트만 밑줄 */}
+                  {/* 텍스트만 밑줄 애니메이션, 아이콘은 제외 */}
                   <span className="inline-flex items-center gap-2 whitespace-nowrap">
                     <span className="menu-underline">{t(link.nameKey)}</span>
                     {link.megaMenu && <ChevronDownIcon className="h-5 w-5" />}
@@ -71,9 +76,9 @@ const Header: React.FC = () => {
                                       handleNavigate(e, menuLink.href);
                                       setOpenDropdown(null);
                                     }}
-                                    className="block text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
+                                    className="block no-underline text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
                                   >
-                                    {/* 서브 메뉴도 텍스트만 밑줄 */}
+                                    {/* 서브 메뉴도 동일 애니메이션 */}
                                     <span className="menu-underline">{t(menuLink.nameKey)}</span>
                                   </a>
                                 </li>
@@ -89,26 +94,30 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right side: Login & Language */}
+          {/* Right: Login & Language */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
               href="#/login"
               onClick={(e) => handleNavigate(e, '#/login')}
-              className="text-base font-medium text-nsus-gray-200 hover:text-white transition-colors"
+              className="no-underline text-base font-medium text-nsus-gray-200 hover:text-white transition-colors"
             >
               {t('header_login')}
             </a>
             <div className="flex items-center">
               <button
                 onClick={() => setLanguage('kr')}
-                className={`font-bold transition-colors ${language === 'kr' ? 'text-white' : 'text-nsus-gray-400 hover:text-white'}`}
+                className={`font-bold transition-colors ${
+                  language === 'kr' ? 'text-white' : 'text-nsus-gray-400 hover:text-white'
+                }`}
               >
                 KR
               </button>
               <span className="mx-1 text-nsus-gray-500">|</span>
               <button
                 onClick={() => setLanguage('en')}
-                className={`font-bold transition-colors ${language === 'en' ? 'text-white' : 'text-nsus-gray-400 hover:text-white'}`}
+                className={`font-bold transition-colors ${
+                  language === 'en' ? 'text-white' : 'text-nsus-gray-400 hover:text-white'
+                }`}
               >
                 EN
               </button>
@@ -118,7 +127,11 @@ const Header: React.FC = () => {
           {/* === Mobile Menu (Hamburger) === */}
           <div className="lg:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <XIcon className="h-6 w-6 text-white" /> : <MenuIcon className="h-6 w-6 text-white" />}
+              {isMenuOpen ? (
+                <XIcon className="h-6 w-6 text-white" />
+              ) : (
+                <MenuIcon className="h-6 w-6 text-white" />
+              )}
             </button>
           </div>
         </div>
@@ -133,7 +146,7 @@ const Header: React.FC = () => {
                 key={link.nameKey}
                 href={link.href}
                 onClick={(e) => handleNavigate(e, link.href)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-nsus-gray-200 hover:text-white hover:bg-nsus-gray-800"
+                className="block px-3 py-2 rounded-md text-base font-medium text-nsus-gray-200 hover:text-white hover:bg-nsus-gray-800 no-underline"
               >
                 {t(link.nameKey)}
               </a>
@@ -144,7 +157,7 @@ const Header: React.FC = () => {
               <a
                 href="#/login"
                 onClick={(e) => handleNavigate(e, '#/login')}
-                className="w-full text-left text-base font-medium text-nsus-gray-200 hover:text-white hover:bg-nsus-gray-800 p-2 rounded-md"
+                className="w-full text-left text-base font-medium text-nsus-gray-2 00 hover:text-white hover:bg-nsus-gray-800 p-2 rounded-md no-underline"
               >
                 {t('header_login')}
               </a>
