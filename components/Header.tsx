@@ -115,13 +115,13 @@ const Header: React.FC = () => {
 
           {/* Right: Login & Language */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a
+            {/* <a
               href="#/login"
               onClick={(e) => handleNavigate(e, '#/login')}
               className="no-underline text-base font-medium text-nsus-gray-200 hover:text-white transition-colors"
             >
               {t('header_login')}
-            </a>
+            </a> */}
             <div className="flex items-center">
               <button
                 onClick={() => setLanguage('kr')}
@@ -230,13 +230,13 @@ const Header: React.FC = () => {
           {/* 기타: 로그인/언어 스위치 */}
           <div className="mt-2 pt-3 pb-4 border-t border-nsus-gray-300">
             <div className="px-5 flex items-center justify-between">
-              <a
+              {/* <a
                 href="#/login"
                 onClick={(e) => handleNavigate(e, '#/login')}
                 className="w-full text-left text-base font-medium text-nsus-gray-900 hover:bg-nsus-gray-100 p-2 rounded-md no-underline"
               >
                 {t('header_login')}
-              </a>
+              </a> */}
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setLanguage('kr')}
