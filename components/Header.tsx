@@ -35,7 +35,7 @@ const Header: React.FC = () => {
             {NAV_LINKS.map((link) => (
               <div
                 key={link.nameKey}
-                className="relative"
+                className="relative group" // group 클래스 추가!
                 onMouseEnter={() => setOpenDropdown(link.nameKey)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
                                                         handleNavigate(e, menuLink.href);
                                                         setOpenDropdown(null);
                                                     }}
-                                                    className="block text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
+                                                    className="hover-line-effect block text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
                                                 >
                                                     {t(menuLink.nameKey)}
                                                 </a>
