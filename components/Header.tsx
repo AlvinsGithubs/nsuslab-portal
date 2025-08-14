@@ -63,8 +63,7 @@ const Header: React.FC = () => {
                                                         handleNavigate(e, menuLink.href);
                                                         setOpenDropdown(null);
                                                     }}
-                                                    className="hover-line-effect block text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
-                                                >
+                                                    className="hover-line-effect block text-base font-medium text-nsus-gray-100 hover:text-nsus-blue transition-colors">
                                                     {t(menuLink.nameKey)}
                                                 </a>
                                             </li>
