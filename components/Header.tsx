@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* === Desktop Menu (Mega Menu) === */}
-          <nav className="hidden lg:flex lg:items-center lg:space-x-2">
+          <nav className="hidden lg:flex lg:items-center lg:space-x-4">
             {NAV_LINKS.map((link) => (
               <div
                 key={link.nameKey}
