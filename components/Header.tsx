@@ -42,10 +42,12 @@ const Header: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavigate(e, link.href)}
-                  //className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-200 hover:text-white transition-colors px-4 py-5 flex items-center"
-                  className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5 flex items-center gap-2">                
-                  {t(link.nameKey)}
-                  {link.megaMenu && <ChevronDownIcon className="h-5 w-5 mt-0.5" />}
+                  className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5"
+                >
+                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                    {t(link.nameKey)}
+                    {link.megaMenu && <ChevronDownIcon className="h-5 w-5" />}
+                  </span>
                 </a>
                 {openDropdown === link.nameKey && link.megaMenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-auto bg-white rounded-b-lg shadow-xl ring-1 ring-black ring-opacity-5 z-50">
