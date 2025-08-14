@@ -59,13 +59,15 @@ const Header: React.FC = () => {
                                     <ul className="space-y-3">
                                         {column.links.map((menuLink) => (
                                             <li key={menuLink.nameKey}>
-                                              <a
-                                                href={menuLink.href}
-                                                onClick={(e) => { handleNavigate(e, menuLink.href); setOpenDropdown(null); }}
-                                                className="block text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
-                                              >
-                                                <span className="menu-underline">{t(menuLink.nameKey)}</span>
-                                              </a>
+                                                <a
+                                                    href={menuLink.href}
+                                                    onClick={(e) => {
+                                                        handleNavigate(e, menuLink.href);
+                                                        setOpenDropdown(null);
+                                                    }}
+                                                    className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5">
+                                                    {t(menuLink.nameKey)}
+                                                </a>
                                             </li>
                                         ))}
                                     </ul>
