@@ -42,7 +42,9 @@ const Header: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavigate(e, link.href)}
-                  className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-200 hover:text-white transition-colors px-4 py-5 flex items-center"
+                  //className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-200 hover:text-white transition-colors px-4 py-5 flex items-center"
+                  className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-5 flex items-center"
+
                 >
                   {t(link.nameKey)}
                   {link.megaMenu && <ChevronDownIcon className="ml-2 h-4 w-4" />}
