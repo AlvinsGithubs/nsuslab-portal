@@ -95,9 +95,9 @@ const App: React.FC = () => {
       case '#/business-updates':
         return <BusinessUpdatesPage />;
       case '#/about': 
-        return <AboutUsPage />;
-      case '#/':
         return <HomePage />;
+      case '#/':
+        return <AboutUsPage />;
       default:
         return <NotFoundPage />;
     }
