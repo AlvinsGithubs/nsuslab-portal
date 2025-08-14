@@ -58,24 +58,27 @@ const Header: React.FC = () => {
                       initial={{ opacity: 0, y: -30 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -30 }}
-                      transition={{ duration: 0.5 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-56 bg-white rounded-b-lg shadow-xl ring-1 ring-black ring-opacity-5 z-50"
+                      transition={{ duration: 0.3 }}
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-[900px] bg-white rounded-b-xl shadow-xl ring-1 ring-black ring-opacity-5 z-50 flex px-8 py-10 gap-8"
                     >
-                      <div className="py-2">
-                        {link.subLinks.map((subLink) => (
-                          <a
-                            key={subLink.nameKey}
-                            href={subLink.href}
-                            onClick={(e) => {
-                              handleNavigate(e, subLink.href);
-                              setOpenDropdown(null);
-                            }}
-                            className="block w-full text-left px-4 py-2 text-sm text-nsus-gray-700 hover:bg-nsus-gray-100 hover:text-nsus-blue"
-                          >
-                            {t(subLink.nameKey)}
-                          </a>
-                        ))}
-                      </div>
+                      {link.subLinks.map((column, idx) => (
+                        <div key={idx} className="flex-1 min-w-[150px]">
+                          <div className="font-bold text-lg text-nsus-gray-900 mb-4">{column.title}</div>
+                          {column.items.map((item) => (
+                            <a
+                              key={item.nameKey}
+                              href={item.href}
+                              onClick={(e) => {
+                                handleNavigate(e, item.href);
+                                setOpenDropdown(null);
+                              }}
+                              className="block text-nsus-gray-700 hover:text-nsus-blue text-base mb-2"
+                            >
+                              {t(item.nameKey)}
+                            </a>
+                          ))}
+                        </div>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
