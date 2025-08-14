@@ -2,16 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* 재사용 가능한 밑줄 애니메이션 컴포넌트 */
+@layer components {
   .menu-underline {
     @apply relative inline-block;
   }
   .menu-underline::after {
     content: '';
-    @apply absolute left-0 bottom-0 w-full h-[2px] bg-nsus-blue scale-x-0 origin-left transition-transform duration-300;
+    @apply absolute left-0 bottom-0 w-full h-[2px] scale-x-0 origin-left transition-transform duration-300;
+    /* 글자색과 동일하게 밑줄 색을 맞춤 (hover:text-*)와 동기화됨 */
+    background: currentColor;
   }
-  .group:hover .menu-underline::after {
-    @apply scale-x-100;
-  }
+  /* 텍스트에 직접 호버하거나, 상위 .group(메인 메뉴 항목) 위에 호버해도 동작 */
+  .menu-underline:hover::after { @apply scale-x-100; }
+  .group:hover .menu-underline::after { @apply scale-x-100; }
 }
-
