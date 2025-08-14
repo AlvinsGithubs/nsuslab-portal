@@ -70,6 +70,8 @@ const App: React.FC = () => {
     switch (`#/${page}`) {
       case '#/careers':
         return <CareersPage />;
+      case '#/career':  // CAREER 버튼용 새로운 라우트 추가
+        return <HomePage />;
       case '#/road-to-nsus':
         return <RoadToNsusPage />;
       case '#/departments':

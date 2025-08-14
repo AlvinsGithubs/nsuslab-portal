@@ -44,12 +44,12 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     nameKey: 'nav_career',
-    href: '#/careers',
+    href: '#/career',  // 메인 CAREER 버튼 - HomePage로 이동
     megaMenu: [
       {
         titleKey: 'nav_column_recruitment',
         links: [
-          { nameKey: 'nav_career_sub_jobs', href: '#/careers' },
+          { nameKey: 'nav_career_sub_jobs', href: '#/careers' },  // Jobs 버튼 - CareersPage로 이동
           { nameKey: 'nav_career_sub_road_to_nsus', href: '#/road-to-nsus' },
         ],
       },
