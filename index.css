@@ -15,21 +15,3 @@
   }
 }
 
-@layer components {
-  .menu-underline {
-    @apply relative;
-  }
-  .menu-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.25rem;          /* 밑줄 위치 조정 */
-    height: 2px;
-    width: 0;
-    background: currentColor;  /* 글자색과 동일 */
-    transition: width 200ms ease;
-  }
-  .menu-underline:hover::after {
-    width: 100%;               /* 호버 시 왼쪽→오른쪽으로 펼쳐짐 */
-  }
-}
