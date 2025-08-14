@@ -48,7 +48,7 @@ const Header: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavigate(e, link.href)}
-                  className="hover-line-effect text-base font-bold uppercase tracking-wider text-nsus-gray-100 hover:text-nsus-blue transition-colors px-4 py-7 flex items-center"
+                  className="menu-underline text-base font-bold uppercase tracking-wider text-white hover:text-nsus-blue transition-colors px-4 py-7 flex items-center"
                 >
                   {t(link.nameKey)}
                 </a>

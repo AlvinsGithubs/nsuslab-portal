@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 @layer utilities {
-  .hover-line-effect {
+  .menu-underline {
     @apply relative inline-block;
   }
-  .hover-line-effect::after {
-    @apply content-[''] absolute -bottom-1 left-0 h-[2px] w-full bg-black origin-bottom-right scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)];
+  .menu-underline::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-[2px] bg-nsus-blue scale-x-0 origin-left transition-transform duration-300;
   }
-  .group:hover .hover-line-effect::after {
-    @apply origin-bottom-left scale-x-100;
+  .group:hover .menu-underline::after {
+    @apply scale-x-100;
   }
 }
