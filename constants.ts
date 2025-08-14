@@ -12,6 +12,7 @@ export const NAV_LINKS: NavLink[] = [
       { nameKey: 'nav_about_us_sub_who_we_are', href: '#/about' },
       { nameKey: 'nav_about_us_sub_history', href: '#/history' },
       { nameKey: 'nav_about_us_sub_contact', href: '#/contact' },
+      { nameKey: 'nav_career_sub_financial_info', href: '#/financial-info' }, 
     ]
   },
   {
@@ -35,7 +36,6 @@ export const NAV_LINKS: NavLink[] = [
       { nameKey: 'nav_career_sub_culture', href: '#/culture' },
       { nameKey: 'nav_career_sub_our_story', href: '#/our-story' },
       { nameKey: 'nav_career_sub_benefits', href: '#/benefits' },
-      { nameKey: 'nav_career_sub_financial_info', href: '#/financial-info' }, 
     ],
   },
 ];
