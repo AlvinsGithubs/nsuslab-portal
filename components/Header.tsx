@@ -241,7 +241,7 @@ const Header: React.FC = () => {
                 <button
                   onClick={() => setLanguage('kr')}
                   className={`font-bold p-2 rounded-md hover:bg-nsus-gray-100 transition-colors ${
-                    language === 'kr' ? 'text-nsus-gray-700' : 'text-nsus-gray-600'
+                    language === 'kr' ? 'text-nsus-gray-400' : 'text-nsus-gray-600'
                   }`}
                 >
                   KR
@@ -250,7 +250,7 @@ const Header: React.FC = () => {
                 <button
                   onClick={() => setLanguage('en')}
                   className={`p-2 rounded-md hover:bg-nsus-gray-100 transition-colors ${
-                    language === 'en' ? 'font-bold text-nsus-gray-700' : 'text-nsus-gray-600'
+                    language === 'en' ? 'font-bold text-nsus-gray-400' : 'text-nsus-gray-600'
                   }`}
                 >
                   EN
