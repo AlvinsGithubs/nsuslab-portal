@@ -77,6 +77,7 @@ const Header: React.FC = () => {
                                       setOpenDropdown(null);
                                     }}
                                     className="block no-underline text-base font-medium text-nsus-gray-700 hover:text-nsus-blue transition-colors"
+
                                   >
                                     {/* 서브 메뉴도 동일 애니메이션 */}
                                     <span className="menu-underline">{t(menuLink.nameKey)}</span>
