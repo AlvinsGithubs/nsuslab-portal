@@ -17,6 +17,14 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     nav_career_sub_our_story: 'Our Story',
     nav_career_sub_benefits: 'Benefits',
     nav_career_sub_financial_info: 'Financial Info',
+
+    // Mega Menu Columns
+    nav_column_company: 'Company',
+    nav_column_ir: 'Investor Relations',
+    nav_column_news: 'News',
+    nav_column_recruitment: 'Recruitment',
+    nav_column_life: 'Life at NSUS',
+    
     header_login: 'Login',
 
     // HomePage Hero
@@ -65,6 +73,14 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     nav_career_sub_our_story: 'Our Story',
     nav_career_sub_benefits: '복지 및 혜택',
     nav_career_sub_financial_info: '재무정보',
+
+    // Mega Menu Columns
+    nav_column_company: '회사',
+    nav_column_ir: '투자 정보',
+    nav_column_news: '뉴스',
+    nav_column_recruitment: '채용',
+    nav_column_life: '회사 생활',
+
     header_login: '로그인',
 
     // HomePage Hero

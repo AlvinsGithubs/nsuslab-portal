@@ -1,14 +1,19 @@
 
 
+export interface MegaMenuLink {
+  nameKey: string;
+  href: string;
+}
+
+export interface MegaMenuColumn {
+  titleKey: string;
+  links: MegaMenuLink[];
+}
+
 export interface NavLink {
   nameKey: string;
   href: string;
-  subLinks?: SubNavLink[];
-}
-
-export interface SubNavLink {
-  nameKey: string;
-  href: string;
+  megaMenu?: MegaMenuColumn[];
 }
 
 export interface Job {

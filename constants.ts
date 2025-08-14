@@ -8,12 +8,22 @@ export const NAV_LINKS: NavLink[] = [
   {
     nameKey: 'nav_about_us',
     href: '#/about',
-    subLinks: [
-      { nameKey: 'nav_about_us_sub_who_we_are', href: '#/about' },
-      { nameKey: 'nav_about_us_sub_history', href: '#/history' },
-      { nameKey: 'nav_about_us_sub_contact', href: '#/contact' },
-      { nameKey: 'nav_career_sub_financial_info', href: '#/financial-info' }, 
-    ]
+    megaMenu: [
+      {
+        titleKey: 'nav_column_company',
+        links: [
+          { nameKey: 'nav_about_us_sub_who_we_are', href: '#/about' },
+          { nameKey: 'nav_about_us_sub_history', href: '#/history' },
+          { nameKey: 'nav_about_us_sub_contact', href: '#/contact' },
+        ],
+      },
+      {
+        titleKey: 'nav_column_ir',
+        links: [
+          { nameKey: 'nav_career_sub_financial_info', href: '#/financial-info' },
+        ],
+      },
+    ],
   },
   {
     nameKey: 'nav_what_we_do',
@@ -22,20 +32,35 @@ export const NAV_LINKS: NavLink[] = [
   {
     nameKey: 'nav_newsroom',
     href: '#/news',
-    subLinks: [
-      { nameKey: 'nav_newsroom_sub_press_release', href: '#/news' },
-      { nameKey: 'nav_newsroom_sub_business_updates', href: '#/business-updates' },
+    megaMenu: [
+      {
+        titleKey: 'nav_column_news',
+        links: [
+          { nameKey: 'nav_newsroom_sub_press_release', href: '#/news' },
+          { nameKey: 'nav_newsroom_sub_business_updates', href: '#/business-updates' },
+        ],
+      },
     ],
   },
   {
     nameKey: 'nav_career',
     href: '#/careers',
-    subLinks: [
-      { nameKey: 'nav_career_sub_jobs', href: '#/careers' },
-      { nameKey: 'nav_career_sub_road_to_nsus', href: '#/road-to-nsus' },
-      { nameKey: 'nav_career_sub_culture', href: '#/culture' },
-      { nameKey: 'nav_career_sub_our_story', href: '#/our-story' },
-      { nameKey: 'nav_career_sub_benefits', href: '#/benefits' },
+    megaMenu: [
+      {
+        titleKey: 'nav_column_recruitment',
+        links: [
+          { nameKey: 'nav_career_sub_jobs', href: '#/careers' },
+          { nameKey: 'nav_career_sub_road_to_nsus', href: '#/road-to-nsus' },
+        ],
+      },
+      {
+        titleKey: 'nav_column_life',
+        links: [
+          { nameKey: 'nav_career_sub_culture', href: '#/culture' },
+          { nameKey: 'nav_career_sub_our_story', href: '#/our-story' },
+          { nameKey: 'nav_career_sub_benefits', href: '#/benefits' },
+        ],
+      },
     ],
   },
 ];
