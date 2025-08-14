@@ -69,7 +69,7 @@ const App: React.FC = () => {
 
     switch (`#/${page}`) {
       case '#/careers':
-        return <CareersPage />;
+        return <HomePage />;
       case '#/road-to-nsus':
         return <RoadToNsusPage />;
       case '#/departments':
@@ -95,7 +95,7 @@ const App: React.FC = () => {
       case '#/business-updates':
         return <BusinessUpdatesPage />;
       case '#/about': 
-        return <HomePage />;
+        return <AboutUsPage />;
       case '#/':
         return <AboutUsPage />;
       default:
