@@ -33,15 +33,23 @@ import ggpoker_slid_7 from '@/asset/imgs/ggpoker_7.webp';
 
 
 // slotImages slider images
-
-
+import GGV_Slots_slid_1 from '@/asset/imgs/slotImages/slot1.png'; 
+import GGV_Slots_slid_2 from '@/asset/imgs/slotImages/slot2.png'; 
+import GGV_Slots_slid_3 from '@/asset/imgs/slotImages/slot3.png'; 
+import GGV_Slots_slid_4 from '@/asset/imgs/slotImages/slot4.png'; 
+import GGV_Slots_slid_5 from '@/asset/imgs/slotImages/slot5.png'; 
+import GGV_Slots_slid_6 from '@/asset/imgs/slotImages/slot6.png'; 
+import GGV_Slots_slid_7 from '@/asset/imgs/slotImages/slot7.png'; 
+import GGV_Slots_slid_8 from '@/asset/imgs/slotImages/slot8.png'; 
+import GGV_Slots_slid_9 from '@/asset/imgs/slotImages/slot9.png'; 
+import GGV_Slots_slid_10 from '@/asset/imgs/slotImages/slot10.png'; 
 
 
 // 각 섹션별 이미지들을 import 합니다. 실제 이미지 파일이 이 경로에 있어야 합니다.
 // 예시: import ggpoker_img1 from '@/asset/imgs/what-we-do/ggpoker/img1.jpg';
 // 지금은 임시로 빈 배열을 사용합니다.
 const ggpokerImages: string[] = [ggpoker_slid_1, ggpoker_slid_2, ggpoker_slid_3, ggpoker_slid_4, ggpoker_slid_5, ggpoker_slid_6, ggpoker_slid_7]; 
-const slotImages: string[] = [ggpoker_logo];
+const slotImages: string[] = [GGV_Slots_slid_1, GGV_Slots_slid_2, GGV_Slots_slid_3, GGV_Slots_slid_4, GGV_Slots_slid_5, GGV_Slots_slid_6, GGV_Slots_slid_7, GGV_Slots_slid_8, GGV_Slots_slid_9, GGV_Slots_slid_10];
 const tableGameImages: string[] = [ggpoker_logo];
 const clubggImages: string[] = [ggpoker_logo];
 const cpImages: string[] = [ggpoker_logo];
