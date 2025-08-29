@@ -38,7 +38,7 @@ import GGV_Slots_slid_2 from '@/asset/imgs/slotImg/slot2.png';
 import GGV_Slots_slid_3 from '@/asset/imgs/slotImg/slot3.png'; 
 import GGV_Slots_slid_4 from '@/asset/imgs/slotImg/slot4.png'; 
 import GGV_Slots_slid_5 from '@/asset/imgs/slotImg/slot5.png'; 
-import GGV_Slots_slid_6 from '@/asset/imgs/slotImg/slot6.png'; 
+import GGV_Slots_slid_6 from '@/asset/imgs/slotImg/slot6.jpg'; 
 import GGV_Slots_slid_7 from '@/asset/imgs/slotImg/slot7.png'; 
 import GGV_Slots_slid_8 from '@/asset/imgs/slotImg/slot8.png'; 
 import GGV_Slots_slid_9 from '@/asset/imgs/slotImg/slot9.png'; 
