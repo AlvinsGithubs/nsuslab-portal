@@ -39,7 +39,6 @@ import GGV_Slots_slid_3 from '@/asset/imgs/slotImg/slot3.png';
 import GGV_Slots_slid_4 from '@/asset/imgs/slotImg/slot4.png'; 
 import GGV_Slots_slid_5 from '@/asset/imgs/slotImg/slot5.png'; 
 import GGV_Slots_slid_6 from '@/asset/imgs/slotImg/slot6.jpg'; 
-import GGV_Slots_slid_7 from '@/asset/imgs/slotImg/slot7.png'; 
 import GGV_Slots_slid_8 from '@/asset/imgs/slotImg/slot8.png'; 
 import GGV_Slots_slid_9 from '@/asset/imgs/slotImg/slot9.png'; 
 import GGV_Slots_slid_10 from '@/asset/imgs/slotImg/slot10.png'; 
@@ -49,7 +48,7 @@ import GGV_Slots_slid_10 from '@/asset/imgs/slotImg/slot10.png';
 // 예시: import ggpoker_img1 from '@/asset/imgs/what-we-do/ggpoker/img1.jpg';
 // 지금은 임시로 빈 배열을 사용합니다.
 const ggpokerImages: string[] = [ggpoker_slid_1, ggpoker_slid_2, ggpoker_slid_3, ggpoker_slid_4, ggpoker_slid_5, ggpoker_slid_6, ggpoker_slid_7]; 
-const slotImages: string[] = [GGV_Slots_slid_1, GGV_Slots_slid_2, GGV_Slots_slid_3, GGV_Slots_slid_4, GGV_Slots_slid_5, GGV_Slots_slid_6, GGV_Slots_slid_7, GGV_Slots_slid_8, GGV_Slots_slid_9, GGV_Slots_slid_10];
+const slotImages: string[] = [GGV_Slots_slid_1, GGV_Slots_slid_2, GGV_Slots_slid_3, GGV_Slots_slid_4, GGV_Slots_slid_5, GGV_Slots_slid_6, GGV_Slots_slid_8, GGV_Slots_slid_9, GGV_Slots_slid_10];
 const tableGameImages: string[] = [ggpoker_logo];
 const clubggImages: string[] = [ggpoker_logo];
 const cpImages: string[] = [ggpoker_logo];
