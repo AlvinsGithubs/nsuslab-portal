@@ -33,16 +33,16 @@ import ggpoker_slid_7 from '@/asset/imgs/ggpoker_7.webp';
 
 
 // slotImages slider images
-import GGV_Slots_slid_1 from '@/asset/imgs/slotImages/slot1.png'; 
-import GGV_Slots_slid_2 from '@/asset/imgs/slotImages/slot2.png'; 
-import GGV_Slots_slid_3 from '@/asset/imgs/slotImages/slot3.png'; 
-import GGV_Slots_slid_4 from '@/asset/imgs/slotImages/slot4.png'; 
-import GGV_Slots_slid_5 from '@/asset/imgs/slotImages/slot5.png'; 
-import GGV_Slots_slid_6 from '@/asset/imgs/slotImages/slot6.png'; 
-import GGV_Slots_slid_7 from '@/asset/imgs/slotImages/slot7.png'; 
-import GGV_Slots_slid_8 from '@/asset/imgs/slotImages/slot8.png'; 
-import GGV_Slots_slid_9 from '@/asset/imgs/slotImages/slot9.png'; 
-import GGV_Slots_slid_10 from '@/asset/imgs/slotImages/slot10.png'; 
+import GGV_Slots_slid_1 from '@/asset/imgs/slotImg/slot1.png'; 
+import GGV_Slots_slid_2 from '@/asset/imgs/slotImg/slot2.png'; 
+import GGV_Slots_slid_3 from '@/asset/imgs/slotImg/slot3.png'; 
+import GGV_Slots_slid_4 from '@/asset/imgs/slotImg/slot4.png'; 
+import GGV_Slots_slid_5 from '@/asset/imgs/slotImg/slot5.png'; 
+import GGV_Slots_slid_6 from '@/asset/imgs/slotImg/slot6.png'; 
+import GGV_Slots_slid_7 from '@/asset/imgs/slotImg/slot7.png'; 
+import GGV_Slots_slid_8 from '@/asset/imgs/slotImg/slot8.png'; 
+import GGV_Slots_slid_9 from '@/asset/imgs/slotImg/slot9.png'; 
+import GGV_Slots_slid_10 from '@/asset/imgs/slotImg/slot10.png'; 
 
 
 // 각 섹션별 이미지들을 import 합니다. 실제 이미지 파일이 이 경로에 있어야 합니다.
