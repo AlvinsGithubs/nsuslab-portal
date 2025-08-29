@@ -31,7 +31,6 @@ import ggpoker_slid_5 from '@/asset/imgs/ggpoker_5.webp';
 import ggpoker_slid_6 from '@/asset/imgs/ggpoker_6.webp'; 
 import ggpoker_slid_7 from '@/asset/imgs/ggpoker_7.webp'; 
 
-
 // slotImages slider images
 import GGV_Slots_slid_1 from '@/asset/imgs/slotImg/slot1.png'; 
 import GGV_Slots_slid_2 from '@/asset/imgs/slotImg/slot2.png'; 
@@ -42,7 +41,6 @@ import GGV_Slots_slid_6 from '@/asset/imgs/slotImg/slot6.jpg';
 import GGV_Slots_slid_8 from '@/asset/imgs/slotImg/slot8.png'; 
 import GGV_Slots_slid_9 from '@/asset/imgs/slotImg/slot9.png'; 
 import GGV_Slots_slid_10 from '@/asset/imgs/slotImg/slot10.png'; 
-
 
 // GGV GamesImages slider images
 import GGV_Games_slid_1 from '@/asset/imgs/tablegames/ggvt1.png'; 
@@ -56,6 +54,37 @@ import GGV_Games_slid_8 from '@/asset/imgs/tablegames/ggvt8.jpg';
 import GGV_Games_slid_9 from '@/asset/imgs/tablegames/ggvt9.jpg'; 
 import GGV_Games_slid_10 from '@/asset/imgs/tablegames/ggvt10.jpg'; 
 
+// ClubGGImages slider images
+import ClubGG_slid_1 from '@/asset/imgs/clubggImg/clubgg1.png'; 
+import ClubGG_slid_2 from '@/asset/imgs/clubggImg/clubgg2.jpg'; 
+import ClubGG_slid_3 from '@/asset/imgs/clubggImg/clubgg3.png'; 
+import ClubGG_slid_4 from '@/asset/imgs/clubggImg/clubgg4.png'; 
+import ClubGG_slid_5 from '@/asset/imgs/clubggImg/clubgg5.png'; 
+
+// Casino Platform Images slider images
+import CP_slid_1 from '@/asset/imgs/cpImg/cp1.png'; 
+import CP_slid_2 from '@/asset/imgs/cpImg/cp2.png'; 
+import CP_slid_3 from '@/asset/imgs/cpImg/cp3.png'; 
+import CP_slid_4 from '@/asset/imgs/cpImg/cp4.png'; 
+import CP_slid_5 from '@/asset/imgs/cpImg/cp5.png'; 
+import CP_slid_6 from '@/asset/imgs/cpImg/cp6.png'; 
+import CP_slid_7 from '@/asset/imgs/cpImg/cp7.png'; 
+import CP_slid_8 from '@/asset/imgs/cpImg/cp8.png'; 
+import CP_slid_9 from '@/asset/imgs/cpImg/cp9.png'; 
+import CP_slid_10 from '@/asset/imgs/cpImg/cp10.png'; 
+
+// Plus Images slider images
+import Plus_slid_1 from '@/asset/imgs/plusImg/plus1.avif'; 
+import Plus_slid_2 from '@/asset/imgs/plusImg/plus2.avif'; 
+import Plus_slid_3 from '@/asset/imgs/plusImg/plus3.avif'; 
+import Plus_slid_4 from '@/asset/imgs/plusImg/plus4.jpg'; 
+import Plus_slid_5 from '@/asset/imgs/plusImg/plus5.jpg'; 
+import Plus_slid_6 from '@/asset/imgs/plusImg/plus6.jpg'; 
+import Plus_slid_7 from '@/asset/imgs/plusImg/plus7.jpg'; 
+import Plus_slid_8 from '@/asset/imgs/plusImg/plus8.jpg'; 
+import Plus_slid_9 from '@/asset/imgs/plusImg/plus9.jpg'; 
+
+
 
 
 // 각 섹션별 이미지들을 import 합니다. 실제 이미지 파일이 이 경로에 있어야 합니다.
@@ -64,9 +93,9 @@ import GGV_Games_slid_10 from '@/asset/imgs/tablegames/ggvt10.jpg';
 const ggpokerImages: string[] = [ggpoker_slid_1, ggpoker_slid_2, ggpoker_slid_3, ggpoker_slid_4, ggpoker_slid_5, ggpoker_slid_6, ggpoker_slid_7]; 
 const slotImages: string[] = [GGV_Slots_slid_1, GGV_Slots_slid_2, GGV_Slots_slid_3, GGV_Slots_slid_4, GGV_Slots_slid_5, GGV_Slots_slid_6, GGV_Slots_slid_8, GGV_Slots_slid_9, GGV_Slots_slid_10];
 const tableGameImages: string[] = [GGV_Games_slid_1, GGV_Games_slid_2, GGV_Games_slid_3, GGV_Games_slid_4, GGV_Games_slid_5, GGV_Games_slid_6, GGV_Games_slid_7, GGV_Games_slid_8, GGV_Games_slid_9, GGV_Games_slid_10];
-const clubggImages: string[] = [ggpoker_logo];
-const cpImages: string[] = [ggpoker_logo];
-const plusImages: string[] = [ggpoker_logo];
+const clubggImages: string[] = [ClubGG_slid_1, ClubGG_slid_2, ClubGG_slid_3, ClubGG_slid_4, ClubGG_slid_5];
+const cpImages: string[] = [CP_slid_1, CP_slid_2, CP_slid_3, CP_slid_4, CP_slid_5, CP_slid_6, CP_slid_7, CP_slid_8, CP_slid_9, CP_slid_10];
+const plusImages: string[] = [Plus_slid_1, Plus_slid_2, Plus_slid_3, Plus_slid_4, Plus_slid_5, Plus_slid_6, Plus_slid_7, Plus_slid_8, Plus_slid_9];
 
 
 // GSAP 플러그인 등록
