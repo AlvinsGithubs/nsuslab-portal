@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  // ✅ content 경로를 src 폴더를 기준으로 찾도록 수정했습니다.
   content: [
     "./index.html",
-    "./{App,components,pages,contexts,lib}/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
