@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { fetchAllFinancialInfo } from "@/lib/contentful";
 import type { FinancialInfo } from "@/types";
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { NavbarThemeContext } from '@/App';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -35,6 +36,13 @@ const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
 
 
 const FinancialInfoPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("dark");
+        }
+    }, [navbarContext]);
+
     const [financialInfo, setFinancialInfo] = useState<FinancialInfo | null>(null);
     const contentSectionRef = useRef<HTMLElement | null>(null);
 

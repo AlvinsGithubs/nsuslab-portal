@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ChevronDownIcon from '../components/icons/ChevronDownIcon';
+import { NavbarThemeContext } from '@/App';
 
 const processSteps = [
     {
@@ -92,6 +93,13 @@ const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
 };
 
 const RoadToNsusPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+                navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
     return (
         <div className="bg-white">
             <header className="py-24 text-center">

@@ -1,5 +1,6 @@
 
-import React from 'react';
+import { NavbarThemeContext } from '@/App';
+import React, { useContext, useEffect } from 'react';
 
 const InfoRow: React.FC<{ label: string; children: React.ReactNode; className?: string }> = ({ label, children, className }) => (
     <div className={`flex flex-col md:flex-row items-start ${className}`}>
@@ -17,6 +18,13 @@ const GroupInfo: React.FC<{ name: string; address: string; mail: string }> = ({ 
 );
 
 const ContactPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
   return (
     <div className="bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">

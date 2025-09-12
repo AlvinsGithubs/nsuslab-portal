@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import type { Job } from "@/types";
 import { fetchJobBySlug } from "@/lib/contentful";
 import NotFoundPage from "./NotFoundPage";
@@ -7,12 +7,20 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MapPinIcon from "@/components/icons/MapPinIcon";
 import { BriefcaseIcon } from "@/components/icons/BriefcaseIcon";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
+import { NavbarThemeContext } from '@/App';
 
 interface JobDetailPageProps {
   slug: string;
 }
 
 const JobDetailPage: React.FC<JobDetailPageProps> = ({ slug }) => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+      navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+  
   const [job, setJob] = useState<Job | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

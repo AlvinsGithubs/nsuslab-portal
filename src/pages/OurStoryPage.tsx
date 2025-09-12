@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fetchAllDepartments, fetchAllTeamMembers } from '@/lib/contentful';
 import type { Department, TeamMember } from '@/types';
 import DepartmentCard from '@/components/DepartmentCard';
 import PeopleCard from '@/components/PeopleCard';
+import { NavbarThemeContext } from '@/App';
 
 type Tab = 'all' | 'teams' | 'life';
 
 const OurStoryPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
     const [activeTab, setActiveTab] = useState<Tab>('all');
     const [departments, setDepartments] = useState<Department[]>([]);
     const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);

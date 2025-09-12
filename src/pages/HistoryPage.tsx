@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 import historyVideo from '@/asset/videos/history-1.mp4';
 import { gsap } from 'gsap';
@@ -6,10 +6,18 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 import { fetchAllHistory } from '@/lib/contentful';
 import type { HistoryYear } from '@/types';
+import { NavbarThemeContext } from '@/App';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 const HistoryPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("dark");
+        }
+    }, [navbarContext]);
+    
     const [historyData, setHistoryData] = useState<HistoryYear[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     
