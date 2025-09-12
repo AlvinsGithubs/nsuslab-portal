@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import NotFoundPage from './NotFoundPage';
 import Breadcrumb from '@/components/Breadcrumb';
 import PeopleCard from '@/components/PeopleCard';
@@ -7,12 +7,20 @@ import { fetchJobsByDepartment, fetchTeamMembersByDepartment } from '@/lib/conte
 import type { Job } from '@/types';
 import { fetchDepartmentBySlug } from '@/lib/contentful'; // 새로 추가
 import type { Department, TeamMember } from '@/types'; // 새로 추가
+import { NavbarThemeContext } from '@/App';
 
 interface DepartmentDetailPageProps {
   slug: string;
 }
 
 const DepartmentDetailPage: React.FC<DepartmentDetailPageProps> = ({ slug }) => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+      navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+    
   const [department, setDepartment] = useState<Department | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [jobsInDept, setJobsInDept] = useState<Job[]>([]);

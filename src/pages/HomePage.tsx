@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import HeroSlider from "@/components/HeroSlider";
 import JobCard from "@/components/JobCard";
 import DepartmentCard from "@/components/DepartmentCard";
@@ -10,8 +10,16 @@ import PlayIcon from "@/components/icons/PlayIcon";
 import { fetchFeaturedJobs, fetchAllDepartments, fetchAllTeamMembers, fetchAllBenefits } from "@/lib/contentful";
 import type { Job, Department, TeamMember, Benefit } from "@/types"; // Department 추가
 import { useLanguage } from "@/contexts/LanguageContext";
+import { NavbarThemeContext } from '@/App';
 
 const HomePage: React.FC = () => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+      navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+  
   const [featuredJobs, setFeaturedJobs] = useState<Job[]>([]);
   const [departments, setDepartments] = useState<Department[]>([]);
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);

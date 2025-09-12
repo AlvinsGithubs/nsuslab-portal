@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useContext } from 'react';
 import type { FilterState, Job, JobFilterCheckboxState } from "@/types";
 import { contentfulClient, parseContentfulJob } from "@/lib/contentful";
 import SearchIcon from "@/components/icons/SearchIcon";
@@ -10,6 +10,7 @@ import {
   EMPLOYMENT_TYPE_OPTIONS, 
   LOCATION_OPTIONS 
 } from  "@/constants";
+import { NavbarThemeContext } from '@/App';
 
 const JobListItem: React.FC<{ job: Job }> = ({ job }) => {
     const handleNavigate = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
@@ -65,6 +66,13 @@ const FilterAccordion: React.FC<{
 };
 
 const CareersPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+            if (navbarContext) {
+                navbarContext.setNavbarTheme("light");
+            }
+    }, [navbarContext]);
+    
     const createInitialCheckboxState = (options: readonly string[]): JobFilterCheckboxState => 
         options.reduce((acc, option) => ({ ...acc, [option]: false }), {});
 

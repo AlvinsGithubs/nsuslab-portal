@@ -1,12 +1,21 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PeopleCard from '@/components/PeopleCard';
 import PageWrapper from '@/components/PageWrapper';
 import { fetchAllTeamMembers } from '@/lib/contentful';
 import type { TeamMember } from '@/types';
+import { NavbarThemeContext } from '@/App';
 
 const PeoplePage: React.FC = () => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+      if (navbarContext) {
+        navbarContext.setNavbarTheme("light");
+      }
+  }, [navbarContext]);
+  
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+
   useEffect(() => {
     const getTeamMembers = async () => {
       const members = await fetchAllTeamMembers();

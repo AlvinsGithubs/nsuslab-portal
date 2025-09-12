@@ -1,8 +1,16 @@
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon';
+import { NavbarThemeContext } from '@/App';
 
 const NotFoundPage: React.FC = () => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+      navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+
   return (
     <div className="flex items-center justify-center min-h-[60vh] bg-white px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
       <div className="max-w-max mx-auto">

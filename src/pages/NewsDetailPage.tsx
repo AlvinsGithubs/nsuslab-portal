@@ -1,17 +1,25 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { fetchNewsArticleBySlug } from '@/lib/news';
 import type { NewsArticle } from '@/types';
 import NotFoundPage from './NotFoundPage';
 import Breadcrumb from '@/components/Breadcrumb';
+import { NavbarThemeContext } from '@/App';
 
 interface NewsDetailPageProps {
   slug: string;
 }
 
 const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+      navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+  
   const [article, setArticle] = useState<NewsArticle | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 

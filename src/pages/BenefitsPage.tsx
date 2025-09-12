@@ -1,8 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fetchAllBenefits } from '@/lib/contentful';
 import type { Benefit } from '@/types';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import { NavbarThemeContext } from '@/App';
 
 const WorkAtNSUSLABItem: React.FC<{ number: string; title: string; description: string; imageUrl: string }> = ({ number, title, description, imageUrl }) => (
     <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -37,9 +38,15 @@ const BenefitCategory: React.FC<{ title: string; children: React.ReactNode }> = 
 
 
 const BenefitsPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
     const [benefits, setBenefits] = useState<Benefit[]>([]);
     const [categorizedBenefits, setCategorizedBenefits] = useState<Record<string, Benefit[]>>({});
-
     const categoryOrder = ['Compensation', 'Work Flex', 'Workspace', 'Wellness', 'Life & Growth'];
 
     useEffect(() => {

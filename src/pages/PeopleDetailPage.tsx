@@ -1,15 +1,23 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fetchTeamMemberBySlug } from '@/lib/contentful';
 import type { TeamMember } from '@/types';
 import NotFoundPage from './NotFoundPage';
 import Breadcrumb from '@/components/Breadcrumb';
+import { NavbarThemeContext } from '@/App';
 
 interface PeopleDetailPageProps {
   slug: string;
 }
 
 const PeopleDetailPage: React.FC<PeopleDetailPageProps> = ({ slug }) => {
+  const navbarContext = useContext(NavbarThemeContext);
+  useEffect(() => {
+    if (navbarContext) {
+       navbarContext.setNavbarTheme("light");
+    }
+  }, [navbarContext]);
+  
   const [member, setMember] = useState<TeamMember | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 

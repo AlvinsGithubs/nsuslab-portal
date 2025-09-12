@@ -1,8 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fetchAllNewsArticles } from '@/lib/news';
 import type { NewsArticle } from '@/types';
 import Pagination from '@/components/Pagination';
+import { NavbarThemeContext } from '@/App';
 
 const ArticleCard: React.FC<{ article: NewsArticle }> = ({ article }) => {
     const handleNavigate = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
@@ -25,6 +26,13 @@ const ArticleCard: React.FC<{ article: NewsArticle }> = ({ article }) => {
 
 
 const BusinessUpdatesPage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

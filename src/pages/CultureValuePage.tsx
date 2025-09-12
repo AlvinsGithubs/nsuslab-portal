@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import { NavbarThemeContext } from '@/App';
 
 const Section: React.FC<{ title: string; children: React.ReactNode; className?: string }> = ({ title, children, className }) => (
     <section className={`py-20 md:py-24 ${className}`}>
@@ -32,8 +33,14 @@ const RuleItem: React.FC<{ title: string; description: string }> = ({ title, des
     </div>
 );
 
-
 const CultureValuePage: React.FC = () => {
+    const navbarContext = useContext(NavbarThemeContext);
+    useEffect(() => {
+        if (navbarContext) {
+            navbarContext.setNavbarTheme("light");
+        }
+    }, [navbarContext]);
+
     return (
         <div className="bg-white">
             <Section title="Mission">
