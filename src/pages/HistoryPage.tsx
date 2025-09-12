@@ -105,7 +105,7 @@ const HistoryPage: React.FC = () => {
                                                 // 3. 그룹화 및 정렬된 데이터를 렌더링합니다.
                                                 return sortedMonths.map(([month, monthEvents]) => (
                                                     <div key={month} className="flex items-start space-x-8 pt-5">
-                                                        <p className="w-12 text-sm font-bold text-nsus-gray-700 uppercase text-right">{month}</p>
+                                                        <p className="w-12 text-sm font-bold text-nsus-gray-700 uppercase text-right">{`${month}월`}</p>
                                                         <div className="flex-1">
                                                             {monthEvents.map((event, index) => (
                                                                 <p key={index} className="text-nsus-gray-700 pb-2 last:pb-0">
