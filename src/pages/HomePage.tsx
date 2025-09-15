@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
   const navbarContext = useContext(NavbarThemeContext);
   useEffect(() => {
     if (navbarContext) {
-      navbarContext.setNavbarTheme("light");
+      navbarContext.setNavbarTheme("dark");
     }
   }, [navbarContext]);
   
