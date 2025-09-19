@@ -59,15 +59,34 @@ const Header: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
+  
+  // 현재 페이지 내에서 사용자가 동일 라우팅 메뉴 클릭시, 경로(hash) 추적 후 상태 변경 로직 추가
+  const [currentPath, setCurrentPath] = useState(window.location.hash || '#/')
+  useEffect( () => {
+    const handleHashChange = () => {
+      setCurrentPath(window.location.hash || '#');
+    }
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
   // 해시 기반 네비게이션 함수
   const handleNavigate = useCallback((event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     event.preventDefault();
-    if (path && path !== '#') {
+
+    // 현재 경로와 클릭 경로가 같으면 최상단으로 스크롤
+    if (path === currentPath) {
+      window.scrollTo({ top: 0, behavior: 'smooth'})
+    } else if (path && path !== '#') {
       window.location.hash = path;
     }
+
     setIsMobileMenuOpen(false);
     setActiveMenu(null);
-  }, []);
+  }, [currentPath]);
 
   // --- 스타일 동적 계산 ---
   const isHeaderActive = isScrolled || !!activeMenu;
@@ -113,9 +132,10 @@ const Header: React.FC = () => {
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
                     // ✅ 2. 패딩을 a 태그에 적용하고, group-hover 시 텍스트 색상을 검은색으로 변경합니다.
-                    className="flex items-center gap-2 p-3 font-semibold cursor-pointer"
+                    // Active & Press 상태 스타일 추가
+                    className="flex items-center gap-2 p-3 font-semibold cursor-pointer transition-transform duration-200 active:scale-105"
                   >
-                    <span>{t(link.nameKey)}</span>
+                    <span className={link.href === currentPath ? 'font-bold' : ''}>{t(link.nameKey)}</span>
                     {link.megaMenu && (
                       <ChevronDown
                         size={16}
@@ -174,7 +194,9 @@ const Header: React.FC = () => {
                             <a
                               href={menuLink.href}
                               onClick={(e) => handleNavigate(e, menuLink.href)}
-                              className="group relative block text-base font-medium text-gray-700 hover:text-nsus-blue transition-colors"
+                              className={`group relative block text-base font-medium transition-colors 
+                                ${menuLink.href === currentPath ? 'text-nsus-blue font-black' : 'text-gray-700 hover:text-nsus-blue'}`
+                              }
                             >
                               <span>{t(menuLink.nameKey)}</span>
                                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-nsus-blue transition-all duration-300 group-hover:w-full"></span>
@@ -195,6 +217,7 @@ const Header: React.FC = () => {
         isOpen={isMobileMenuOpen}
         setIsOpen={setIsMobileMenuOpen}
         handleNavigate={handleNavigate}
+        currentPath={currentPath}
       />
     </>
   );
@@ -206,15 +229,28 @@ interface MobileMenuProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   handleNavigate: (e: React.MouseEvent<HTMLAnchorElement>, p: string) => void;
+  currentPath: string;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, handleNavigate }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, handleNavigate, currentPath }) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
   const toggleSection = (key: string) => {
     setOpenSection(prev => prev === key ? null : key);
   };
+
+  // 모바일 메뉴가 열릴 때 현재 경로가 포함된 섹션을 자동으로 열어주는 로직 추가
+  useEffect(() => {
+    if (isOpen) {
+      const activeParent = NAV_LINKS.find(link => 
+        link.megaMenu?.some(col => col.links.some(subLink => subLink.href === currentPath))
+      );
+      if (activeParent) {
+        setOpenSection(activeParent.nameKey);
+      }
+    }
+  }, [isOpen, currentPath]);  
 
   return (
     <AnimatePresence>
@@ -259,7 +295,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, handleNaviga
                                   key={subLink.nameKey}
                                   href={subLink.href}
                                   onClick={(e) => handleNavigate(e, subLink.href)}
-                                  className="block text-gray-600 hover:text-black"
+                                  className={`block transition-colors ${subLink.href === currentPath ? 'text-nsus-blue font-bold' : 'text-gray-600 hover:text-black'}`}
                                 >
                                   {t(subLink.nameKey)}
                                 </a>
@@ -273,7 +309,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, handleNaviga
                     <a
                       href={link.href}
                       onClick={(e) => handleNavigate(e, link.href)}
-                      className="block py-2 font-semibold text-lg text-black"
+                      className={`block py-2 font-semibold text-lg transition-colors ${link.href === currentPath ? 'text-nsus-blue' : 'text-black'}`}
                     >
                       {t(link.nameKey)}
                     </a>
