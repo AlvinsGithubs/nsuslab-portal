@@ -75,7 +75,7 @@ const CultureSection: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full bg-white py-20 px-4 md:px-12 text-black">
+        <section ref={sectionRef} className="w-full bg-white py-20 md:px-12 text-black">
             <div className="max-w-[1600px] mx-auto px-4 md:px-8">
                 <div className="text-leading md:text-left mb-12 px-4 md:px-8">
                     <h2 className="animated-item text-3xl font-bold text-black lg:text-5xl">

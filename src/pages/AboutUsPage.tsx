@@ -1,17 +1,15 @@
 import React, { useRef, useLayoutEffect, useContext, useEffect } from 'react';
-import { NavbarThemeContext, NavbarThemeContextType } from '@/App';
+import { NavbarThemeContext } from '@/App';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-
 
 import GlobalSection from '@/pages/sections/GlobalSection';
 import WhoWeAreTitleSection from '@/pages/sections/WhoWeAreTitleSection';
 import CultureSection from '@/pages/sections/CultureSection';
 import KeyAchievementSection from '@/pages/sections/KeyAchievementSection';
 import FeatureSection from '@/pages/sections/FeatureSection';
-import Footer from '@/components/Footer';
 import { HEADER_FIXED_HEIGHT } from "@/constants";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
@@ -69,10 +67,6 @@ const AboutUsPage: React.FC = () => {
             <KeyAchievementSection />
             <GlobalSection ref={globalSectionRef} />
             <CultureSection />
-            {/* AboutUsPage 자체에 Footer가 포함되어 있으므로 App.tsx의 Footer와 중복될 수 있습니다. 
-                페이지별로 Footer를 관리할지, App.tsx에서 한번에 관리할지 선택이 필요합니다. 
-                여기서는 일단 그대로 둡니다. */}
-            {/* <Footer /> */}
         </div>
     );
 }
