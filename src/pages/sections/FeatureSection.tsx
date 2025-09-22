@@ -235,7 +235,6 @@ const FeatureSection = forwardRef<HTMLElement, {}>((props, ref) => {
                                 ref={el => { if (el) imageRefs.current[index] = el; }}
                                 src={feature.imageSrc}
                                 alt={feature.title}
-                                // 💡 수정 3: z-index 추가하여 겹침 문제 해결
                                 className={`
                                     absolute inset-0 h-full w-full object-cover object-right
                                     transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
