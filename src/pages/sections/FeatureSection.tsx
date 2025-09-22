@@ -1,6 +1,5 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 
-// 데이터 및 import는 이전과 동일
 import s1Img from '@/asset/imgs/s1Img.jpg';
 import s2Img from '@/asset/imgs/s2Img.jpg';
 import whoweare_b from '@/asset/imgs/whoweare_b.jpg';
@@ -18,7 +17,6 @@ interface Feature {
 }
 
 const featureData: Feature[] = [
-    // ... (기존과 동일한 데이터)
     {
         title: "Our Mission",
         heading: "iGaming을 통해\n세상을 연결합니다",
@@ -87,7 +85,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((props, ref) => {
 
         const update = () => {
             const vh = window.innerHeight;
-            // 💡 수정 1: 텍스트 사라지는 시점을 50% -> 35%로 변경 (더 늦게 사라짐)
+            // 텍스트 사라지는 시점 : fadeOutLine이 낮을수록 늦게 낮아짐
             const fadeOutLine = vh * 0.30; 
             const centerLine = vh * 0.50;
             const preInLine = vh * 0.88;
@@ -100,7 +98,6 @@ const FeatureSection = forwardRef<HTMLElement, {}>((props, ref) => {
                 const textGroup = textGroups[i];
                 if (!textGroup) return;
 
-                // Fade-in 로직은 동일
                 if (rect.top < preInLine && rect.bottom > 0) {
                     textGroup.classList.remove('enter', 'out');
                     textGroup.classList.add('in');
@@ -109,7 +106,6 @@ const FeatureSection = forwardRef<HTMLElement, {}>((props, ref) => {
                     textGroup.classList.add('enter');
                 }
                 
-                // 💡 수정 2: Fade-out 기준점을 새로운 fadeOutLine으로 변경
                 const midPoint = rect.top + rect.height / 2;
                 if (i < textSections.length - 1 && midPoint < fadeOutLine) {
                     textGroup.classList.remove('in');
