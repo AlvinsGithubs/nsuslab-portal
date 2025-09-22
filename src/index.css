@@ -19,3 +19,12 @@
      오직 '상단 탭(바로 아래 a)의 라벨'만 밑줄 */
   .group:hover > a .menu-underline::after { @apply scale-x-100; }
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
