@@ -88,7 +88,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((props, ref) => {
             // 텍스트 사라지는 시점 : fadeOutLine이 낮을수록 늦게 낮아짐
             const fadeOutLine = vh * 0.30; 
             const centerLine = vh * 0.50;
-            const preInLine = vh * 0.88;
+            const preInLine = vh * 3.0;
 
             let bestCenterIdx = -1;
             let minCenterDist = Infinity;
