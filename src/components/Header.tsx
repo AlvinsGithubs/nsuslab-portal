@@ -77,9 +77,18 @@ const Header: React.FC = () => {
   const handleNavigate = useCallback((event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     event.preventDefault();
 
-    // 현재 경로와 클릭 경로가 같으면 최상단으로 스크롤
+    // 현재 경로와 클릭 경로가 같으면 화면 반짝이는 애니메이션
     if (path === currentPath) {
-      window.scrollTo({ top: 0, behavior: 'smooth'})
+      const mainContent = document.querySelector('main');
+      if (!mainContent) return;
+
+      const tl = gsap.timeline();
+      tl
+        .to(mainContent, { opacity: 0, duration: 0.3 })
+        .call(() => {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        })
+        .to(mainContent, { opacity: 1, duration: 0.3 });
     } else if (path && path !== '#') {
       window.location.hash = path;
     }
@@ -115,7 +124,7 @@ const Header: React.FC = () => {
             <img
               src="https://i.ibb.co/MWhTmRr/nsus-logo.png"
               alt="NSUS Logo"
-              className={`h-8 transition-all duration-300 filter ${logoFilter}`}
+              className={`h-6 transition-all duration-300 filter ${logoFilter}`}
             />
           </a>
 
@@ -126,14 +135,14 @@ const Header: React.FC = () => {
                   key={link.nameKey}
                   onMouseEnter={() => setActiveMenu(link)}
                   // ✅ 1. li 태그를 group으로 만들고, 호버 영역과 스타일을 지정합니다.
-                  className="group relative rounded-md transition-colors duration-300 hover:bg-white"
+                  className="group relative rounded-md"
                 >
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
                     // ✅ 2. 패딩을 a 태그에 적용하고, group-hover 시 텍스트 색상을 검은색으로 변경합니다.
                     // Active & Press 상태 스타일 추가
-                    className="flex items-center gap-2 p-3 font-semibold cursor-pointer transition-transform duration-200 active:scale-105"
+                    className="flex items-center gap-2 p-3 font-semibold cursor-pointer"
                   >
                     <span className={link.href === currentPath ? 'font-bold' : ''}>{t(link.nameKey)}</span>
                     {link.megaMenu && (
