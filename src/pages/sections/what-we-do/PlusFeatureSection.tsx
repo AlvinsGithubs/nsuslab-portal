@@ -1,0 +1,48 @@
+import React from "react";
+import { plusData } from "@/lib/whatwedoData"; 
+import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents"; 
+
+const PlusFeatureSection: React.FC = () => {
+  const renderBentoItem = (item: (typeof plusData)[0]) => {
+    switch (item.type) {
+      case "default":
+        return <BentoCard {...item} />;
+      case "textOnly":
+        return <TextCard title={item.title} />;
+      default:
+        return null;
+    }
+  };
+
+  const [firstItem, ...otherItems] = plusData;
+
+  return (
+  <section className="bg-black pb-20">
+    <div className="max-w-screen mx-auto px-3 md:px-10">
+     <div className="flex flex-col items-center gap-10 px-5 py-6 text-center">
+        <div>
+          <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
+            Plus Team
+          </p>
+          <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
+            All about Live Tournaments
+          </p>
+        </div>
+      </div>
+
+      <div className="grid h-auto w-full grid-cols-1 md:grid-cols-4 md:h-[30vh] md:grid-rows-1 lg:gap-7 gap-4">
+        {otherItems.map((item) => (
+          <BentoTilt
+            key={item.id}
+            className={item.className}
+          >
+            {renderBentoItem(item)}
+          </BentoTilt>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+};
+
+export default PlusFeatureSection;

@@ -5,11 +5,11 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-import GlobalSection from '@/pages/sections/GlobalSection';
-import WhoWeAreTitleSection from '@/pages/sections/WhoWeAreTitleSection';
-import CultureSection from '@/pages/sections/CultureSection';
-import KeyAchievementSection from '@/pages/sections/KeyAchievementSection';
-import FeatureSection from '@/pages/sections/FeatureSection';
+import GlobalSection from '@/pages/sections/about-us/GlobalSection';
+import WhoWeAreTitleSection from '@/pages/sections/about-us/WhoWeAreTitleSection';
+import CultureSection from '@/pages/sections/about-us/CultureSection';
+import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
+import FeatureSection from '@/pages/sections/about-us/FeatureSection';
 import { HEADER_FIXED_HEIGHT } from "@/constants";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
