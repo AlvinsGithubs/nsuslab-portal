@@ -1,8 +1,6 @@
-import whatwedoVideo from "@/asset/videos/whatwedo-1.mp4";
 import ggpoker_feature_bounty from "@/asset/videos/ggpoker_feature_bounty.mp4";
 import ggpoker_feature_splash from "@/asset/videos/ggpoker_feature_splash.mp4";
 import ggpoker_feature_splash2 from "@/asset/videos/ggpoker_feature_splash2.mp4";
-import ggpoker_feature_squeeze from "@/asset/videos/ggpoker_feature_squeeze.mp4";
 import ggpoker_feature_timebank from "@/asset/videos/ggpoker_feature_timebank.mp4";
 import whoweare_ggpoker from "@/asset/imgs/whoweare_ggpoker.webp";
 

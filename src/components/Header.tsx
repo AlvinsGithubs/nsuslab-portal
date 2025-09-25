@@ -203,12 +203,12 @@ const Header: React.FC = () => {
                             <a
                               href={menuLink.href}
                               onClick={(e) => handleNavigate(e, menuLink.href)}
-                              className={`group relative block text-base font-medium transition-colors 
+                              className={`group relative inline-block text-base font-medium transition-colors 
                                 ${menuLink.href === currentPath ? 'text-nsus-blue font-black' : 'text-gray-700 hover:text-nsus-blue'}`
                               }
                             >
                               <span>{t(menuLink.nameKey)}</span>
-                               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-nsus-blue transition-all duration-300 group-hover:w-full"></span>
+                               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-nsus-blue transition-all duration-300 group-hover:w-[calc(100%+2px)]"></span>
                             </a>
                           </li>
                         ))}
