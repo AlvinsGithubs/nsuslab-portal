@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useContext, useCallback } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type Variants } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NAV_LINKS } from '@/constants';
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
   const finalTextColor = isHeaderActive ? 'text-black' : baseTextColor;
   const logoFilter = isHeaderActive ? 'brightness-0' : (navbarTheme === 'dark' ? 'brightness-0 invert' : 'brightness-0');
 
-  const subMenuAnimate = {
+  const subMenuAnimate: Variants = {
     enter: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
     exit: { opacity: 0, y: -10, transition: { duration: 0.2, ease: "easeIn" } },
   };
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
             </ul>
           </nav>
 
-          <div className="hidden lg:flex items-center justify-end gap-4">
+          <div className="hidden items-center justify-end gap-4">
             <div className="flex items-center">
               <button
                 onClick={() => setLanguage('kr')}
@@ -314,7 +314,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, handleNaviga
               ))}
             </ul>
           </nav>
-          <div className="pt-6 border-t border-gray-200">
+          <div className="hidden pt-6 border-t border-gray-200">
             <div className="flex items-center justify-center">
               <button
                 onClick={() => setLanguage('kr')}

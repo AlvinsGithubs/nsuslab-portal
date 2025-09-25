@@ -13,11 +13,15 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [language, setLanguageState] = useState<Language>('kr');
+  
+  /* 임시로 무조건 kr로만 적용
   const [language, setLanguageState] = useState<Language>(() => {
     const savedLanguage = localStorage.getItem('language');
     // Default to Korean if no language is saved or the saved value is invalid
     return (savedLanguage === 'en' || savedLanguage === 'kr') ? savedLanguage : 'en';
   });
+  */
 
   const setLanguage = (lang: Language) => {
     localStorage.setItem('language', lang);
