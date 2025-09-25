@@ -1,7 +1,6 @@
 import React from "react";
 import { platformData } from "@/lib/whatwedoData"; 
-import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents"; 
-import clubgg_logo from "@/asset/imgs/clubgg_logo.png"
+import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents";
 
 const CPFeatureSection: React.FC = () => {
   const renderBentoItem = (item: (typeof platformData)[0]) => {

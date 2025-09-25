@@ -8,7 +8,7 @@ interface BentoTiltProps {
 interface BentoCardProps {
   mediaType?: "video" | "image";
   mediaSrc?: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   description?: string;
   isComingSoon?: boolean;
 }

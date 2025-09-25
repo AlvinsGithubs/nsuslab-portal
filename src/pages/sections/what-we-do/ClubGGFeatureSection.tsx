@@ -1,7 +1,6 @@
 import React from "react";
 import { clubGGData } from "@/lib/whatwedoData"; 
-import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents"; 
-import clubgg_logo from "@/asset/imgs/clubgg_logo.png"
+import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents";
 
 const ClubGGFeatureSection: React.FC = () => {
   const renderBentoItem = (item: (typeof clubGGData)[0]) => {
@@ -15,7 +14,7 @@ const ClubGGFeatureSection: React.FC = () => {
     }
   };
 
-  const [firstItem, ...otherItems] = clubGGData;
+  const [, ...otherItems] = clubGGData;
 
   return (
   <section className="bg-black pb-20">

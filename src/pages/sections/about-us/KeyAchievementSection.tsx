@@ -1,10 +1,10 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-import whoweare_ggpoker from '@/asset/imgs/whoweare_ggpoker.webp';
-import whoweare_globalnetwork from '@/asset/imgs/whoweare_globalnetwork.jpg';
-import whoweare_iso from '@/asset/imgs/whoweare_iso.jpg';
-import whoweare_wsop from '@/asset/imgs/whoweare_wsop.jpg';
+import whoweare_ggpoker from '@/asset/imgs/about-us-Img/whoweare_ggpoker.webp';
+import whoweare_globalnetwork from '@/asset/imgs/about-us-Img/whoweare_globalnetwork.jpg';
+import whoweare_iso from '@/asset/imgs/about-us-Img/whoweare_iso.jpg';
+import whoweare_wsop from '@/asset/imgs/about-us-Img/whoweare_wsop.jpg';
 
 // 데이터 타입 정의
 interface Achievement {
