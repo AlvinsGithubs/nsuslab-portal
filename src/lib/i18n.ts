@@ -58,30 +58,30 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
   },
   kr: {
     // Nav
-    nav_about_us: '회사소개',
+    nav_about_us: 'ABOUT US',
     nav_about_us_sub_who_we_are: 'Who We Are',
     nav_about_us_sub_history: 'History',
     nav_about_us_sub_contact: 'Contact',
     nav_what_we_do: 'WHAT WE DO',
-    nav_newsroom: '뉴스룸',
-    nav_newsroom_sub_press_release: '보도자료',
-    nav_newsroom_sub_business_updates: '비즈니스 업데이트',
-    nav_career: '인재영입',
-    nav_career_sub_jobs: '채용공고',
-    nav_career_sub_road_to_nsus: '합류여정',
-    nav_career_sub_culture: '기업문화',
+    nav_newsroom: 'NEWSROOM',
+    nav_newsroom_sub_press_release: 'Press Release',
+    nav_newsroom_sub_business_updates: 'Business Updates',
+    nav_career: 'CAREER',
+    nav_career_sub_jobs: 'Jobs',
+    nav_career_sub_road_to_nsus: 'Road to NSUSLAB',
+    nav_career_sub_culture: 'Culture',
     nav_career_sub_our_story: 'Our Story',
-    nav_career_sub_benefits: '복지 및 혜택',
-    nav_career_sub_financial_info: '재무정보',
+    nav_career_sub_benefits: 'Benefits',
+    nav_career_sub_financial_info: 'Financial Info',
 
     // Mega Menu Columns
-    nav_column_company: '회사',
-    nav_column_ir: '투자 정보',
-    nav_column_news: '뉴스',
-    nav_column_recruitment: '채용',
-    nav_column_life: '회사 생활',
-
-    header_login: '로그인',
+    nav_column_company: 'Company',
+    nav_column_ir: 'Investor Relations',
+    nav_column_news: 'News',
+    nav_column_recruitment: 'Recruitment',
+    nav_column_life: 'Life at NSUS',
+    
+    header_login: 'Login',
 
     // HomePage Hero
     home_hero_title_1: "NSUS 크루 합류하기",
@@ -113,3 +113,31 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     home_cta_view_open_roles: "채용 공고 보기",
   },
 };
+
+/*
+    // Nav
+    nav_about_us: '회사소개',
+    nav_about_us_sub_who_we_are: 'Who We Are',
+    nav_about_us_sub_history: 'History',
+    nav_about_us_sub_contact: 'Contact',
+    nav_what_we_do: 'WHAT WE DO',
+    nav_newsroom: '뉴스룸',
+    nav_newsroom_sub_press_release: '보도자료',
+    nav_newsroom_sub_business_updates: '비즈니스 업데이트',
+    nav_career: '인재영입',
+    nav_career_sub_jobs: '채용공고',
+    nav_career_sub_road_to_nsus: '합류여정',
+    nav_career_sub_culture: '기업문화',
+    nav_career_sub_our_story: 'Our Story',
+    nav_career_sub_benefits: '복지 및 혜택',
+    nav_career_sub_financial_info: '재무정보',
+
+    // Mega Menu Columns
+    nav_column_company: '회사',
+    nav_column_ir: '투자 정보',
+    nav_column_news: '뉴스',
+    nav_column_recruitment: '채용',
+    nav_column_life: '회사 생활',
+
+    header_login: '로그인',
+*/
