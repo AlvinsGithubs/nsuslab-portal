@@ -130,7 +130,7 @@ const Header: React.FC = () => {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="flex items-center gap-2 p-3 font-semibold cursor-pointer transition-colors duration-200 group-hover:text-nsus-blue"
+                    className="flex items-center gap-2 p-3 font-bold text-md cursor-pointer transition-colors duration-200 group-hover:text-nsus-blue"
                   >
                     <span className={link.href === currentPath ? 'font-bold' : ''}>{t(link.nameKey)}</span>
                     {link.megaMenu && (
