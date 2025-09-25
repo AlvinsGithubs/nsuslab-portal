@@ -1,9 +1,9 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 
-import s1Img from '@/asset/imgs/s1Img.jpg';
-import s2Img from '@/asset/imgs/s2Img.jpg';
-import whoweare_b from '@/asset/imgs/whoweare_b.jpg';
-import whoweare_miro from '@/asset/imgs/whoweare_miro.jpg';
+import s1Img from '@/asset/imgs/about-us-Img/s1Img.jpg';
+import s2Img from '@/asset/imgs/about-us-Img/s2Img.jpg';
+import whoweare_b from '@/asset/imgs/about-us-Img/whoweare_b.jpg';
+import whoweare_miro from '@/asset/imgs/about-us-Img/whoweare_miro.jpg';
 
 interface Feature {
     title: string;

@@ -2,7 +2,7 @@ import ggpoker_feature_bounty from "@/asset/videos/ggpoker_feature_bounty.mp4";
 import ggpoker_feature_splash from "@/asset/videos/ggpoker_feature_splash.mp4";
 import ggpoker_feature_splash2 from "@/asset/videos/ggpoker_feature_splash2.mp4";
 import ggpoker_feature_timebank from "@/asset/videos/ggpoker_feature_timebank.mp4";
-import whoweare_ggpoker from "@/asset/imgs/whoweare_ggpoker.webp";
+import whoweare_ggpoker from "@/asset/imgs/about-us-Img/whoweare_ggpoker.webp";
 
 import ggvegas_mov1 from "@/asset/imgs/slotImg/ggvegas_mov1.gif";
 import ggvegas_mov2 from "@/asset/imgs/slotImg/ggvegas_mov2.gif";
@@ -27,6 +27,9 @@ import plus1 from "@/asset/imgs/plusImg/plus1.avif";
 import plus2 from "@/asset/imgs/plusImg/plus2.avif";
 import plus3 from "@/asset/imgs/plusImg/plus3.avif";
 import plus4 from "@/asset/imgs/plusImg/plus4.jpg";
+
+import wsop1 from "@/asset/imgs/wsopImg/wsop1.jpg";
+import wsop2 from "@/asset/imgs/wsopImg/wsop2.jpg";
 
 export type BentoCardType = "default" | "textOnly" | "mediaOnly";
 
@@ -376,5 +379,38 @@ export const plusData: BentoGridItem[] = [
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: plus4,
+  },
+];
+
+type ImageSource = string;
+
+interface WSOPCardData {
+  id: number;
+  image: ImageSource;
+  title: string;
+  description: string;
+}
+
+export const wsopCardData: WSOPCardData[] = [
+  {
+    id: 1,
+    image: wsop1,
+    title: "This outstanding object",
+    description:
+      "NSUS Group은 세계 최대 규모의 토너먼트 WSOP의 운영사로서 iGaming Industry 전반에서 지속적으로 영향력을 확대해 나가고 있습니다.",
+  },
+  {
+    id: 2,
+    image: wsop2,
+    title: "A greater object",
+    description:
+      "NSUS Group은 Poker의 살아 있는 전설 Daniel Negreanu 등, 세계 최고의 포커 플레이어들과 Ambassador 계약을 맺고 그들의 활동을 전폭 지원하고 있습니다.",
+  },
+  {
+    id: 3,
+    image: plus1,
+    title: "WSOP+",
+    description:
+      "WSOP에 대해 알아야 할 모든 것이 손끝에서 펼쳐집니다. 지금 WSOP+를 만나보세요.",
   },
 ];

@@ -2,9 +2,9 @@ import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ArrowUpRight } from 'lucide-react';
 
-import cardImg2 from '@/asset/imgs/cardImg2.png';
-import whoweare_iGaming from '@/asset/imgs/whoweare_iGaming.jpg';
-import whoweare_culture3 from '@/asset/imgs/whoweare_culture3.png';
+import cardImg2 from '@/asset/imgs/about-us-Img/cardImg2.png';
+import whoweare_iGaming from '@/asset/imgs/about-us-Img/whoweare_iGaming.jpg';
+import whoweare_culture3 from '@/asset/imgs/about-us-Img/whoweare_culture3.png';
 
 // 데이터 타입 정의
 interface Culture {
