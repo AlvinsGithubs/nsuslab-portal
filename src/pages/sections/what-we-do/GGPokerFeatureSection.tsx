@@ -2,8 +2,10 @@ import React from "react";
 import { ggpokerData } from "@/lib/whatwedoData"; 
 import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents"; 
 import ggpoker_logo_big_white from "@/asset/imgs/ggpoker_logo_big_white.png"
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const GGPokerFeatureSection: React.FC = () => {
+  const { t } = useLanguage();
   const renderBentoItem = (item: (typeof ggpokerData)[0]) => {
     switch (item.type) {
       case "default":
@@ -31,14 +33,10 @@ const GGPokerFeatureSection: React.FC = () => {
 
         <div>
           <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-            Guiness World Record Holding <br/> Online Poker Room
+            {t('ggpoker_title')}
           </p>
           <p className="mx-auto mt-6 max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
-            2017년 출범한 GGPoker는 포커에 대한 깊은 애정을 가진 숙련된
-            플레이어들로 구성된 팀이 처음부터 심혈을 기울여 설계했습니다.
-            우리의 비전은 그 어떤 플랫폼보다 GGPoker에서 더 큰 즐거움을
-            경험하며 플레이할 수 있도록 하는 것입니다. GGPoker는 포커의 진정한
-            재미를 되찾아 드리고자 합니다.
+            {t('ggpoker_desc')}
           </p>
         </div>
       </div>

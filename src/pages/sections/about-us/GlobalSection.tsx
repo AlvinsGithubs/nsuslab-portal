@@ -2,8 +2,8 @@ import React, { useEffect, useState, forwardRef, useLayoutEffect, useRef } from 
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
-// 이 경로들은 실제 프로젝트 구조에 맞게 확인해주세요.
 import { fetchAllGlobalLicenses } from '@/lib/contentful';
+import { useLanguage } from '@/contexts/LanguageContext';
 import type { GlobalLicense } from '@/types';
 
 interface PartnershipCardProps {
@@ -28,7 +28,8 @@ const PartnershipCard: React.FC<PartnershipCardProps> = ({ imgSrc, text }) => {
     );
 };
 
-const GlobalSection = forwardRef<HTMLElement, {}>((props, ref) => {
+const GlobalSection = forwardRef<HTMLElement, {}>((_props, ref) => {
+    const { t } = useLanguage();
     const [licenses, setLicenses] = useState<GlobalLicense[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [cardWidth, setCardWidth] = useState(0);
@@ -94,10 +95,9 @@ const GlobalSection = forwardRef<HTMLElement, {}>((props, ref) => {
         <section ref={ref} className="w-full bg-white py-20 overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-8 md:px-16">
                 <div className="md:text-left mb-12">
-                    <h2 className="animated-item text-3xl font-bold text-black lg:text-5xl">Expanding the Global Market</h2>
-                    <p className="animated-item mt-4 text-gray-400 lg:text-2xl font-bold">
-                        NSUS Group은 2017년 영국을 시작으로 미국 펜실베니아, 캐나다, 네덜란드, 독일, 벨기에, 루마니아, 체코, 몰타, 맨섬, 필리핀 등
-                        여러 국가의 License를 취득하며 사업을 확장 해 나가고 있습니다.
+                    <h2 className="animated-item text-3xl font-bold text-black lg:text-5xl">{t('global_title')}</h2>
+                    <p className="animated-item mt-4 text-gray-400 lg:text-2xl font-bold whitespace-pre-line">
+                        {t('global_desc')}
                     </p>
                 </div>
             </div>

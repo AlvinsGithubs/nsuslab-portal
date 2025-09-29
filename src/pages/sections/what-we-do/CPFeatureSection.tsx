@@ -1,8 +1,10 @@
 import React from "react";
 import { platformData } from "@/lib/whatwedoData"; 
 import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CPFeatureSection: React.FC = () => {
+  const { t } = useLanguage();
   const renderBentoItem = (item: (typeof platformData)[0]) => {
     switch (item.type) {
       case "default":
@@ -14,7 +16,7 @@ const CPFeatureSection: React.FC = () => {
     }
   };
 
-  const [firstItem, ...otherItems] = platformData;
+  const [, ...otherItems] = platformData;
 
   return (
   <section className="bg-black pb-20">
@@ -22,10 +24,10 @@ const CPFeatureSection: React.FC = () => {
      <div className="flex flex-col items-center gap-10 px-5 py-6 text-center">
         <div>
           <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-            Casino Platform 
+            {t('cp_title')}
           </p>
           <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
-            Cutting Edge Platform Development
+            {t('cp_desc')}
           </p>
         </div>
       </div>

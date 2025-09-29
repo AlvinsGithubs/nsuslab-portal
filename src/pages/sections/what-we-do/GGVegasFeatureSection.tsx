@@ -18,7 +18,7 @@ const GGVegasFeatureSection: React.FC = () => {
     }
   };
 
-  const [firstItem, ...otherItems] = ggvegasData;
+  const [, ...otherItems] = ggvegasData;
 
   return (
     <section className="bg-black py-20">

@@ -1,8 +1,10 @@
 import React from "react";
-import { plusData } from "@/lib/whatwedoData"; 
 import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents"; 
+import { useLanguage } from '@/contexts/LanguageContext';
+import { plusData } from "@/lib/whatwedoData"; 
 
 const PlusFeatureSection: React.FC = () => {
+  const { t } = useLanguage();
   const renderBentoItem = (item: (typeof plusData)[0]) => {
     switch (item.type) {
       case "default":
@@ -14,7 +16,7 @@ const PlusFeatureSection: React.FC = () => {
     }
   };
 
-  const [firstItem, ...otherItems] = plusData;
+  const [, ...otherItems] = plusData;
 
   return (
   <section className="bg-black pb-20">
@@ -22,10 +24,10 @@ const PlusFeatureSection: React.FC = () => {
      <div className="flex flex-col items-center gap-10 px-5 py-6 text-center">
         <div>
           <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-            Plus Team
+            {t('plus_title')}
           </p>
           <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
-            All about Live Tournaments
+            {t('plus_desc')}
           </p>
         </div>
       </div>

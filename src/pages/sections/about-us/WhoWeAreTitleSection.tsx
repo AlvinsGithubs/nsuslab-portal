@@ -1,12 +1,15 @@
 import React, { forwardRef, useLayoutEffect } from 'react';
-import whowearevideo from '@/asset/videos/whoweare-4.mp4';
 import gsap from 'gsap';
+import { useLanguage } from '@/contexts/LanguageContext';
+import whowearevideo from '@/asset/videos/whoweare-4.mp4';
 
 interface WhoWeAreTitleSectionProps {
   onChevronClick: () => void;
 }
 
 const WhoWeAreTitleSection = forwardRef<HTMLElement, WhoWeAreTitleSectionProps>(({ onChevronClick }, ref) => {
+
+    const { t } = useLanguage();
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -25,8 +28,8 @@ const WhoWeAreTitleSection = forwardRef<HTMLElement, WhoWeAreTitleSectionProps>(
                 <source src={whowearevideo} type="video/mp4" />
             </video>
             <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
-                <div className="main-title text-4xl md:text-4xl lg:text-[5rem] font-bold text-center max-w-6xl px-4 !leading-tight text-[#ffffff]">
-                    To entertain and <br /> connect the world <br /> through iGaming
+                <div className="main-title text-4xl md:text-4xl lg:text-[5rem] font-bold text-center max-w-6xl px-4 !leading-tight text-[#ffffff] whitespace-pre-line">
+                    {t('whoweare_title')}
                 </div>
             </div>
             <div onClick={onChevronClick} className="scroll-chevron absolute bottom-20 left-1/2 -translate-x-1/2 cursor-pointer z-10">
