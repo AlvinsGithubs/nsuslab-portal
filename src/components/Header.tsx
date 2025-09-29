@@ -7,6 +7,7 @@ import type { NavLink } from '@/types';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { NavbarThemeContext } from '@/App';
 import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import { useAppNavigation } from '@/hooks/useAppNavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,39 +57,12 @@ const Header: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const [currentPath, setCurrentPath] = useState(window.location.hash || '#/')
-  useEffect( () => {
-    const handleHashChange = () => {
-      setCurrentPath(window.location.hash || '#');
-    }
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
-
+  const { currentPath, navigate } = useAppNavigation();
   const handleNavigate = useCallback((event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    event.preventDefault();
-
-    if (path === currentPath) {
-      const mainContent = document.querySelector('main');
-      if (!mainContent) return;
-
-      const tl = gsap.timeline();
-      tl
-        .to(mainContent, { opacity: 0, duration: 0.3 })
-        .call(() => {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-        })
-        .to(mainContent, { opacity: 1, duration: 0.3 });
-    } else if (path && path !== '#') {
-      window.location.hash = path;
-    }
-
+    navigate(event, path);
     setIsMobileMenuOpen(false);
     setActiveMenu(null);
-  }, [currentPath]);
+  }, [navigate]);
 
   const isHeaderActive = isScrolled || !!activeMenu;
   const baseTextColor = navbarTheme === 'dark' ? 'text-white' : 'text-black';
