@@ -27,7 +27,7 @@ const LinkedInSocialLink: React.FC = () => (
     target="_blank"
     rel="noopener noreferrer"
     className="text-gray-500 hover:text-gray-900 transition-colors duration-300"
-    aria-label="NSUSLAB LinkedIn" // 접근성을 위해 라벨 추가
+    aria-label="NSUSLAB LinkedIn"
   >
     <svg
       className="w-6 h-6"
@@ -42,13 +42,12 @@ const LinkedInSocialLink: React.FC = () => (
 
 const Footer: React.FC = () => {
   const { navigate } = useAppNavigation();
-  const { t } = useLanguage(); // ✅ Get translation function
+  const { t } = useLanguage(); 
 
   return (
     <footer className="bg-nsus-gray-100 border-t border-nsus-gray-200">
       <div className="text-base max-w-[1600px] mx-auto px-6 py-16 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Left Section: Logo & Socials (no changes) */}
           <div className="col-span-1 md:col-span-12 lg:col-span-4 pb-6 lg:pb-0">
             <div className="mb-6">
               <img
@@ -65,13 +64,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Section: Links (✅ REFACTORED) */}
           <div className="col-span-1 md:col-span-12 lg:col-span-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {/* Dynamically generate columns from NAV_LINKS */}
               {NAV_LINKS.map((link) => (
                 <div key={link.nameKey}>
-                  {/* If the link has no megaMenu, it's a single, top-level link */}
                   {!link.megaMenu ? (
                     <a href={link.href} onClick={(e) => navigate(e, link.href)}>
                       <h4 className="font-bold text-nsus-gray-900 mb-4">
@@ -80,12 +76,10 @@ const Footer: React.FC = () => {
                     </a>
                   ) : (
                     <>
-                      {/* Otherwise, it's a column with sub-links */}
                       <h4 className="font-bold text-nsus-gray-900 mb-4">
                         {t(link.nameKey)}
                       </h4>
                       <ul className="space-y-3">
-                        {/* Flatten all links from the megaMenu into one list */}
                         {link.megaMenu
                           .flatMap((column) => column.links)
                           .map((subLink) => (
