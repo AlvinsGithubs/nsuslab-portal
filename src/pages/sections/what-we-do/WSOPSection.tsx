@@ -4,10 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { wsopCardData } from "@/lib/whatwedoData";
 import wsop_logo from "@/asset/imgs/wsop_plus_white.png";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WSOPSection: React.FC = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -49,11 +51,10 @@ const WSOPSection: React.FC = () => {
             />
           </div>
           <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black py-4">
-            World Series of Poker
+            {t('wsop_title')}
           </p>
           <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-black opacity-80 lg:text-lg">
-            NSUS Group은 세계 최대 규모의 토너먼트 WSOP의 운영사로서 iGaming
-            Industry 전반에서 지속적으로 영향력을 확대하고 있습니다
+            {t('wsop_desc')}
           </p>
         </div>
 

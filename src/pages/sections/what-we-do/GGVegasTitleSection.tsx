@@ -4,10 +4,12 @@ import { type FC, useLayoutEffect, useRef } from "react";
 
 import ggvegas_casino from "@/asset/videos/ggvegas_casino.mp4";
 import ggvegas_logo from "@/asset/imgs/ggvegas_logo.png";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GGVegasTitleSection: FC = () => {
+  const { t } = useLanguage();
   const container = useRef<HTMLDivElement>(null); 
 
   useLayoutEffect(() => {
@@ -47,13 +49,10 @@ const GGVegasTitleSection: FC = () => {
 
           <div>
             <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-              Next Generation of Multiplayer RNG Games
+              {t('ggvegas_title')}
             </p>
             <p className="mx-auto mt-6 max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg pb-7">
-              GGVegas는 새롭고, 짜릿하며, 즐거운 경험을 선사합니다. <br />
-              수많은 사람들을 사로잡는 카지노 게임의 핵심 요소를 깊이
-              이해하고 있으며, 잊을 수 없는 경험을 선사하기 위해 최선을
-              다하고 있습니다.
+              {t('ggvegas_desc')}
             </p>
           </div>
         </div>

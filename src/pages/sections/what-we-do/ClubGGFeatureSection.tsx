@@ -1,8 +1,10 @@
 import React from "react";
 import { clubGGData } from "@/lib/whatwedoData"; 
 import { BentoTilt, BentoCard, TextCard } from "@/components/BentoGridComponents";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ClubGGFeatureSection: React.FC = () => {
+  const { t } = useLanguage();
   const renderBentoItem = (item: (typeof clubGGData)[0]) => {
     switch (item.type) {
       case "default":
@@ -22,10 +24,10 @@ const ClubGGFeatureSection: React.FC = () => {
      <div className="flex flex-col items-center gap-10 px-5 py-6 text-center">
         <div>
           <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-            ClubGG
+            {t('clubgg_title')}
           </p>
           <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
-            State of the art Subscription Poker
+            {t('clubgg_desc')}
           </p>
         </div>
       </div>

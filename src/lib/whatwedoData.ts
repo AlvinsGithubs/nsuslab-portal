@@ -31,6 +31,7 @@ import plus4 from "@/asset/imgs/plusImg/plus4.jpg";
 import wsop1 from "@/asset/imgs/wsopImg/wsop1.jpg";
 import wsop2 from "@/asset/imgs/wsopImg/wsop2.jpg";
 
+// Bento Card Data
 export type BentoCardType = "default" | "textOnly" | "mediaOnly";
 
 export interface BentoGridItem {
