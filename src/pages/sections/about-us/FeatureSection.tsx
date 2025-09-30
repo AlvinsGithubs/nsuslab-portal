@@ -116,15 +116,15 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
             className="w-full transition-colors duration-500 ease-in-out"
             style={{ backgroundColor: featureData[activeIndex]?.bgColor || featureData[0].bgColor }}
         >
-            <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-[0.5fr_1.5fr_1.5fr] lg:gap-x-8">
-                <div className="sticky top-0 hidden lg:flex flex-col justify-center h-screen px-4 whitespace-pre-line">
+            <div className="relative mx-auto grid max-w-screen-2xl grid-cols-1 lg:grid-cols-[0.5fr_1.5fr_1.5fr] px-4 sm:px-6 lg:px-8 ">
+                <div className="sticky top-0 hidden lg:flex flex-col justify-center h-screen whitespace-pre-line">
                     <div className="space-y-8">
-                        <h1 className="text-4xl font-bold" style={{ color: featureData[activeIndex]?.primaryTextColor }}>NSUS</h1>
+                        <h3 style={{ color: featureData[activeIndex]?.primaryTextColor }}>NSUS</h3>
                         <nav>
                             <ul>
                                 {featureData.map((feature, index) => (
                                     <li key={index} className="py-2">
-                                        <button onClick={() => handleNavClick(index)} className="font-semibold text-lg transition-all duration-300" style={{ color: activeIndex === index ? featureData[activeIndex]?.primaryTextColor : featureData[activeIndex]?.secondaryTextColor, opacity: activeIndex === index ? 1 : 0.6 }}>
+                                        <button onClick={() => handleNavClick(index)} className="p font-semibold transition-all duration-300" style={{ color: activeIndex === index ? featureData[activeIndex]?.primaryTextColor : featureData[activeIndex]?.secondaryTextColor, opacity: activeIndex === index ? 1 : 0.6 }}>
                                             {feature.title}
                                         </button>
                                     </li>
@@ -136,7 +136,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
 
                 <div className="w-full relative col-start-1 lg:col-start-2">
                     {featureData.map((feature, index) => (
-                        <div key={index} ref={el => { if (el) textSectionRefs.current[index] = el; }} className="flex flex-col justify-center items-start lg:min-h-screen px-8 py-24 lg:py-0">
+                        <div key={index} ref={el => { if (el) textSectionRefs.current[index] = el; }} className="flex flex-col justify-center items-start lg:min-h-screen py-24 lg:py-0">
                             <div 
                                 ref={el => { if (el) textGroupRefs.current[index] = el; }}
                                 className={`
@@ -147,14 +147,14 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
                                     [&.out]:opacity-0 [&.out]:-translate-y-6
                                 `}
                             >
-                                <h2 className="text-3xl font-bold lg:text-4xl leading-tight whitespace-pre-line" style={{ color: feature.primaryTextColor }}>{feature.heading}</h2>
-                                <p className="mt-6 text-lg lg:text-xl leading-relaxed whitespace-pre-line" style={{ color: feature.secondaryTextColor }}>{feature.description}</p>
+                                <h3 className="whitespace-pre-line py-4 md:py-8" style={{ color: feature.primaryTextColor }}>{feature.heading}</h3>
+                                <h6 className="whitespace-pre-line leading-normal" style={{ color: feature.secondaryTextColor }}>{feature.description} </h6>
                                 {feature.listItems && feature.listItems.length > 0 && (
                                     <ul className="mt-6 space-y-3">
                                         {feature.listItems.map((item, itemIndex) => (
                                             <li key={itemIndex} className="flex items-center">
-                                                <span className="text-xl font-semibold opacity-80" style={{ color: feature.primaryTextColor }}>‣</span>
-                                                <p className="ml-4 text-lg font-medium" style={{ color: feature.primaryTextColor }}>{item}</p>
+                                                <p className="opacity-80" style={{ color: feature.primaryTextColor }}>‣</p>
+                                                <p className="ml-4" style={{ color: feature.primaryTextColor }}>{item}</p>
                                             </li>
                                         ))}
                                     </ul>

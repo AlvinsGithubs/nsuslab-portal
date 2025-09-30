@@ -22,8 +22,8 @@ const GGVegasFeatureSection: React.FC = () => {
 
   return (
     <section className="bg-black py-20">
-      <div className="max-w-6xl mx-auto px-3 md:px-10">
-        <div className="grid h-auto w-full grid-cols-1 md:grid-cols-2 md:h-[240vh] md:grid-rows-6 lg:gap-7 gap-4">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid h-auto w-full grid-cols-1 md:grid-cols-2 md:h-[240vh] md:grid-rows-6 gap-4">
           {otherItems.map((item) => (
             <BentoTilt key={item.id} className={item.className}>
               {renderBentoItem(item)}

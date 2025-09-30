@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, type Variants } from 'framer-motion';
 import { fetchAllFinancialInfo } from "@/lib/contentful";
 import type { FinancialInfo } from "@/types";
 import { gsap } from 'gsap';
@@ -8,32 +8,33 @@ import { NavbarThemeContext } from '@/App';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-// AnimatedCounter 컴포넌트는 변경 없이 그대로 사용합니다.
 const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     useEffect(() => {
-        if (isInView && ref.current) {
-            const controls = gsap.to(ref.current, {
+        const element = ref.current;
+
+        if (isInView && element) {
+            const counter = { value: 0 };
+
+            const controls = gsap.to(counter, {
                 duration: 2,
-                innerText: to,
-                roundProps: "innerText",
+                value: to,
                 ease: "power2.out",
-                snap: { innerText: 1 },
                 onUpdate: () => {
-                    if (ref.current) {
-                        ref.current.innerText = Number(gsap.getProperty(ref.current, "innerText")).toLocaleString();
-                    }
+                    element.innerText = Math.round(counter.value).toLocaleString();
                 },
             });
-            return () => controls.kill();
+
+            return () => {
+                controls.kill();
+            };
         }
     }, [isInView, to]);
 
     return <span ref={ref}>0</span>;
 };
-
 
 const FinancialInfoPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
@@ -70,7 +71,7 @@ const FinancialInfoPage: React.FC = () => {
         }
     };
 
-    const fadeInVariants = {
+    const fadeInVariants: Variants = {
       hidden: { opacity: 0, y: 30 },
       visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
     };
@@ -78,7 +79,7 @@ const FinancialInfoPage: React.FC = () => {
     return (
         <div className="bg-[#0b0f1a] text-white">
             {/* 상단 섹션 */}
-            <section className="relative flex flex-col items-center justify-center min-h-screen px-6 py-24 overflow-hidden">
+            <section className="relative flex flex-col items-center justify-center min-h-screen py-24 overflow-hidden px-4 sm:px-6 lg:px-8 ">
                 <div className="absolute inset-0 z-0">
                     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <motion.path 
@@ -101,36 +102,36 @@ const FinancialInfoPage: React.FC = () => {
                   transition={{ staggerChildren: 0.2 }}
                 >
                     <motion.h1 
-                      className="text-4xl md:text-5xl font-bold leading-tight mb-12 text-center"
+                      className="h2 mb-12 text-center"
                       variants={fadeInVariants}
                     >
                         변화를 열망하는 사람들이 모여, <br /> 역사에 남을만한 변화를 만듭니다.
                     </motion.h1>
                     
                     <motion.div 
-                      className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
+                      className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left whitespace-nowrap"
                       variants={fadeInVariants}
                     >
                        <div className="p-4">
-                            <p className="text-lg text-gray-400 mb-2">월간 활성 사용자</p>
-                            <p className="text-4xl md:text-5xl font-bold">
+                            <h5 className="text-gray-400 mb-2">월간 활성 사용자</h5>
+                            <h2 className="font-bold">
                                 <AnimatedCounter to={2480} />만 +
-                            </p>
-                            <p className="text-sm text-gray-500 mt-2">2024.12.31 기준</p>
+                            </h2>
+                            <caption className="text-gray-500 mt-2">2024.12.31 기준</caption>
                         </div>
                         <div className="p-4">
-                            <p className="text-lg text-gray-400 mb-2">누적 가입자 수</p>
-                            <p className="text-4xl md:text-5xl font-bold">
+                            <h5 className="text-gray-400 mb-2">누적 가입자 수</h5>
+                            <h2>
                                 <AnimatedCounter to={3000} />만 +
-                            </p>
-                            <p className="text-sm text-gray-500 mt-2">2025.06.30 기준</p>
+                            </h2>
+                            <caption className="text-gray-500 mt-2">2025.06.30 기준</caption>
                         </div>
                         <div className="p-4">
-                            <p className="text-lg text-gray-400 mb-2">서비스 수</p>
-                            <p className="text-4xl md:text-5xl font-bold">
+                            <h5 className="text-lg text-gray-400 mb-2">서비스 수</h5>
+                            <h2>
                                 <AnimatedCounter to={100} />개 +
-                            </p>
-                            <p className="text-sm text-gray-500 mt-2">2025.08.26 기준</p>
+                            </h2>
+                            <caption className="text-gray-500 mt-2">2025.08.26 기준</caption>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -145,8 +146,8 @@ const FinancialInfoPage: React.FC = () => {
             </section>
             
             {/* ✅ 구조 변경: 텍스트와 이미지를 별도의 section으로 분리했습니다. */}
-            <section ref={contentSectionRef} className="bg-white text-nsus-gray-900 py-20 md:py-32">
-                <div className="max-w-4xl mx-auto px-6">
+            <section ref={contentSectionRef} className="bg-white text-nsus-gray-900 py-12 md:py-24 px-4 sm:px-6 lg:px-8 ">
+                <div className="max-w-screen-lg mx-auto">
                     <motion.div
                       initial="hidden"
                       whileInView="visible"
@@ -154,42 +155,39 @@ const FinancialInfoPage: React.FC = () => {
                       transition={{ staggerChildren: 0.2 }}
                     >
                         <motion.h2 
-                          className="text-3xl md:text-4xl font-bold mb-8" 
+                          className="h2 mb-12" 
                           variants={fadeInVariants}
                         >
                           Work at NSUSLAB
                         </motion.h2>
 
-                        <motion.div className="space-y-5 text-lg text-nsus-gray-700 leading-relaxed" variants={fadeInVariants}>
-                            <p>NSUS Group은 현재 북미, 유럽, 아시아 등 다양한 지역에 700명 이상의 임직원들이 일하고 있는 다국적 기업으로, iGaming 업계의 유니콘 입니다.</p>
-                            <p>NSUSLAB(엔서스랩)은 이러한 NSUS Group의 개발 스튜디오로서 그룹의 핵심적인 역할을 하고 있습니다.</p>
-                            <p>폭발적 성장에 따른 안정적인 수익과 건실한 재무상태를 바탕으로 지속적인 인재 영입과 개발 환경 개선에 많은 투자를 하고 있으며, 성과와 나눔의 복지 확장에도 힘쓰고 있습니다.</p>
+                        <motion.div className="space-y-5 text-nsus-gray-700 leading-relaxed" variants={fadeInVariants}>
+                            <h6>NSUS Group은 현재 북미, 유럽, 아시아 등 다양한 지역에 700명 이상의 임직원들이 일하고 있는 다국적 기업으로, iGaming 업계의 유니콘 입니다. NSUSLAB(앤서스랩)은 이러한 NSUS Group의 개발 스튜디오로서 그룹의 핵심적인 역할을 하고 있습니다.</h6>
+                            <h6>폭발적 성장에 따른 안정적인 수익과 건실한 재무상태를 바탕으로 지속적인 인재 영입과 개발 환경 개선에 많은 투자를 하고 있으며, 성과와 나눔의 복지 확장에도 힘쓰고 있습니다.</h6>
                         </motion.div>
                     </motion.div>
                 </div>
             </section>
 
             {financialInfo && (
-                // ✅ 1. section을 motion.section으로 변경하고 애니메이션 속성을 추가합니다.
                 <motion.section 
-                    className="bg-[#1A2C47] py-20 md:py-24"
+                    className="bg-[#1A2C47] py-12"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }} // 화면에 30% 보였을 때 애니메이션 시작
+                    viewport={{ once: true, amount: 0.5 }} // 화면에 50% 보였을 때 애니메이션 시작
                     variants={{
                         hidden: { opacity: 0 },
                         visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
                     }}
                 >
-                    <div className="max-w-4xl mx-auto px-6">
-                        {/* ✅ 2. 콘텐츠 div에 새로운 애니메이션(크기 조절)을 추가합니다. */}
+                    <div className="max-w-screen-lg mx-auto">
                         <motion.div
                             variants={{
                                 hidden: { scale: 0.95, y: 20 },
                                 visible: { scale: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                             }}
                         >
-                            <h3 className="text-2xl font-bold text-white text-center mb-8">
+                            <h3 className="text-white text-center mb-8">
                                 {financialInfo.title}
                             </h3>
                             <img 
@@ -202,18 +200,18 @@ const FinancialInfoPage: React.FC = () => {
                 </motion.section>
             )}
             
-            <section className="bg-white text-nsus-gray-900 py-20 md:py-32">
-                <div className="max-w-4xl mx-auto px-6">
+            <section className="bg-white text-nsus-gray-900 py-12 md:py-24 px-4 sm:px-6 lg:px-8 ">
+                <div className="max-w-screen-lg mx-auto">
                      <motion.div
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={fadeInVariants}
                     >
-                        <div className="space-y-5 text-lg text-nsus-gray-700 leading-relaxed">
-                            <p>외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, 저희 NSUSLAB은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다.</p>
-                            <p>또한 투자자의 외압이 없는 독자적이며 신속한 의사결정 구조를 가지고 있습니다. 급변하는 시장에서 이와 같은 효율과 자율성은 큰 경쟁력이며, 투자자가 아닌 함께 고생한 구성원들에게 노력의 결실이 보다 많이 돌아갈 수 있는 환경입니다.</p>
-                            <p>우리는 단지 꿈만 꾸는 것이 아닌, 좋은 현실을 더 좋게 만들고자 합니다. 안정적인 개발 환경에서 세계 시장을 제패하기 위해 도전적 성장과 경험을 함께 할 좋은 인재들을 적극 영입하고 있습니다.</p>
+                        <div className="space-y-5 text-nsus-gray-700 leading-relaxed">
+                            <h6>외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, 저희 NSUSLAB은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다.</h6>
+                            <h6>또한 투자자의 외압이 없는 독자적이며 신속한 의사결정 구조를 가지고 있습니다. 급변하는 시장에서 이와 같은 효율과 자율성은 큰 경쟁력이며, 투자자가 아닌 함께 고생한 구성원들에게 노력의 결실이 보다 많이 돌아갈 수 있는 환경입니다.</h6>
+                            <h6>우리는 단지 꿈만 꾸는 것이 아닌, 좋은 현실을 더 좋게 만들고자 합니다. 안정적인 개발 환경에서 세계 시장을 제패하기 위해 도전적 성장과 경험을 함께 할 좋은 인재들을 적극 영입하고 있습니다.</h6>
                         </div>
                     </motion.div>
                 </div>

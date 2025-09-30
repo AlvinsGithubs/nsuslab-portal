@@ -39,10 +39,10 @@ const WSOPSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white py-20 px-4 md:px-12 text-black"
+      className="w-full bg-white py-24 lg:py-48 px-4 sm:px-6 md:px-8 text-black"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 md:px-8">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="text-center">
           <div className="flex w-full justify-center">
             <img
               src={wsop_logo}
@@ -50,21 +50,18 @@ const WSOPSection: React.FC = () => {
               className="h-10 w-auto lg:h-20"
             />
           </div>
-          <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black py-4">
-            {t('wsop_title')}
-          </p>
-          <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-black opacity-80 lg:text-lg">
+          <h6 className="font-semibold mx-auto max-w-screen-lg md:whitespace-pre-line text-nsus-gray-700 mt-4 md:mt-8">
             {t('wsop_desc')}
-          </p>
+          </h6>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-12">
           {wsopCardData.map((card) => (
             <div
               key={card.id}
-              className="animated-item flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-200"
+              className="animated-item flex flex-col bg-white overflow-hidden rounded-xl border border-gray-200"
             >
-              <div className="w-full aspect-square">
+              <div className="w-full md:aspect-square">
                 <img
                   src={card.image}
                   alt={card.title}
@@ -72,8 +69,8 @@ const WSOPSection: React.FC = () => {
                 />
               </div>
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">
+                <p className="font-bold mb-4 uppercase">{card.title}</p>
+                <p className="text-gray-600 flex-grow">
                   {card.description}
                 </p>
               </div>

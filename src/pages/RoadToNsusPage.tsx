@@ -22,7 +22,7 @@ const processSteps = [
         ],
     },
     {
-        title: '직무 적합성 검사 + 컬쳐핏 인터뷰(HR)',
+        title: '직무 적합성 검사\n+ 컬쳐핏 인터뷰',
         description: [
             '직무 적합성 검사 : 직무와 관련된 사전 과제 및 역량 중심 온라인 테스트를 진행합니다.(직군에 따라 상이할 수 있음)',
             '컬쳐핏 인터뷰 : 이력사항을 기반으로 HR담당자와 전화 인터뷰를 진행합니다.(약 30분 내외)',
@@ -77,15 +77,18 @@ const faqData = [
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="bg-nsus-gray-100 rounded-lg p-6">
-            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex justify-between items-start text-left">
-                <span className="font-bold text-lg text-nsus-gray-900 pr-4"><span className="text-nsus-blue mr-2">Q.</span>{q}</span>
+        <div className="bg-nsus-gray-100 rounded-xl px-4 md:px-8 py-2 md:py-4">
+            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex justify-between items-start text-left md:px-4">
+                <h6 className="font-semibold text-nsus-gray-700">
+                <h4 className="text-nsus-blue mr-4">Q.</h4>
+                <h6>{q}</h6>
+                </h6>
                 <ChevronDownIcon className={`w-6 h-6 text-nsus-gray-500 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
             {isOpen && (
-                <div className="mt-4 text-nsus-gray-700">
-                    <span className="font-bold text-lg text-nsus-gray-700 mr-2">A.</span>
-                    {a}
+                <div className="mt-4 text-nsus-gray-700 py-2 md:px-4">
+                    <h4 className="font-bold text-nsus-gray-700 mr-2">A.</h4>
+                    <p>{a}</p>
                 </div>
             )}
         </div>
@@ -102,24 +105,24 @@ const RoadToNsusPage: React.FC = () => {
 
     return (
         <div className="bg-white">
-            <header className="py-24 text-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-5xl font-bold text-nsus-gray-900">Road to NSUS</h1>
+            <header className="py-12 md:py-24 text-center">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 className="text-nsus-gray-900 mt-12">Road to NSUS</h1>
                 </div>
             </header>
             
-            <main className="pb-24">
-                <section className="bg-nsus-gray-100 py-20">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-4xl font-bold text-nsus-gray-900">NSUSLAB 합류 여정</h2>
-                        <p className="mt-4 text-lg text-nsus-gray-500">NSUSLAB의 위대한 도전을 함께할 분을 기다립니다.</p>
+            <main>
+                <section className="bg-nsus-gray-100 py-12 hidden lg:block">
+                    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h3 className="font-bold text-nsus-gray-900">NSUSLAB 합류 여정</h3>
+                        <p className="mt-4 text-nsus-gray-500">NSUSLAB의 위대한 도전을 함께할 분을 기다립니다.</p>
                         
-                        <div className="mt-16 flex flex-wrap justify-center items-center gap-x-2 gap-y-8">
+                        <div className="mt-8 md:mt-16 flex flex-wrap justify-center items-center gap-x-2 gap-y-4">
                             {processSteps.map((step, index) => (
                                 <React.Fragment key={step.title}>
                                     <div className="flex flex-col items-center">
-                                        <div className={`w-36 h-36 rounded-full flex items-center justify-center text-center p-2 shadow-lg bg-gradient-to-br from-blue-300 to-nsus-blue`}>
-                                            <span className="text-white font-bold">{step.title.split('+')[0]}<br/>{step.title.split('+')[1]}</span>
+                                        <div className={`w-28 md:w-36 h-28 md:h-36 rounded-full flex items-center justify-center text-center p-1 md:p-2 shadow-lg bg-gradient-to-br from-blue-300 to-nsus-blue`}>
+                                            <p className="text-white font-bold">{step.title.split('+')[0]}<br/>{step.title.split('+')[1]}</p>
                                         </div>
                                     </div>
                                     {index < processSteps.length - 1 && (
@@ -131,34 +134,46 @@ const RoadToNsusPage: React.FC = () => {
                     </div>
                 </section>
                 
-                <section className="py-24">
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="space-y-12">
+                <section className="py-12 md:py-24">
+                    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <ol className="space-y-12 [counter-reset:step]">
                             {processSteps.map((step, index) => (
-                                <div key={index} className="flex flex-col md:flex-row gap-8">
+                                <li
+                                    key={index}
+                                    className={`flex flex-col md:flex-row gap-4 md:gap-12 ${index > 0 ? 'border-t border-nsus-gray-200 pt-12' : ''}`}
+                                >
                                     <div className="md:w-1/4">
-                                        <p className="text-nsus-blue font-bold text-lg">0{index + 1}</p>
-                                        <h3 className="text-2xl font-bold text-nsus-gray-900 mt-1">{step.title}</h3>
+                                        <h4 
+                                        className="
+                                            text-nsus-gray-700 md:whitespace-pre-line font-semibold 
+                                            relative md:pl-8 pb-4 md:pb-0
+                                            before:absolute before:left-0 before:top-0 
+                                            before:text-nsus-blue before:font-bold 
+                                            before:[content:'0'counter(step)] before:[counter-increment:step]
+                                        "
+                                        >
+                                        {step.title}
+                                        </h4>
                                     </div>
-                                    <div className="md:w-3/4 border-t border-nsus-gray-200 md:border-none pt-6 md:pt-0">
-                                        <ul className="space-y-2 text-nsus-gray-700 list-disc list-outside pl-5">
+                                    <div className="md:w-3/4 md:pt-0">
+                                        <ul className="text-sm md:text-base space-y-2 text-nsus-gray-700 list-disc list-outside pl-5">
                                             {step.description.map((detail, i) => (
                                                 <li key={i}>{detail}</li>
                                             ))}
                                         </ul>
                                     </div>
-                                </div>
+                                </li>
                             ))}
-                        </div>
+                        </ol>
                     </div>
                 </section>
 
-                <section className="bg-white py-24">
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-4xl font-bold text-nsus-gray-900 mb-12">FAQ</h2>
+                <section className="bg-white py-12 md:py-24">
+                    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-nsus-gray-900 mb-4 md:mb-12">FAQ</h2>
                         <div className="space-y-4">
                             {faqData.map((faq, index) => (
-                                <FaqItem key={index} q={faq.q} a={faq.a} />
+                                <FaqItem key={index} q={faq.q} a={faq.a}/>
                             ))}
                         </div>
                     </div>
