@@ -28,9 +28,9 @@ const WhoWeAreTitleSection = forwardRef<HTMLElement, WhoWeAreTitleSectionProps>(
                 <source src={whowearevideo} type="video/mp4" />
             </video>
             <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
-                <div className="main-title text-4xl md:text-4xl lg:text-[5rem] font-bold text-center max-w-6xl px-4 !leading-tight text-[#ffffff] whitespace-pre-line">
+                <h1 className="main-title section-head text-center max-w-screen-xl !leading-tight text-white whitespace-pre-line">
                     {t('whoweare_title')}
-                </div>
+                </h1>
             </div>
             <div onClick={onChevronClick} className="scroll-chevron absolute bottom-20 left-1/2 -translate-x-1/2 cursor-pointer z-10">
                 <div className="w-10 h-10 animate-bounce">

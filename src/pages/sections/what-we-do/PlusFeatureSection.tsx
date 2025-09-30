@@ -19,20 +19,20 @@ const PlusFeatureSection: React.FC = () => {
   const [, ...otherItems] = plusData;
 
   return (
-  <section className="bg-black pb-20">
-    <div className="max-w-screen mx-auto px-3 md:px-10">
-     <div className="flex flex-col items-center gap-10 px-5 py-6 text-center">
+  <section className="bg-black py-12 md:py-24">
+    <div className="max-w-screen mx-auto px-4 sm:px-6 md:px-8">
+     <div className="flex flex-col items-center gap-4 md:gap-8 py-12 text-center">
         <div>
-          <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
+          <h2 className="whitespace-pre-line text-white">
             {t('plus_title')}
-          </p>
-          <p className="mx-auto max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg">
+          </h2>
+          <h6 className="mx-auto max-w-screen-lg md:whitespace-pre-line text-white opacity-80">
             {t('plus_desc')}
-          </p>
+          </h6>
         </div>
       </div>
 
-      <div className="grid h-auto w-full grid-cols-1 md:grid-cols-4 md:h-[30vh] md:grid-rows-1 lg:gap-7 gap-4">
+      <div className="grid h-auto w-full grid-cols-1 md:grid-cols-4 md:h-[30vh] md:grid-rows-1 gap-4">
         {otherItems.map((item) => (
           <BentoTilt
             key={item.id}

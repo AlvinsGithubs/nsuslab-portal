@@ -31,7 +31,7 @@ export const featureData: Feature[] = [
         imageSrc: s1Img,
         bgColor: '#111111',
         primaryTextColor: '#ffffff',
-        secondaryTextColor: '#ffffff',
+        secondaryTextColor: '#cccccc',
     },
     {
         title: "Our Vision",
@@ -41,7 +41,7 @@ export const featureData: Feature[] = [
         imageSrc: s2Img,
         bgColor: '#841e09',
         primaryTextColor: '#ffffff',
-        secondaryTextColor: '#ffffff',
+        secondaryTextColor: '#cccccc',
     },
     {
         title: "Our Value",
@@ -59,9 +59,9 @@ export const featureData: Feature[] = [
         description: "외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, NSUSLAB은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다. \n\n 우리는 단지 꿈만 꾸는 것이 아닌, 좋은 현실을 더 좋게 만들고자 합니다. 안정적인 개발 환경에서 세계 시장을 제패하기 위해 도전적 성장과 경험을 함께 할 좋은 인재들을 적극 영입하고 있습니다.",
         listItems: ["도전과 성장의 기회", "자유롭고 수평적인 문화", "최고의 보상과 근무 환경"],
         imageSrc: whoweare_miro,
-        bgColor: '#111111',
+        bgColor: '#000000',
         primaryTextColor: '#ffffff',
-        secondaryTextColor: '#ffffff',
+        secondaryTextColor: '#cccccc',
     }
 ];
 
@@ -109,11 +109,6 @@ interface Culture {
     linkTo: string;
     linkText: string;
 }
-
-export const cultureTitle = {
-    line1: "상상 그 이상의 즐거움",
-    line2: "NSUSLAB이 여러분을 기다립니다",
-};
 
 export const cultureData: Culture[] = [
     {

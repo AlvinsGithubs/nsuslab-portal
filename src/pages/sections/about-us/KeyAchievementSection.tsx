@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { achievementData } from '@/lib/whoweareData';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTilt } from '@/hooks/useTilt';
 
 interface AchievementCardProps {
     title: string;
@@ -11,8 +12,10 @@ interface AchievementCardProps {
 }
 
 const AchievementCard: React.FC<AchievementCardProps> = ({ title, description, subTitle, image }) => {
+    const tiltProps = useTilt();
+
     return (
-        <div className="achievement-card group relative rounded-2xl shadow-lg overflow-hidden cursor-pointer h-96">
+        <div {...tiltProps} className="border-hsla achievement-card group relative rounded-xl shadow-lg overflow-hidden cursor-pointer lg:h-96">
             <img
                 src={image}
                 alt={title}
@@ -23,15 +26,15 @@ const AchievementCard: React.FC<AchievementCardProps> = ({ title, description, s
                 aria-hidden="true"
             ></div>
             <div className="relative flex flex-col h-full p-6 lg:p-8">
-                <p className="text-gray-200 text-xl md:text-2xl font-bold opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                <h5 className="font-bold text-gray-200 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                     {description}
-                </p>
-                <h3 className="mt-auto text-2xl lg:text-3xl font-bold transition-opacity duration-300 group-hover:opacity-0 text-white">
+                </h5>
+                <h4 className="mt-auto font-bold transition-opacity duration-300 group-hover:opacity-0 text-white">
                     {title}
-                </h3>
-                <h3 className="text-lg lg:text-xl transition-opacity duration-300 group-hover:opacity-0 text-gray-400">
+                </h4>
+                <p className="transition-opacity duration-300 group-hover:opacity-0 text-gray-400">
                     {subTitle}
-                </h3>
+                </p>
             </div>
         </div>
     );
@@ -75,16 +78,16 @@ const KeyAchievementSection: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="lg:min-h-screen w-full bg-black px-4 md:px-12 py-20">
-            <div className="max-w-[1600px] mx-auto px-4 md:px-8">
-                <div className="md:text-left mb-12">
-                    <h2 className="section-title text-3xl font-bold text-white lg:text-5xl">{t('keyachivement_title')}</h2>
-                    <p className="section-title mt-4 text-gray-400 lg:text-2xl font-bold whitespace-pre-line">
+        <section ref={sectionRef} className="w-full bg-black px-4 md:px-8 py-20 lg:py-40">
+            <div className="max-w-screen-xl mx-auto">
+                <div className="text-center lg:mb-12">
+                    <h2 className="section-title text-white mb-4 lg:mb-8">{t('keyachivement_title')}</h2>
+                    <h5 className="section-title text-gray-400 mx-auto max-w-screen-lg mb-12 font-bold whitespace-pre-line">
                         {t('keyachivement_desc')}
-                    </p>
+                    </h5>
                 </div>
 
-                <div className="card-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8">
+                <div className="card-grid grid grid-cols-1 md:grid-cols-2 gap-4">
                     {achievementData.map((data, index) => (
                         <AchievementCard
                             key={index}

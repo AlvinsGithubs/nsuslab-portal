@@ -80,9 +80,9 @@ const BenefitsPage: React.FC = () => {
     return (
         <div className="bg-white">
             <section className="py-24">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-24">
                     <div className="text-left max-w-xl">
-                        <h1 className="text-5xl font-bold text-nsus-gray-900">Benefits</h1>
+                        <h1 className="font-bold text-nsus-gray-900">Benefits</h1>
                         <p className="mt-4 text-lg text-nsus-gray-700">
                             엔서스랩은 수평적인 문화에서 도전하며 성장할 수 있도록 최고의 보상과 근무 환경을 제공합니다.
                         </p>
@@ -94,8 +94,8 @@ const BenefitsPage: React.FC = () => {
             </section>
 
             <section className="py-24">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-nsus-gray-900 mb-16">Work at NSUSLAB</h2>
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-nsus-gray-900 mb-16">Work at NSUSLAB</h2>
                     <div className="space-y-20">
                         <WorkAtNSUSLABItem
                             number="01"
@@ -133,8 +133,8 @@ const BenefitsPage: React.FC = () => {
             </section>
             
             <section className="py-24">
-                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <h2 className="text-4xl font-bold text-nsus-gray-900 mb-10">What we offer</h2>
+                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <h2 className="text-nsus-gray-900 mb-10">What we offer</h2>
                      <div>
                         {categoryOrder.map(category => {
                            const items = categorizedBenefits[category];

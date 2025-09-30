@@ -26,7 +26,7 @@ const WhatWeDoTitleSection = React.forwardRef<HTMLElement, WhatWeDoTitleSectionP
                 <source src={whatwedoVideo} type="video/mp4" />
             </video>
             <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
-                <div className="main-title text-5xl md:text-6xl lg:text-7xl font-bold text-center max-w-6xl px-4 leading-normal md:leading-relaxed text-white whitespace-pre-line">
+                <div className="main-title section-head text-center max-w-6xl px-4 text-white whitespace-pre-line">
                     {t('whatwedo_title')}
                 </div>
             </div>

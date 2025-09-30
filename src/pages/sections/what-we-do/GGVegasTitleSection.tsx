@@ -38,7 +38,7 @@ const GGVegasTitleSection: FC = () => {
   return (
     <div ref={container}>
       <div id="about" className="min-h-screen w-screen">
-        <div className="max-w-6xl mx-auto md:px-10 flex flex-col items-center gap-10 px-5 py-20 text-center">
+        <div className="flex flex-col items-center gap-4 md:gap-8 py-12 text-center max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex w-full justify-center">
             <img
               src={ggvegas_logo}
@@ -48,12 +48,12 @@ const GGVegasTitleSection: FC = () => {
           </div>
 
           <div>
-            <p className="whitespace-pre-line text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
+            <h2 className="whitespace-pre-line text-white">
               {t('ggvegas_title')}
-            </p>
-            <p className="mx-auto mt-6 max-w-6xl whitespace-pre-line text-md leading-relaxed text-white opacity-80 lg:text-lg pb-7">
+            </h2>
+            <h6 className="mx-auto mt-4 md:mt-8 max-w-screen-lg md:whitespace-pre-line text-white opacity-80">
               {t('ggvegas_desc')}
-            </p>
+            </h6>
           </div>
         </div>
 

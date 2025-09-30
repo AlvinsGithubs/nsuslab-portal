@@ -13,16 +13,16 @@ interface PartnershipCardProps {
 
 const PartnershipCard: React.FC<PartnershipCardProps> = ({ imgSrc, text }) => {
     return (
-        <div className="group relative w-full aspect-[16/22] rounded-2xl overflow-hidden shadow-md">
+        <div className="group relative w-full aspect-[8/11] rounded-xl overflow-hidden shadow-md">
             <img
                 src={imgSrc}
                 alt={text}
                 className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex justify-between items-end p-6 md:p-8">
-                <p className="text-white text-xl md:text-3xl font-semibold max-w-[80%]">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex justify-between items-end p-4 md:p-8">
+                <h4 className="text-white max-w-[80%]">
                     {text}
-                </p>
+                </h4>
             </div>
         </div>
     );
@@ -74,9 +74,9 @@ const GlobalSection = forwardRef<HTMLElement, {}>((_props, ref) => {
             if (carouselContainerRef.current && licenses.length > 0) {
                 const containerWidth = carouselContainerRef.current.offsetWidth;
                 const isDesktop = window.innerWidth >= 768;
-                const gap = isDesktop ? 32 : 20;
+                const gap = isDesktop ? 12 : 6;
                 
-                const newCardWidth = isDesktop ? containerWidth / 4.5 : containerWidth * 0.5;
+                const newCardWidth = isDesktop ? containerWidth / 6 : containerWidth * 0.5;
                 setCardWidth(newCardWidth);
 
                 const totalWidth = (licenses.length * 2 * newCardWidth) + ((licenses.length * 2) * gap);
@@ -92,19 +92,19 @@ const GlobalSection = forwardRef<HTMLElement, {}>((_props, ref) => {
     }, [isLoading, licenses]);
 
     return (
-        <section ref={ref} className="w-full bg-white py-20 overflow-hidden">
-            <div className="max-w-[1600px] mx-auto px-8 md:px-16">
-                <div className="md:text-left mb-12">
-                    <h2 className="animated-item text-3xl font-bold text-black lg:text-5xl">{t('global_title')}</h2>
-                    <p className="animated-item mt-4 text-gray-400 lg:text-2xl font-bold whitespace-pre-line">
+        <section ref={ref} className="w-full bg-black px-4 sm:px-6 lg:px-8 py-20 lg:py-40 overflow-hidden">
+            <div className="max-w-screen-2xl mx-auto text-center mb-12">
+                <div className="mb-8">
+                    <h2 className="animated-item text-white mb-4 lg:mb-8">{t('global_title')}</h2>
+                    <h5 className="animated-item max-w-screen-lg mx-auto text-gray-400 font-bold whitespace-pre-line">
                         {t('global_desc')}
-                    </p>
+                    </h5>
                 </div>
             </div>
 
             <div
                 ref={carouselContainerRef}
-                className="animated-item max-w-[1600px] mx-auto px-8 md:px-16"
+                className="animated-item mx-auto px-8 md:px-16"
             >
                 <motion.div
                     className="flex items-center gap-5 md:gap-8"

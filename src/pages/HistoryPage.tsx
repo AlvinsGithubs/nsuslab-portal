@@ -49,7 +49,6 @@ const HistoryPage: React.FC = () => {
 
     return (
         <div>
-            {/* Hero Section (변경 없음) */}
             <section 
                 className="h-[100svh] flex flex-col justify-center items-center relative text-center px-4 text-white overflow-hidden"
             >
@@ -76,28 +75,26 @@ const HistoryPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* History/Awards Section (데이터 렌더링 부분 수정됨) */}
-            <section ref={historySectionRef} className="bg-white py-20 md:py-32">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl md:text-5xl font-bold text-nsus-gray-900 mb-16">
+            <section ref={historySectionRef} className="bg-white py-24 md:py-32">
+                <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="font-bold text-nsus-gray-900 mb-12 md:mb-24">
                         History/Awards
                     </h2>
                     
-                    <div className="space-y-12">
+                    <div className="space-y-8">
                         {isLoading ? (
                             <div className="text-center text-gray-500">
                                 <p>Loading history...</p>
                             </div>
                         ) : (
                             historyData.map(({ year, events }) => (
-                                <div key={year} className="flex items-start">
-                                    <div className="w-24 text-left">
-                                        <p className="text-xl font-bold text-nsus-gray-900 sticky top-24">{year}</p>
+                                <div key={year} className="flex flex-col md:flex-row md:items-start border-t border-nsus-gray-200">
+                                    <div className="w-32 text-left pt-8">
+                                        <h4 className="text-nsus-gray-900">{year}</h4>
                                     </div>
-                                    <div className="flex-1 pl-8">
-                                        <div className="border-t border-nsus-gray-200">
+                                    <div className="flex-1 lg:pl-8">
+                                        <div>
                                             {(() => {
-                                                // 1. 월(month)을 기준으로 이벤트를 그룹화합니다.
                                                 const groupedByMonth = events.reduce<Record<string, { description: string }[]>>((acc, event) => {
                                                     const month = event.month.toString();
                                                     if (!acc[month]) {
@@ -107,18 +104,16 @@ const HistoryPage: React.FC = () => {
                                                     return acc;
                                                 }, {});
 
-                                                // 2. 월을 내림차순(12, 11, 10...)으로 정렬합니다.
                                                 const sortedMonths = Object.entries(groupedByMonth).sort(([a], [b]) => Number(b) - Number(a));
 
-                                                // 3. 그룹화 및 정렬된 데이터를 렌더링합니다.
                                                 return sortedMonths.map(([month, monthEvents]) => (
-                                                    <div key={month} className="flex items-start space-x-8 pt-5">
-                                                        <p className="w-12 text-sm font-bold text-nsus-gray-700 uppercase text-right">{`${month}월`}</p>
+                                                    <div key={month} className="flex items-start space-x-8 md:space-x-16 pt-4 md:pt-8">
+                                                        <h6 className="w-12 font-bold text-gray-400 md:mr-8">{`${month.padStart(2, '0')}월`}</h6>
                                                         <div className="flex-1">
                                                             {monthEvents.map((event, index) => (
-                                                                <p key={index} className="text-nsus-gray-700 pb-2 last:pb-0">
+                                                                <h6 key={index} className="text-nsus-gray-700">
                                                                     {event.description}
-                                                                </p>
+                                                                </h6>
                                                             ))}
                                                         </div>
                                                     </div>

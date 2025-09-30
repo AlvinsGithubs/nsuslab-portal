@@ -3,9 +3,9 @@ import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
 import { NavbarThemeContext } from '@/App';
 
 const Section: React.FC<{ title: string; children: React.ReactNode; className?: string }> = ({ title, children, className }) => (
-    <section className={`py-20 md:py-24 ${className}`}>
+    <section className={`py-20 md:py-24 mt-12 mb-24 text-cen ${className}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-5xl font-bold text-nsus-gray-900 mb-16">{title}</h1>
+            <h1 className="text-nsus-gray-900 mb-16">{title}</h1>
             {children}
         </div>
     </section>
@@ -46,7 +46,7 @@ const CultureValuePage: React.FC = () => {
             <Section title="Mission">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold text-nsus-gray-900 leading-tight">
+                        <h2 className="font-bold text-nsus-gray-900 leading-tight">
                             iGaming을 통해<br />
                             세상을 연결하고 즐거움을 줍니다.
                         </h2>
@@ -70,7 +70,7 @@ const CultureValuePage: React.FC = () => {
             <Section title="Vision">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold text-nsus-gray-900 leading-tight">
+                        <h2 className="font-bold text-nsus-gray-900 leading-tight">
                             Global No.1. iGaming Company
                         </h2>
                         <p className="mt-6 text-lg text-nsus-gray-900">
@@ -97,7 +97,7 @@ const CultureValuePage: React.FC = () => {
                         <div className="space-y-20">
                             {/* Working Way 1 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-nsus-gray-900">Work Transparently and Proactively</h3>
+                                <h3 className="font-bold text-nsus-gray-900">Work Transparently and Proactively</h3>
                                 <p className="mt-2 text-nsus-gray-900">일의 모든 과정에서 투명성을 유지하고, 주도적으로 문제를 해결합니다.</p>
                                 <p className="mt-4 text-nsus-gray-900 max-w-3xl">엔서스랩은 공개된 채널을 통해 정보를 공유하고, 스스로 문제를 정의하고 해결 방법을 제시하는 방식으로 일합니다.</p>
                                 <div className="mt-8 grid sm:grid-cols-2 gap-8">
@@ -116,7 +116,7 @@ const CultureValuePage: React.FC = () => {
 
                             {/* Working Way 2 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-nsus-gray-900">Communicate with Fearless Truthfulness</h3>
+                                <h3 className="font-bold text-nsus-gray-900">Communicate with Fearless Truthfulness</h3>
                                 <p className="mt-2 text-nsus-gray-900">우리는 신뢰를 바탕으로, 솔직하고 두려움 없이 소통합니다.</p>
                                 <p className="mt-4 text-nsus-gray-900 max-w-3xl">솔직한 대화와 피드백이 조직의 성장을 이끄는 힘이라고 믿으며, 소통을 '신뢰 구축과 성장의 과정'이라고 생각합니다.</p>
                                 <div className="mt-8 grid sm:grid-cols-2 gap-8">
@@ -135,7 +135,7 @@ const CultureValuePage: React.FC = () => {
                             
                             {/* Working Way 3 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-nsus-gray-900">Solve with the 1-3-1 Rule</h3>
+                                <h3 className="font-bold text-nsus-gray-900">Solve with the 1-3-1 Rule</h3>
                                 <p className="mt-2 text-nsus-gray-900">문제를 명확히 정의하고, 다양한 시각에서 해결책을 도출한 후, 최적의 솔루션을 제시하고 실행합니다.</p>
                                 <p className="mt-4 text-nsus-gray-900 max-w-3xl">문제란 모호할수록 조직적 해결이 어렵습니다. 진짜 문제가 무엇인지 정의하는 것이 해결의 첫걸음입니다.</p>
                                 <div className="mt-8 space-y-4">

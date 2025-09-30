@@ -72,7 +72,7 @@ const JobDetailPage: React.FC<JobDetailPageProps> = ({ slug }) => {
 
   return (
     <div className="bg-nsus-gray-100 py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb links={[
             { name: 'Home', href: '#/' },
             { name: 'Careers', href: '#/careers' },

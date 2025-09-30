@@ -45,7 +45,7 @@ const PressReleaseView: React.FC<{ articles: NewsArticle[] }> = ({ articles }) =
 
     return (
         <div>
-            <h1 className="text-5xl font-bold text-nsus-gray-900 text-center mb-16">Press Release</h1>
+            <h1 className="font-bold text-nsus-gray-900 text-center mt-12 mb-24">Press Release</h1>
             {featuredArticle && (
                 <div className="grid lg:grid-cols-2 gap-8 mb-20">
                     <a href={`#/news/${featuredArticle.slug}`} onClick={e => handleNavigate(e, `#/news/${featuredArticle.slug}`)} className="group block relative rounded-lg overflow-hidden aspect-video">
@@ -73,7 +73,7 @@ const PressReleaseView: React.FC<{ articles: NewsArticle[] }> = ({ articles }) =
             )}
 
             <div className="border-t border-nsus-gray-200 pt-16">
-                <h2 className="text-3xl font-bold text-nsus-gray-900 mb-8">보도자료</h2>
+                <h2 className="font-bold text-nsus-gray-900 mb-8">보도자료</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
                     {paginatedArticles.map(article => (
                         <ArticleCard key={article.id} article={article} />

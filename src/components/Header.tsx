@@ -83,7 +83,7 @@ const Header: React.FC = () => {
         animate={{ y: isHeaderVisible ? "0%" : "-100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className={`flex items-center justify-between w-full max-w-[1680px] mx-auto px-4 h-20 transition-colors duration-300 ${finalTextColor}`}>
+        <div className={`flex items-center justify-between w-full max-w-screen-xl mx-auto px-4 lg:px-8 h-20 transition-colors duration-300 ${finalTextColor}`}>
           
           <a href="#/" onClick={(e) => handleNavigate(e, '#/')} className="flex-shrink-0">
             <img

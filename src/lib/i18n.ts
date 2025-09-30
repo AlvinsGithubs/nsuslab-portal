@@ -59,9 +59,9 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     // WhoWeAre Sections
     whoweare_title: "To entertain and\nconnect the world\nthrough iGaming",
     keyachivement_title: "Key Achivements",
-    keyachivement_desc: "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에게 통합된 경험을 제공하고 있습니다.\n일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며,\nAI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
+    keyachivement_desc: "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에게 통합된 경험을 제공하고 있습니다.일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며,AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
     global_title: "Expanding the Global Market",
-    global_desc: "NSUS Group은 2017년 영국을 시작으로 미국 펜실베니아, 캐나다, 네덜란드, 독일, 벨기에, 루마니아, 체코, 몰타, 맨섬, 필리핀 등 여러 국가의 License를 취득하며 사업을 확장 해 나가고 있습니다.",
+    global_desc: "NSUS Group은 2017년 영국을 시작으로 미국 펜실베니아, 캐나다, 네덜란드, 독일, 벨기에, 루마니아, 필리핀 등 여러 국가의 License를 취득하며 사업을 확장 해 나가고 있습니다.",
     culture_title: "상상 그 이상의 즐거움\nNSUSLAB이 여러분을 기다립니다",
 
     // WhatWeDo Sections
@@ -138,17 +138,17 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     // WhoWeAre Sections
     whoweare_title: "To entertain and\nconnect the world\nthrough iGaming",
     keyachivement_title: "Key Achivements",
-    keyachivement_desc: "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에게 통합된 경험을 제공하고 있습니다.\n일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며,\nAI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
+    keyachivement_desc: "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에 통합된 경험을 제공합니다.\n일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며, AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
     global_title: "Expanding the Global Market",
-    global_desc: "NSUS Group은 2017년 영국을 시작으로 미국 펜실베니아, 캐나다, 네덜란드, 독일, 벨기에, 루마니아, 체코, 몰타, 맨섬, 필리핀 등 여러 국가의 License를 취득하며 사업을 확장 해 나가고 있습니다.",
-    culture_title: "상상 그 이상의 즐거움\nNSUSLAB이 여러분을 기다립니다",
+    global_desc: "NSUS Group은 2017년 영국을 시작으로 미국 펜실베니아, 캐나다, 네덜란드, 독일, 벨기에, 몰타, 체코, 루마니아, 필리핀 등 여러 국가의 License를 취득하며 사업을 확장해 나아가고 있습니다.",
+    culture_title: "상상 그 이상의 즐거움,\nNSUSLAB이 여러분을 기다립니다",
 
     // WhatWeDo Sections
     whatwedo_title: "Global No. 1\n iGaming Company",
     ggpoker_title: "Guiness World Record Holding\n Online Poker Room",
-    ggpoker_desc: "2017년 출범한 GGPoker는 포커에 대한 깊은 애정을 가진 숙련된 플레이어들로 구성된 팀이 처음부터 심혈을 기울여 설계했습니다. 우리의 비전은 그 어떤 플랫폼보다 GGPoker에서 더 큰 즐거움을 경험하며 플레이할 수 있도록 하는 것입니다. GGPoker는 포커의 진정한 재미를 되찾아 드리고자 합니다.",
+    ggpoker_desc: "2017년 출범한 GGPoker는 포커에 대한 깊은 애정을 가진 플레이어들로 구성된 팀이 처음부터 심혈을 기울여 설계했습니다.\n 우리의 비전은 그 어떤 플랫폼보다 GGPoker에서 더 큰 즐거움을 경험하며 플레이할 수 있도록 하는 것입니다. \nGGPoker는 포커의 진정한 재미를 되찾아 드리고자 합니다.",
     ggvegas_title: "Next Generation of Multiplayer RNG Games",
-    ggvegas_desc: "GGVegas는 새롭고, 짜릿하며, 즐거운 경험을 선사합니다.\n수많은 사람들을 사로잡는 카지노 게임의 핵심 요소를 깊이 이해하고 있으며, 잊을 수 없는 경험을 선사하기 위해 최선을 다하고 있습니다.",
+    ggvegas_desc: "GGVegas는 새롭고, 짜릿하며, 즐거운 경험을 선사합니다.\n수많은 사람들을 사로잡는 카지노 게임의 핵심 요소를 깊이 이해하고 있으며 \n잊을 수 없는 경험을 선사하기 위해 최선을 다하고 있습니다.",
     clubgg_title: "ClubGG",
     clubgg_desc: "State of the art Subscription Poker",
     cp_title: "Casino Platform",
@@ -156,7 +156,7 @@ export const translations: Record<'en' | 'kr', Record<string, string>> = {
     plus_title: "Plus Team",
     plus_desc: "All about Live Tournaments",
     wsop_title: "World Series of Poker",
-    wsop_desc: "NSUS Group은 세계 최대 규모의 토너먼트 WSOP의 운영사로서 iGaming\nIndustry 전반에서 지속적으로 영향력을 확대하고 있습니다"
+    wsop_desc: "NSUS Group은 세계 최대 규모의 토너먼트 WSOP의 운영사로서 iGaming Industry 전반에서 지속적으로 영향력을 확대하고 있습니다"
   },
 };
 
