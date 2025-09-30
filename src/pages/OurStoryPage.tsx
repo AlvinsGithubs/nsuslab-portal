@@ -79,11 +79,11 @@ const OurStoryPage: React.FC = () => {
                 return (
                     <div className="space-y-24">
                         <div>
-                            <h2 className="text-4xl font-bold text-nsus-gray-900 mb-8">Teams</h2>
+                            <h2 className=" text-nsus-gray-900 mb-8">Teams</h2>
                             {departments.length > 0 ? <TeamsGrid /> : <p className="text-nsus-gray-500">No teams to display.</p>}
                         </div>
                         <div>
-                            <h2 className="text-4xl font-bold text-nsus-gray-900 mb-8">Life</h2>
+                            <h2 className="font-bold text-nsus-gray-900 mb-8">Life</h2>
                             {teamMembers.length > 0 ? <LifeGrid /> : <p className="text-nsus-gray-500">No stories to display.</p>}
                         </div>
                     </div>
@@ -99,7 +99,7 @@ const OurStoryPage: React.FC = () => {
 
     return (
         <div className="bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mt-12 mb-24">
                 {renderTabs()}
                 {renderContent()}
             </div>

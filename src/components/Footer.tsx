@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-nsus-gray-100 border-t border-nsus-gray-200">
-      <div className="text-base max-w-[1600px] mx-auto px-6 py-16 sm:px-8 lg:px-10">
+      <div className="max-w-screen-xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="col-span-1 md:col-span-12 lg:col-span-4 pb-6 lg:pb-0">
             <div className="mb-6">
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                 className="h-6 transition-all duration-300 brightness-0"
               />
             </div>
-            <div className="text-sm text-nsus-gray-500 mb-4 ">
+            <div className="caption text-nsus-gray-500 mb-4 ">
               Copyright {new Date().getFullYear()} NSUSLAB. All rights reserved.
             </div>
             <div className="flex items-center space-x-5 ">
@@ -64,21 +64,21 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-12 lg:col-span-8">
+          <div className="col-span-1 md:col-span-12 lg:col-span-8 text-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {NAV_LINKS.map((link) => (
                 <div key={link.nameKey}>
                   {!link.megaMenu ? (
                     <a href={link.href} onClick={(e) => navigate(e, link.href)}>
-                      <h4 className="font-bold text-nsus-gray-900 mb-4">
+                      <h6 className="font-bold text-nsus-gray-900 mb-4">
                         {t(link.nameKey)}
-                      </h4>
+                      </h6>
                     </a>
                   ) : (
                     <>
-                      <h4 className="font-bold text-nsus-gray-900 mb-4">
+                      <h6 className="font-bold text-nsus-gray-900 mb-4">
                         {t(link.nameKey)}
-                      </h4>
+                      </h6>
                       <ul className="space-y-3">
                         {link.megaMenu
                           .flatMap((column) => column.links)

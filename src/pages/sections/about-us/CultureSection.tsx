@@ -20,7 +20,7 @@ const CultureSection: React.FC = () => {
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 80%",
+                        start: "top 70%",
                         toggleActions: "play none none reverse"
                     }
                 }
@@ -31,27 +31,25 @@ const CultureSection: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full bg-white py-20 md:px-12 text-black">
-            <div className="max-w-[1600px] mx-auto px-4 md:px-8">
-                <div className="text-leading md:text-left mb-12 px-4 md:px-8">
-                    <h2 className="animated-item text-3xl font-bold text-black lg:text-5xl whitespace-pre-line">
-                        {t('culture_title')}
-                    </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-8">
+        <section ref={sectionRef} className="w-full bg-white py-24 lg:py-48 px-4 md:px-8 text-black">
+            <div className="max-w-screen-xl mx-auto">
+                <h2 className="animated-item  text-black whitespace-pre-line text-center mb-12">
+                    {t('culture_title')}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-12">
                     {cultureData.map((card) => (
                         <div key={card.id} className="animated-item flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-200">
-                            <div className="w-full aspect-square">
+                            <div className="w-full md:aspect-square">
                                 <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                                <p className="text-gray-600 mb-4 flex-grow">
+                                <p className="mb-4 font-bold">{card.title}</p>
+                                <p className="text-gray-600 flex-grow">
                                     {card.description}
                                 </p>
                                 <a href={`#${card.linkTo}`} className="group inline-flex items-center pt-4">
-                                    <span className="hover-line-effect text-black font-bold">{card.linkText}</span>
-                                    <ArrowUpRight />
+                                    <p className="text-black font-bold group-hover:text-nsus-blue">{card.linkText}</p>
+                                    <ArrowUpRight className="group-hover:text-nsus-blue"/>
                                 </a>
                             </div>
                         </div>
