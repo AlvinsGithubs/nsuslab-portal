@@ -28,7 +28,10 @@ export default {
       borderRadius: {
         'lg': '8px',
         'xl': '12px',
-      }
+      },
+      screens: {
+        '3xl': '1920px', // 1920px 너비 이상일 때 적용될 3xl 중단점 정의
+      },
     },
   },
   plugins: [],
