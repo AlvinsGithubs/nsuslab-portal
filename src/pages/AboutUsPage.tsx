@@ -8,9 +8,9 @@ import { HEADER_FIXED_HEIGHT } from "@/constants";
 import GlobalSection from '@/pages/sections/about-us/GlobalSection';
 import WhoWeAreTitleSection from '@/pages/sections/about-us/WhoWeAreTitleSection';
 import CultureSection from '@/pages/sections/about-us/CultureSection';
-// import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
+import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
 import FeatureSection from '@/pages/sections/about-us/FeatureSection_Modify';
-import FinancialInfoPage from './FinancialInfoPage';
+import FinancialInfoSection from './sections/about-us/FinancialInfoSection';
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -64,8 +64,8 @@ const AboutUsPage: React.FC = () => {
         <div ref={componentRootRef} className='bg-black text-[#f3f4f6]'>
             <WhoWeAreTitleSection ref={mainSectionRef} onChevronClick={scrollToSecondSection} />
             <FeatureSection ref={featureSectionRef} />
-            <FinancialInfoPage />
-            {/* <KeyAchievementSection /> */}
+            <FinancialInfoSection />
+            <KeyAchievementSection />
             <GlobalSection />
             <CultureSection />
         </div>

@@ -22,7 +22,7 @@ import AboutUsPage from '@/pages/AboutUsPage';
 import ContactPage from '@/pages/ContactPage';
 import RoadToNsusPage from '@/pages/RoadToNsusPage';
 import OurStoryPage from '@/pages/OurStoryPage';
-import FinancialInfoPage from '@/pages/FinancialInfoPage';
+import FinancialInfoSection from '@/pages/sections/about-us/FinancialInfoSection';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 // 1. Context에 담길 값의 타입을 정의하고 export 합니다.
@@ -95,7 +95,7 @@ const App: React.FC = () => {
       case '#/benefits':
         return <BenefitsPage />;
       case '#/financial-info':
-        return <FinancialInfoPage />;
+        return <FinancialInfoSection />;
       case '#/culture':
         return <CultureValuePage />;
       case '#/history':
