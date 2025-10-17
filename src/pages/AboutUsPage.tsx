@@ -8,7 +8,7 @@ import { HEADER_FIXED_HEIGHT } from "@/constants";
 import GlobalSection from '@/pages/sections/about-us/GlobalSection';
 import WhoWeAreTitleSection from '@/pages/sections/about-us/WhoWeAreTitleSection';
 import CultureSection from '@/pages/sections/about-us/CultureSection';
-import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
+// import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
 import FeatureSection from '@/pages/sections/about-us/FeatureSection_Modify';
 import FinancialInfoPage from './FinancialInfoPage';
 

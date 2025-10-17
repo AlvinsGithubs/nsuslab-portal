@@ -65,7 +65,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
             animation: tl,
           });
 
-          features.forEach((feature, i) => {
+          features.forEach((_feature, i) => {
             ScrollTrigger.create({
               trigger: rightColRef.current,
               start: `top+=${i * 1500} top`,
