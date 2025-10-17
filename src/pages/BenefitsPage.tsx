@@ -47,8 +47,8 @@ const BenefitsPage: React.FC = () => {
 
   return (
     <section className="bg-white py-24 md:py-32" ref={main}>
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-24">
-        <h2 className="font-bold text-nsus-gray-900 mb-12 md:mb-24 px-4">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
+        <h2 className="font-bold text-nsus-gray-900 mb-12 md:mb-24">
           Benefits
         </h2>
 
@@ -57,7 +57,7 @@ const BenefitsPage: React.FC = () => {
           {benefitsData.map((category) => (
             <div
               key={category.title}
-              className="benefit-item flex flex-col md:flex-row md:items-start border-t border-gray-300 px-4 py-12 lg:py-24 first:pt-0 first:border-t-0"
+              className="benefit-item flex flex-col md:flex-row md:items-start border-t border-gray-300 py-12 lg:py-24 first:pt-0 first:border-t-0"
             >
               {/* 왼쪽 컬럼: 카테고리 제목 및 Lottie (데스크탑 기준) */}
               <div className="md:w-1/2 md:pr-8 mb-6 md:mb-0">

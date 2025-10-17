@@ -16,12 +16,6 @@ export const NAV_LINKS: NavLink[] = [
           { nameKey: 'nav_about_us_sub_contact', href: '#/contact' },
         ],
       },
-      {
-        titleKey: 'nav_column_ir',
-        links: [
-          { nameKey: 'nav_career_sub_financial_info', href: '#/financial-info' },
-        ],
-      },
     ],
   },
   {
