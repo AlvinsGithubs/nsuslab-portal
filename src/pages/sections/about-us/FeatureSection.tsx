@@ -1,5 +1,5 @@
 import { forwardRef, useLayoutEffect, useRef, useState } from "react";
-import { featureData } from "@/lib/whoweareData"; // 데이터 경로는 실제 프로젝트에 맞게 확인해주세요.
+import { featureData } from "@/lib/whoweareData";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
