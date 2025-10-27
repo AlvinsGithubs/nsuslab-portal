@@ -156,7 +156,7 @@ export const cultureRecruitData: CultureRecruit[] = [
     subTitle: "해결책을 제시하는 것에 희열을 느끼는 분",
     description:
       "문제를 발견하는 것을 넘어, 해결책을 제시하는 것에 희열을 느끼는 분.",
-    image: culture2,
+    image: culture3,
   },
   {
     title: "자신이 사랑했던 일의 ‘재미’를 되찾기 위해",
