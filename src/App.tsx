@@ -1,6 +1,4 @@
 import React, { useState, useEffect, createContext } from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
@@ -24,6 +22,11 @@ import RoadToNsusPage from '@/pages/RoadToNsusPage';
 import OurStoryPage from '@/pages/OurStoryPage';
 import FinancialInfoSection from '@/pages/sections/about-us/FinancialInfoSection';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 // 1. Context에 담길 값의 타입을 정의하고 export 합니다.
 export interface NavbarThemeContextType {

@@ -28,7 +28,7 @@
     @apply text-xs text-gray-500 md:text-sm;
   }
   .section-head {
-    @apply font-bold text-5xl lg:text-[5rem]
+    @apply font-semibold text-6xl md:text-[4rem]
   }
 
   .border-hsla {

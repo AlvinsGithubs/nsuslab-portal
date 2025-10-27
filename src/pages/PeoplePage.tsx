@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react';
-import PeopleCard from '@/components/PeopleCard';
+import LifeCard from '@/components/PeopleCard';
 import PageWrapper from '@/components/PageWrapper';
 import { fetchAllTeamMembers } from '@/lib/contentful';
 import type { TeamMember } from '@/types';
@@ -31,7 +31,7 @@ const PeoplePage: React.FC = () => {
       className="bg-nsus-gray-100"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {teamMembers.map(member => <PeopleCard key={member.id} member={member} />)}
+        {teamMembers.map(member => <LifeCard key={member.id} member={member} />)}
       </div>
     </PageWrapper>
   );

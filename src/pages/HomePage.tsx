@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import HeroSlider from "@/components/HeroSlider";
 import JobCard from "@/components/JobCard";
-import DepartmentCard from "@/components/DepartmentCard";
-import PeopleCard from "@/components/PeopleCard";
+import TeamCard from "@/components/TeamCard";
+import LifeCard from "@/components/PeopleCard";
 import BenefitCard from "@/components/BenefitCard";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import PlayIcon from "@/components/icons/PlayIcon";
@@ -105,7 +105,7 @@ const HomePage: React.FC = () => {
         linkText={t('home_section_our_teams_button')}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {departments.map(dept => <DepartmentCard key={dept.id} department={dept} />)}
+            {departments.map(dept => <TeamCard key={dept.id} department={dept} />)}
         </div>
       </Section>
       
@@ -118,7 +118,7 @@ const HomePage: React.FC = () => {
         linkText={t('home_section_meet_our_people_button')}
       >
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.slice(0,3).map(member => <PeopleCard key={member.id} member={member} />)}
+            {teamMembers.slice(0,3).map(member => <LifeCard key={member.id} member={member} />)}
         </div>
       </Section>
 

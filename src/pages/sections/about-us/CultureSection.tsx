@@ -31,12 +31,12 @@ const CultureSection: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full bg-white py-24 lg:py-48 px-4 md:px-8 text-black">
-            <div className="max-w-screen-xl mx-auto">
-                <h2 className="animated-item  text-black whitespace-pre-line text-center mb-12">
+        <section ref={sectionRef} className="w-full bg-white py-12 lg:py-24 px-4 md:px-8 text-black">
+            <div className="max-w-screen-2xl mx-auto">
+                <h3 className="animated-item  text-black whitespace-pre-line text-center mb-12 lg:mb-24">
                     {t('culture_title')}
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-12">
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {cultureData.map((card) => (
                         <div key={card.id} className="animated-item flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-200">
                             <div className="w-full md:aspect-square">

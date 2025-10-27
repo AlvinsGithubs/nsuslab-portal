@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-nsus-gray-100 border-t border-nsus-gray-200">
-      <div className="max-w-screen-xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto pt-12 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="col-span-1 md:col-span-12 lg:col-span-4 pb-6 lg:pb-0">
             <div className="mb-6">

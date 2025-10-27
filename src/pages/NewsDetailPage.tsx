@@ -42,9 +42,9 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
         }
         return null;
       },
-      [BLOCKS.HEADING_2]: (node: any, children: React.ReactNode) => <h2 className="text-2xl font-bold mt-8 mb-4 text-nsus-gray-900">{children}</h2>,
-      [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => <p className="mb-4 text-nsus-gray-700 leading-relaxed">{children}</p>,
-      [BLOCKS.UL_LIST]: (node: any, children: React.ReactNode) => <ul className="list-disc list-inside my-4 space-y-2">{children}</ul>,
+      [BLOCKS.HEADING_2]: (_node: any, children: React.ReactNode) => <h2 className="text-2xl font-bold mt-8 mb-4 text-nsus-gray-900">{children}</h2>,
+      [BLOCKS.PARAGRAPH]: (_node: any, children: React.ReactNode) => <p className="mb-4 text-nsus-gray-700 leading-relaxed">{children}</p>,
+      [BLOCKS.UL_LIST]: (_node: any, children: React.ReactNode) => <ul className="list-disc list-inside my-4 space-y-2">{children}</ul>,
       [INLINES.HYPERLINK]: (node: any, children: React.ReactNode) => <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-nsus-blue hover:underline">{children}</a>,
     },
   };
@@ -64,18 +64,16 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
   });
 
   return (
-    <div className="bg-white py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white py-16 md:py-24">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-16">
         <Breadcrumb links={[
-          { name: 'Home', href: '#/' },
-          { name: 'Newsroom', href: '#/news' },
-          { name: article.title, href: `#/news/${article.slug}` }
+          { name: 'News', href: `#/news` },
+          { name: `${article.category}`, href: `#/news/${article.slug}` },
         ]} />
 
         <div className="mt-8">
-          <div className="text-base text-nsus-blue font-bold uppercase">{article.category}</div>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-nsus-gray-900 sm:text-5xl">{article.title}</h1>
-          <p className="mt-4 text-lg text-nsus-gray-500">{formattedDate}</p>
+          <h3 className="mt-2 tracking-tight text-nsus-gray-900">{article.title}</h3>
+          <p className="caption mt-4 text-nsus-gray-500">{formattedDate}</p>
         </div>
 
         {article.featuredImageUrl && (

@@ -1,18 +1,14 @@
 import React, { useRef, useLayoutEffect, useContext, useEffect } from 'react';
 import { NavbarThemeContext } from '@/App';
 import gsap from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HEADER_FIXED_HEIGHT } from "@/constants";
 
 import GlobalSection from '@/pages/sections/about-us/GlobalSection';
 import WhoWeAreTitleSection from '@/pages/sections/about-us/WhoWeAreTitleSection';
 import CultureSection from '@/pages/sections/about-us/CultureSection';
-import KeyAchievementSection from '@/pages/sections/about-us/KeyAchievementSection';
-import FeatureSection from '@/pages/sections/about-us/FeatureSection_Modify';
-import FinancialInfoSection from './sections/about-us/FinancialInfoSection';
-
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+import FeatureSection from '@/pages/sections/about-us/FeatureSection';
+import FinancialInfoSection from '@/pages/sections/about-us/FinancialInfoSection';
 
 const AboutUsPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
@@ -65,7 +61,7 @@ const AboutUsPage: React.FC = () => {
             <WhoWeAreTitleSection ref={mainSectionRef} onChevronClick={scrollToSecondSection} />
             <FeatureSection ref={featureSectionRef} />
             <FinancialInfoSection />
-            <KeyAchievementSection />
+            {/* <KeyAchievementSection /> */}
             <GlobalSection />
             <CultureSection />
         </div>

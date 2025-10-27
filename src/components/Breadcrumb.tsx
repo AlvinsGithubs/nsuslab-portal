@@ -18,7 +18,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ links }) => {
     
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex items-center space-x-2 text-sm text-nsus-gray-500">
+      <ol className="flex items-center space-x-2 caption text-nsus-gray-500">
         {links.map((link, index) => (
           <li key={link.name}>
             <div className="flex items-center">
