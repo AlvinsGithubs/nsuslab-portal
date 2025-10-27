@@ -1,9 +1,9 @@
 import { forwardRef, useLayoutEffect, useRef, useState } from "react";
-import { featureData } from "@/lib/whoweareData";
+import { cultureFeatureData } from "@/lib/careerData";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
+const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -16,7 +16,6 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
     const section = sectionRef.current;
     const container = containerRef.current;
     const leftTitles = leftTitleRefs.current.filter(Boolean);
@@ -30,7 +29,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       features.length === 0 ||
       leftTitles.length === 0 ||
       progressFills.length === 0 ||
-      !progressIndicator 
+      !progressIndicator
     )
       return;
 
@@ -41,7 +40,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       gsap.set(leftTitles, { opacity: 0, yPercent: 100 });
       gsap.set(leftTitles[0], { opacity: 1, yPercent: 0 });
       gsap.set(progressFills, { width: "0%" });
-      gsap.set(progressIndicator, { opacity: 1 }); 
+      gsap.set(progressIndicator, { opacity: 1 });
 
       const tl = gsap.timeline();
 
@@ -82,14 +81,14 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         onLeave: () => {
           gsap.to(progressIndicator, {
             opacity: 0,
-            duration: 0.3, 
+            duration: 0.3,
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
           gsap.to(progressIndicator, {
             opacity: 1,
-            duration: 0.3, 
+            duration: 0.3,
             ease: "power1.in",
           });
         },
@@ -135,25 +134,18 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         }
       }}
       className="w-full transition-colors duration-500 ease-in-out relative h-screen"
-      style={{
-        backgroundColor:
-          featureData[activeIndex]?.bgColor || featureData[0].bgColor,
-      }}
     >
       <div
         ref={containerRef}
         className="mx-auto grid max-w-screen-xl grid-cols-1 gap-x-32 px-4 sm:px-6 lg:grid-cols-[0.5fr_0.8fr] lg:px-4"
       >
         <div className="hidden lg:flex lg:h-screen lg:flex-col lg:justify-start py-20 lg:py-64">
-          <div
-            className="relative"
-            style={{ color: featureData[activeIndex]?.primaryTextColor }}
-          >
+          <div className="relative">
             <div>
               <p className="absolute -left-10 -top-0 text-[10rem] font-extrabold opacity-20">
                 {(activeIndex + 1).toString().padStart(2, "0")}
               </p>
-              {featureData.map((feature, index) => (
+              {cultureFeatureData.map((feature, index) => (
                 <p
                   key={index}
                   ref={(el) => {
@@ -169,7 +161,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         </div>
 
         <div ref={rightColRef} className="relative w-full lg:col-start-2">
-          {featureData.map((feature, index) => (
+          {cultureFeatureData.map((feature, index) => (
             <div
               key={index}
               ref={(el) => {
@@ -178,30 +170,18 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
               className="flex min-h-screen flex-col items-start justify-start py-40 lg:h-full lg:py-64"
             >
               <div className="mb-8 md:hidden flex items-center gap-4 pr-20">
-                <p
-                  className="whitespace-pre-line text-6xl font-extrabold opacity-20"
-                  style={{ color: feature.primaryTextColor }}
-                >
+                <p className="whitespace-pre-line text-6xl font-extrabold opacity-20">
                   {(index + 1).toString().padStart(2, "0")}
                 </p>
-                <h3
-                  className="whitespace-pre-line"
-                  style={{ color: feature.primaryTextColor }}
-                >
+                <h3 className="text-neutral-900 whitespace-pre-line">
                   {feature.title}
                 </h3>
               </div>
-              <h3
-                className="whitespace-pre-line py-4 font-bold md:py-8"
-                style={{ color: feature.primaryTextColor }}
-              >
+              <h3 className="text-neutral-900 whitespace-pre-line py-4 font-bold md:py-8">
                 {feature.heading}
               </h3>
-              <h5 className="mb-4 whitespace-pre-line text-gray-200 !leading-[1.6]">
+              <h5 className="mb-4 whitespace-pre-line text-neutral-600 font-semibold !leading-[1.6]">
                 {feature.description}
-              </h5>
-              <h5 className="mb-4 whitespace-pre-line text-white font-bold !leading-[1.6]">
-                {feature.listItems}
               </h5>
             </div>
           ))}
@@ -209,27 +189,26 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       </div>
 
       {/* Progress Indicator */}
-      {/* 5. ref 할당 */}
       <div
         ref={progressIndicatorRef}
         className="absolute bottom-16 left-1/2 z-10 -translate-x-1/2"
       >
-        <div className="flex items-center gap-2 rounded-full bg-black/30 px-4 py-2 backdrop-blur-sm">
-          {featureData.map((_, index) => (
+        <h6 className="hidden md:block text-nsus-gray-700 mb-6">
+          NSUS Ways Of Working
+        </h6>
+
+        <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 backdrop-blur-md shadow-lg">
+          {cultureFeatureData.map((_, index) => (
             <div
               key={index}
               className="relative h-1 w-12 overflow-hidden rounded-full"
-              style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.15)" }}
             >
               <div
                 ref={(el) => {
                   if (el) progressFillRefs.current[index] = el;
                 }}
-                className="absolute left-0 top-0 h-full rounded-full"
-                style={{
-                  backgroundColor:
-                    featureData[activeIndex]?.primaryTextColor || "#ffffff",
-                }}
+                className="absolute left-0 top-0 h-full rounded-full bg-black"
               />
             </div>
           ))}
@@ -239,4 +218,4 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
   );
 });
 
-export default FeatureSection;
+export default CultureFeatureSection;

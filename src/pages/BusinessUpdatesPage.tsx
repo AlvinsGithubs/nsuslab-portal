@@ -86,8 +86,8 @@ const BusinessUpdatesPage: React.FC = () => {
 
     return (
         <div className="bg-white py-24">
-            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="font-bold text-nsus-gray-900 text-center mt-12 mb-24">Business Updates</h1>
+            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <h2 className="font-bold text-nsus-gray-900 mb-12">Business Updates</h2>
                 {renderContent()}
             </div>
         </div>

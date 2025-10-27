@@ -181,14 +181,11 @@ const CareersPage: React.FC = () => {
 
     return (
         <div className="bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 xl:gap-x-16">
+            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 xl:gap-x-16 md:py-12">
                     <aside className="lg:col-span-3">
                         <div className="sticky top-24">
-                            <h1 className="text-4xl font-bold">Jobs</h1>
-                            <p className="mt-4 text-nsus-gray-500 leading-relaxed">
-                                엔서스랩의 위대한 도전을 함께 할 우수 인재를 모집합니다.
-                            </p>
+                            <h2>Jobs</h2>
                             <div className="mt-8 divide-y divide-nsus-gray-200">
                                 <FilterAccordion 
                                     title="직군" 
@@ -218,7 +215,7 @@ const CareersPage: React.FC = () => {
                         </div>
                     </aside>
 
-                    <main className="lg:col-span-9 mt-12 lg:mt-0">
+                    <main className="lg:col-span-9 py-12 lg:py-24">
                         <div className="relative mb-6">
                             <input
                                 type="text"

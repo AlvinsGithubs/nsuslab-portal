@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import NotFoundPage from './NotFoundPage';
 import Breadcrumb from '@/components/Breadcrumb';
-import PeopleCard from '@/components/PeopleCard';
+import LifeCard from '@/components/PeopleCard';
 import JobCard from '@/components/JobCard';
 import { fetchJobsByDepartment, fetchTeamMembersByDepartment } from '@/lib/contentful';
 import type { Job } from '@/types';
-import { fetchDepartmentBySlug } from '@/lib/contentful'; // 새로 추가
-import type { Department, TeamMember } from '@/types'; // 새로 추가
+import { fetchDepartmentBySlug } from '@/lib/contentful';
+import type { Department, TeamMember } from '@/types';
 import { NavbarThemeContext } from '@/App';
 
 interface DepartmentDetailPageProps {
@@ -55,7 +55,7 @@ const DepartmentDetailPage: React.FC<DepartmentDetailPageProps> = ({ slug }) => 
   }, [department]); 
 
   if (isLoading) {
-    return <div>Loading...</div>; // 간단한 로딩 표시
+    return <div className="text-center py-24 text-xl text-nsus-gray-500">Loading department...</div>;
   }
 
   if (!department) {
@@ -63,46 +63,43 @@ const DepartmentDetailPage: React.FC<DepartmentDetailPageProps> = ({ slug }) => 
   }
   
   return (
-    <div className="bg-white">
-      <div className="relative h-80">
-        <img src={department.imageUrl} alt={department.name} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-0 left-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="py-8">
-                <h1 className="text-5xl font-bold text-white">{department.name}</h1>
-                <p className="mt-2 text-xl text-gray-200">{department.description}</p>
-            </div>
-        </div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="bg-white py-16 md:py-24">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-16">
         <Breadcrumb links={[
-            { name: 'Home', href: '#/' },
             { name: 'Departments', href: '#/departments' },
             { name: department.name, href: `#/departments/${department.slug}` }
         ]} />
 
-        <div className="mt-12">
-            <h2 className="text-3xl font-bold text-nsus-gray-900">Our Vision</h2>
-            <p className="mt-4 text-lg text-nsus-gray-700 max-w-3xl">{department.vision}</p>
+        <div className="mt-8">
+          <h3 className="mt-2 tracking-tight text-nsus-gray-900">{department.name}</h3>
+          <p className="caption mt-4 text-nsus-gray-500">{department.description}</p>
         </div>
 
+        {department.imageUrl && (
+          <img src={department.imageUrl} alt={department.name} className="mt-12 w-full h-auto rounded-xl shadow-lg" />
+        )}
+        
+        <article className="mt-12 prose prose-lg max-w-none">
+          <h2>Our Vision</h2>
+          <p>{department.vision}</p>
+        </article>
+        
         {membersInDept.length > 0 && (
-            <div className="mt-16">
-                <h2 className="text-3xl font-bold text-nsus-gray-900">Meet the Team</h2>
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {membersInDept.map(member => <PeopleCard key={member.id} member={member} />)}
-                </div>
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-nsus-gray-900">Meet the Team</h2>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {membersInDept.map(member => <LifeCard key={member.id} member={member} />)}
             </div>
+          </div>
         )}
 
         {jobsInDept.length > 0 && (
-            <div className="mt-16">
-                <h2 className="text-3xl font-bold text-nsus-gray-900">Open Positions in {department.name}</h2>
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {jobsInDept.map(job => <JobCard key={job.id} job={job} />)}
-                </div>
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-nsus-gray-900">Open Positions in {department.name}</h2>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {jobsInDept.map(job => <JobCard key={job.id} job={job} />)}
             </div>
+          </div>
         )}
       </div>
     </div>

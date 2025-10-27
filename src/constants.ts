@@ -37,7 +37,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     nameKey: 'nav_career',
-    href: '#/career',  // 메인 CAREER 버튼 - HomePage로 이동
+    href: '#/culture',  // 메인 CAREER 버튼 - HomePage로 이동
     megaMenu: [
       {
         titleKey: 'nav_column_recruitment',
