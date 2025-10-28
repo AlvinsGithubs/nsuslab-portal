@@ -65,7 +65,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
 
   return (
     <div className="bg-white py-16 md:py-24">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-16">
+      <div className="max-w-screen-lg mx-auto px-4 md:px-8 pt-16">
         <Breadcrumb links={[
           { name: 'News', href: `#/news` },
           { name: `${article.category}`, href: `#/news/${article.slug}` },
@@ -80,7 +80,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
           <img src={article.featuredImageUrl} alt={article.title} className="mt-12 w-full h-auto rounded-xl shadow-lg" />
         )}
         
-        <article className="mt-12 prose prose-lg max-w-none">
+        <article className="mt-12 prose prose-lg max-w-screen-lg mx-auto">
           {documentToReactComponents(article.content, renderOptions)}
         </article>
       </div>

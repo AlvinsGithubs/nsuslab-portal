@@ -19,6 +19,48 @@ import {
 
 const FinancialInfoSection: React.FC = () => {
   const navbarContext = useContext(NavbarThemeContext);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const studioHeaderRef = useRef<HTMLDivElement>(null);
+  const studioVisualRef = useRef<HTMLDivElement>(null);
+  const statsTitleRef = useRef<HTMLDivElement>(null);
+  const achievementTitleRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animateOnScroll = (
+      element: HTMLElement | null,
+      y: number = 50,
+      delay: number = 0
+    ) => {
+      if (!element) return;
+      gsap.set(element, { opacity: 0, y: y });
+      ScrollTrigger.create({
+        trigger: element,
+        animation: gsap.to(element, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: delay,
+          ease: "power2.out",
+        }),
+        start: "top 85%",
+        once: true,
+      });
+    };
+
+    const ctx = gsap.context(() => {
+      // Apply animations to the elements
+      animateOnScroll(headerRef.current);
+      animateOnScroll(studioHeaderRef.current, 50, 0.1);
+      animateOnScroll(studioVisualRef.current, 50, 0.2);
+      animateOnScroll(statsTitleRef.current);
+      animateOnScroll(achievementTitleRef.current);
+    });
+
+    return () => ctx.revert(); // Cleanup
+  }, []);
+
   useEffect(() => {
     if (navbarContext) {
       navbarContext.setNavbarTheme("dark");
@@ -45,10 +87,9 @@ const FinancialInfoSection: React.FC = () => {
 
   // 막대 그래프 데이터 및 SVG 설정 - 자연스러운 불규칙 성장
   const barData = [
-    74, 78, 78, 80, 92, 108, 110, 109, 102, 111, 122, 123, 116, 135, 128, 147,
-    148, 158, 165, 172, 167, 183, 178, 198, 191, 220, 240, 262, 264, 270, 280,
-    297, 310, 330, 320, 322, 325, 328, 332, 340, 325, 335, 328, 354, 345, 372,
-    388, 400, 410, 430,
+    74, 78, 92, 108, 110, 109, 123, 116, 135, 147, 148, 158, 165, 172, 178, 220,
+    240, 264, 270, 280, 297, 310, 332, 340, 325, 335, 354, 345, 372, 388, 425,
+    465, 475,
   ];
   const totalBars = barData.length;
   const viewBoxWidth = 1600;
@@ -64,13 +105,18 @@ const FinancialInfoSection: React.FC = () => {
   return (
     <div className="bg-black text-white py-24">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 border-b border-neutral-800 py-12 lg:py-24">
-        <div className="data-header mb-16 lg:mb-32 text-center">
+        <div
+          ref={headerRef} 
+          className="data-header mb-16 lg:mb-32 text-center opacity-0" 
+        >
           <h1>{financialSectionText.mainTitle}</h1>
         </div>
-
         <div className="data-view">
           <div className="item-header mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div
+              ref={studioHeaderRef}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 opacity-0"
+            >
               <div className="item-title">
                 <h4>{financialSectionText.studioTitle}</h4>
               </div>
@@ -78,8 +124,10 @@ const FinancialInfoSection: React.FC = () => {
                 <h6>{financialSectionText.studioDescription}</h6>
               </div>
             </div>
-
-            <div className="item-visual relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-black">
+            <div
+              ref={studioVisualRef} 
+              className="item-visual relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-black opacity-0" // ✅ ADDED opacity-0
+            >
               <div className="absolute inset-0 z-0">
                 <svg
                   width="100%"
@@ -282,34 +330,43 @@ const FinancialInfoSection: React.FC = () => {
               </div>
             </div>
           </div>
-
           <div className="item-point pb-8 md:pb-24 border-b border-neutral-800">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-              <div className="item-point-title lg:col-span-1">
+              <div
+                ref={statsTitleRef} 
+                className="item-point-title lg:col-span-1 opacity-0" 
+              >
                 <h4>{financialSectionText.statsTitle}</h4>
               </div>
-
               <div className="grid md:grid-cols-2 gap-4 lg:gap-8 lg:col-span-2">
-                {financialStatsData.map((stat) => (
-                  <StatBox key={stat.title} {...stat} />
-                ))}
+                {financialStatsData.map(
+                  (
+                    stat
+                  ) => (
+                    <StatBox key={stat.title} {...stat} />
+                  )
+                )}
               </div>
             </div>
           </div>
-
           <div className="item-point pt-12 md:pt-24">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex flex-col gap-8 md:pr-64">
-                {" "}
-                <div className="item-title">
-                  <h4>{financialSectionText.keyAchivementTitle}</h4>
+                <div
+                  ref={achievementTitleRef} // ✅ ADDED Ref
+                  className="item-title opacity-0" // ✅ ADDED opacity-0
+                >
+                  <h4>{financialSectionText.keyAchivementTitle}</h4> 
                 </div>
               </div>
-
               <div className="grid grid-cols-1 gap-12">
-                {achievementData.map((achievement) => (
-                  <AchievementBox key={achievement.title} {...achievement} />
-                ))}
+                {achievementData.map(
+                  (
+                    achievement // AchievementBox도 이미 자체적으로 애니메이션을 가집니다.
+                  ) => (
+                    <AchievementBox key={achievement.title} {...achievement} />
+                  )
+                )}
               </div>
             </div>
           </div>

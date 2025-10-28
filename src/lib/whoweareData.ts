@@ -2,19 +2,21 @@ import whoweare_ggpoker from "@/asset/imgs/about-us-Img/whoweare_ggpoker.webp";
 import whoweare_globalnetwork from "@/asset/imgs/about-us-Img/whoweare_globalnetwork.jpg";
 import whoweare_iso from "@/asset/imgs/about-us-Img/whoweare_iso.jpg";
 import whoweare_wsop from "@/asset/imgs/about-us-Img/whoweare_wsop.jpg";
-import cardImg2 from "@/asset/imgs/about-us-Img/cardImg2.png";
-import whoweare_iGaming from "@/asset/imgs/about-us-Img/whoweare_iGaming.jpg";
-import whoweare_culture3 from "@/asset/imgs/about-us-Img/whoweare_culture3.png";
+import culture_free from "@/asset/imgs/about-us-Img/culture_free.jpg";
+import culture_challenges from "@/asset/imgs/about-us-Img/culture_challenges.jpg";
+import culture_office2 from "@/asset/imgs/about-us-Img/culture_office2.jpg";
 
 // Feature Section
 interface Feature {
   title: string;
   heading: string;
-  description: string; // ✅ string[] 에서 string으로 타입 변경
+  description: string;
   listItems: string;
   bgColor: string;
   primaryTextColor: string;
   secondaryTextColor: string;
+  linkUrl?: string;
+  linkText?: string;
 }
 
 export const featureData: Feature[] = [
@@ -39,6 +41,8 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
+    linkUrl: "/history#/history",
+    linkText: "주요 연혁",
   },
   {
     title: "CONNECTING THE WORLD AT PLAY",
@@ -49,6 +53,8 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
+    linkUrl: "/departments",
+    linkText: "주요 Product",
   },
   {
     title: "THE FUTURE OF PLAY OUR NEXT CHAPTER",
@@ -71,6 +77,8 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
+        linkUrl: "/culture",
+    linkText: "NSUS Culture",
   },
 ];
 
@@ -126,7 +134,7 @@ interface Culture {
 export const cultureData: Culture[] = [
   {
     id: 1,
-    image: whoweare_iGaming,
+    image: culture_challenges,
     title: "도전과 성장의 기회",
     description:
       "실시간 글로벌 서비스를 운영한다는 것은 도전적인 과제입니다. 그리고 그 도전을 함께 할 수 있는 다양한 역량을 가진 엔지니어와 함께 서로의 경험과 지식을 공유하며 성장합니다.",
@@ -135,34 +143,34 @@ export const cultureData: Culture[] = [
   },
   {
     id: 2,
-    image: cardImg2,
+    image: culture_free,
     title: "자유롭고 수평적인 문화",
     description:
       "자유롭고 수평적인 업무 환경과 직원 간 유대를 중시하며 어떠한 이슈라도 의견을 제시하고 정당한 피드백을 받을 수 있는 앤서스만의 기업 문화를 만들어가고 있습니다.",
     linkTo: "/culture",
-    linkText: "NSUS Culture",
+    linkText: "Culture",
   },
   {
     id: 3,
-    image: whoweare_culture3,
+    image: culture_office2,
     title: "최고의 보상과 근무 환경",
     description:
       "폭발적인 성장세와 매출을 기반으로 업계 평균을 상회하는 보상을 제공하여 구성원의 안정적인 생활을 보장하고, 업무에 몰입할 수 있는 최적의 업무 환경을 제공합니다.",
-    linkTo: "/financial-info",
-    linkText: "Financial Info",
+    linkTo: "/benefits",
+    linkText: "Benefits",
   },
 ];
 
-// FinancialSection
 export const financialSectionText = {
   mainTitle: "Grow Beyond Stability",
   studioTitle: "NSUSGroup의 개발 스튜디오",
   studioDescription:
     "외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, NSUSLAB은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다. 또한 투자자의 외압이 없는 독자적이며 신속한 의사결정 구조를 가지고 있습니다.",
-  visualTitle: "분기별 매출 추이",
+  visualTitle: "Sustainable Growth",
   statsTitle: "데이터로 보는 앤서스랩",
   keyAchivementTitle: "Key Achivement",
-  keyAchivementDescription: "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에 통합된 경험을 제공합니다. 일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며, AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
+  keyAchivementDescription:
+    "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에 통합된 경험을 제공합니다. 일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며, AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
 };
 
 interface StatBoxProps {
@@ -174,49 +182,21 @@ interface StatBoxProps {
 
 export const financialStatsData: StatBoxProps[] = [
   {
-    title: "대규모 트래픽",
+    title: "일 10억 건의 대규모 트래픽 처리 ",
     value: 1000000000,
     unit: "+",
-    description: "일 10억 건의 대규모 트래픽 처리 기술력",
+    description: "2025. 09월 기준",
   },
   {
-    title: "동시 접속자 4만",
-    value: 40000,
-    unit: "명",
-    description: "글로벌 포커룸 No 1. 트래픽",
+    title: "동시 접속자 60만명 달성",
+    value: 600000,
+    unit: "+",
+    description: "2025. 09월 기준",
   },
   {
-    title: "'25 올해의 데이터 드라이버",
-    value: 30,
-    unit: "% 개선",
-    description: "900개 이상의 다이나믹 테이블 도입으로 데이터 효율 30% 개선",
-  },
-  {
-    title: "글로벌 인더스트리 확장",
-    value: 20,
-    unit: "+개국",
-    description:
-      "유럽, 미국, 아시아, 남미 등의 주요 국가와의 정식 라이센스 체결",
-  },
-];
-
-export const keyachivementData: StatBoxProps[] = [
-  {
-    title: "대규모 트래픽",
-    value: 10,
-    unit: "억+",
-    description: "일 10억 건의 대규모 트래픽 처리 기술력",
-  },
-  {
-    title: "동시 접속자 4만",
-    value: 40000,
-    unit: "명",
-    description: "글로벌 포커룸 No 1. 트래픽",
-  },
-  {
-    title: "'25 올해의 데이터 드라이버",
-    value: 30,
-    unit: "% 개선",
+    title: "전체 유저수 26만명",
+    value: 2600000,
+    unit: "+",
     description: "900개 이상의 다이나믹 테이블 도입으로 데이터 효율 30% 개선",
   },
   {

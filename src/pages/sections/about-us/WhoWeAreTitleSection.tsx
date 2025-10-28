@@ -1,7 +1,7 @@
 import React, { forwardRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { useLanguage } from '@/contexts/LanguageContext';
-import whowearevideo from '@/asset/videos/whoweare-4.mp4';
+import whowearevideo from '@/asset/videos/whatwedo-1.mp4';
 
 interface WhoWeAreTitleSectionProps {
   onChevronClick: () => void;
