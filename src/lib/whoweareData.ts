@@ -87,21 +87,21 @@ export const achievementData: Achievement[] = [
     title: "Global No.1 Traffic - GGPoker",
     subTitle: "전 세계 포커 시장 점유율 1위",
     description:
-      "NSUS Group의 GGPoker는 현재 기준 고객 유입률, Cash, Peak traffic 등 전반적인 \n모든 지표에서 압도적인 시장 점유율을 차지하고 있으며, 그 격차를 지속적으로 확대하고 있습니다.",
+      "NSUS Group의 GGPoker는 현재 기준 고객 유입률, Cash, Peak traffic 등 전반적인 모든 지표에서 압도적인 시장 점유율을 차지하고 있으며, 그 격차를 지속적으로 확대하고 있습니다.",
     image: whoweare_ggpoker,
   },
   {
     title: "Expanding the market for iGaming",
     subTitle: "Global iGaming Industry 확장",
     description:
-      "NSUS Group은 유럽, 미주, 아시아, 남미 등의 주요 국가와 우호적인 파트너십 관계를 바탕으로 \n새로운 시장을 지속적으로 개척하여 보다 많은 사람들에게 즐거운 서비스를 제공하려 노력하고 있습니다.",
+      "NSUS Group은 유럽, 미주, 아시아, 남미 등의 주요 국가와 우호적인 파트너십 관계를 바탕으로 새로운 시장을 지속적으로 개척하여 보다 많은 사람들에게 즐거운 서비스를 제공하려 노력하고 있습니다.",
     image: whoweare_globalnetwork,
   },
   {
     title: "ISO Certified Company",
     subTitle: "세계 최고 수준의 정보 보안 관리",
     description:
-      "NSUS Group은 BMM Testlabs 을 통해 제품의 안전성 및 공정성에 대한 인증을 받았습니다. \n이를 통해 각 국가 별로 정해진 규정을 지키고 안정적인 제품과 서비스를 제공 하고 있습니다.",
+      "NSUS Group은 BMM Testlabs 을 통해 제품의 안전성 및 공정성에 대한 인증을 받았습니다. 이를 통해 각 국가 별로 정해진 규정을 지키고 안정적인 제품과 서비스를 제공 하고 있습니다.",
     image: whoweare_iso,
   },
   {
