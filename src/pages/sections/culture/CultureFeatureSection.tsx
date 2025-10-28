@@ -16,6 +16,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
     const section = sectionRef.current;
     const container = containerRef.current;
     const leftTitles = leftTitleRefs.current.filter(Boolean);
@@ -29,7 +30,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       features.length === 0 ||
       leftTitles.length === 0 ||
       progressFills.length === 0 ||
-      !progressIndicator
+      !progressIndicator 
     )
       return;
 
@@ -40,7 +41,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       gsap.set(leftTitles, { opacity: 0, yPercent: 100 });
       gsap.set(leftTitles[0], { opacity: 1, yPercent: 0 });
       gsap.set(progressFills, { width: "0%" });
-      gsap.set(progressIndicator, { opacity: 1 });
+      gsap.set(progressIndicator, { opacity: 1 }); 
 
       const tl = gsap.timeline();
 
@@ -50,7 +51,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         const prevTitle = leftTitles[i - 1];
         const currentTitle = leftTitles[i];
 
-        tl.to({}, { duration: 1.5 })
+        tl.to({}, { duration: 1 })
           .to([prevFeature, prevTitle], {
             opacity: 0,
             yPercent: -100,
@@ -65,6 +66,8 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
               opacity: 1,
               duration: 1.2,
               ease: "power2.inOut",
+              onStart: () => setActiveIndex(i), 
+              onReverseComplete: () => setActiveIndex(i - 1),
             },
             "<"
           );
@@ -73,7 +76,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       ScrollTrigger.create({
         trigger: container,
         start: "top top",
-        end: `+=${features.length * 1500}`,
+        end: `+=${features.length * 1200}`,
         pin: section,
         scrub: true,
         animation: tl,
@@ -81,14 +84,14 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         onLeave: () => {
           gsap.to(progressIndicator, {
             opacity: 0,
-            duration: 0.3,
+            duration: 0.3, 
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
           gsap.to(progressIndicator, {
             opacity: 1,
-            duration: 0.3,
+            duration: 0.3, 
             ease: "power1.in",
           });
         },
@@ -106,13 +109,10 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
 
         ScrollTrigger.create({
           trigger: rightColRef.current,
-          start: `top+=${i * 1500} top`,
-          end: `top+=${(i + 1) * 1500} top`,
+          start: `top+=${i * 1200} top`,
+          end: `top+=${(i + 1) * 1200} top`,
           scrub: true,
           animation: anim,
-
-          onEnter: () => setActiveIndex(i),
-          onEnterBack: () => setActiveIndex(i),
 
           onLeave: () => gsap.set(currentFill, { width: "100%" }),
           onLeaveBack: () => gsap.set(currentFill, { width: "0%" }),
@@ -180,7 +180,7 @@ const CultureFeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
               <h3 className="text-neutral-900 whitespace-pre-line py-4 font-bold md:py-8">
                 {feature.heading}
               </h3>
-              <h5 className="mb-4 whitespace-pre-line text-neutral-600 font-semibold !leading-[1.6]">
+              <h5 className="mb-4 whitespace-pre-line text-neutral-600 !leading-[1.6]">
                 {feature.description}
               </h5>
             </div>

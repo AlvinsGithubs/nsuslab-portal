@@ -89,9 +89,9 @@ const KeyAchievementSection: React.FC = () => {
       >
         <div className="max-w-screen-xl mx-auto">
           <div className="lg:mb-12 text-center"></div>
-          <h2 className="section-title text-neutral-900 mb-4 lg:mb-12">
+          <h3 className="text-neutral-900 mb-4 lg:mb-12">
             {"이런 동료를 기다립니다"}
-          </h2>
+          </h3>
           <div className="card-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {cultureRecruitData.map((data, index) => (
               <CultureRecruitCard
@@ -108,16 +108,16 @@ const KeyAchievementSection: React.FC = () => {
 
       {/* Final CTA Section */}
       <section ref={ctaRef} className="w-full py-12 px-4 bg-nsus-gray-200">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 py-12 md:px-12">
+        <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row items-center justify-between gap-8 py-4 md:px-12">
           <div className="text-center md:text-left">
-            <h3 className="font-semibold whitespace-pre-line leading-relaxed text-gray-400">
+            <h4 className="font-semibold whitespace-pre-line leading-relaxed text-gray-400">
               {
                 "만약 당신이 그런 사람이라면,\n세상을 연결하고 즐거움을 주는 위대한 여정에"
               }
-            </h3>
-            <h3 className="font-bold whitespace-pre-line text-black leading-tight">
+            </h4>
+            <h4 className="font-bold whitespace-pre-line text-black leading-tight">
               {"당신이라는 출중한 플레이어가 꼭 필요합니다."}
-            </h3>
+            </h4>
           </div>
 
           <div className="mt-4 md:mt-0 flex-shrink-0">

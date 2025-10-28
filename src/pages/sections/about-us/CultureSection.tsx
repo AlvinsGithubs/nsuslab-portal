@@ -39,7 +39,7 @@ const CultureSection: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {cultureData.map((card) => (
                         <div key={card.id} className="animated-item flex flex-col bg-white overflow-hidden rounded-2xl border border-gray-200">
-                            <div className="w-full md:aspect-square">
+                            <div className="w-full md:aspect-[4/3]">
                                 <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="p-8 flex flex-col flex-grow">

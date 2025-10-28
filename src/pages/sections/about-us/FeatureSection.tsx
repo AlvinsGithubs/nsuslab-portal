@@ -52,7 +52,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         const prevTitle = leftTitles[i - 1];
         const currentTitle = leftTitles[i];
 
-        tl.to({}, { duration: 1.5 })
+        tl.to({}, { duration: 1 })
           .to([prevFeature, prevTitle], {
             opacity: 0,
             yPercent: -100,
@@ -67,6 +67,8 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
               opacity: 1,
               duration: 1.2,
               ease: "power2.inOut",
+              onStart: () => setActiveIndex(i), 
+              onReverseComplete: () => setActiveIndex(i - 1),
             },
             "<"
           );
@@ -75,7 +77,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
       ScrollTrigger.create({
         trigger: container,
         start: "top top",
-        end: `+=${features.length * 1500}`,
+        end: `+=${features.length * 1200}`,
         pin: section,
         scrub: true,
         animation: tl,
@@ -108,13 +110,10 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
 
         ScrollTrigger.create({
           trigger: rightColRef.current,
-          start: `top+=${i * 1500} top`,
-          end: `top+=${(i + 1) * 1500} top`,
+          start: `top+=${i * 1200} top`,
+          end: `top+=${(i + 1) * 1200} top`,
           scrub: true,
           animation: anim,
-
-          onEnter: () => setActiveIndex(i),
-          onEnterBack: () => setActiveIndex(i),
 
           onLeave: () => gsap.set(currentFill, { width: "100%" }),
           onLeaveBack: () => gsap.set(currentFill, { width: "0%" }),

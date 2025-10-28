@@ -41,7 +41,7 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
-    linkUrl: "/history#/history",
+    linkUrl: "#/history/history",
     linkText: "주요 연혁",
   },
   {
@@ -53,7 +53,7 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
-    linkUrl: "/departments",
+    linkUrl: "#/departments",
     linkText: "주요 Product",
   },
   {
@@ -62,7 +62,7 @@ export const featureData: Feature[] = [
     description:
       "우리의 여정은 이제 시작입니다.\n\n단순히 세계 1위 iGaming 기업이 되는 것을 넘어, 우리는 디지털 세상 속에서 사람들이 함께 웃고, 경쟁하고, 소통할 수 있는 세상에서 가장 거대하고 즐거운 공간을 꿈꿉니다.",
     listItems:
-      "\nNSUSLAB이 만들어갈 미래는 게임의 경계를 넘어, 새로운 연결과 즐거움의 시대가 될 것입니다.",
+      "\n앤서스랩이 만들어갈 미래는 게임의 경계를 넘어, 새로운 연결과 즐거움의 시대가 될 것입니다.",
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
@@ -71,14 +71,14 @@ export const featureData: Feature[] = [
     title: "WRITE THE NEXT CHAPTER OF PLAY",
     heading: "다음 챕터를 함께 만들어갈\n플레이어를 찾습니다",
     description:
-      "상상은 현실이 되고, 성공은 더 큰 미래를 엽니다.\n\n우리의 미션은 단순히 게임을 만드는 것을 넘어, '재미'를 통해 세상을 연결하는 것입니다. 이 거대하고 즐거운 미래를 함께 만들어갈 최고의 플레이어가 필요합니다. 최고의 플레이어에게는 최고의 Playground가 주어져야 합니다.\n\n우리는 최고의 플레이어의 역량에 대한 확신을 업계 최고 수준의 보상으로 증명합니다. NSUSLAB에서 최신 AI 기술과 도구를 마음껏 탐구하고, 당신의 상상과 아이디어를 현실로 만드는 혁신을 직접 주도할 수 있습니다.",
+      "상상은 현실이 되고, 성공은 더 큰 미래를 엽니다.\n\n우리의 미션은 단순히 게임을 만드는 것을 넘어, '재미'를 통해 세상을 연결하는 것입니다. 이 거대하고 즐거운 미래를 함께 만들어갈 최고의 플레이어가 필요합니다. 최고의 플레이어에게는 최고의 Playground가 주어져야 합니다.\n\n우리는 최고의 플레이어의 역량에 대한 확신을 업계 최고 수준의 보상으로 증명합니다. 앤서스랩에서 최신 AI 기술과 도구를 마음껏 탐구하고, 당신의 상상과 아이디어를 현실로 만드는 혁신을 직접 주도할 수 있습니다.",
     listItems:
-      "\nNSUSLAB은 당신의 잠재력이 폭발하고 성장의 한계가 사라지는 완벽한 Playground입니다.",
+      "\n앤서스랩은 당신의 잠재력이 폭발하고 성장의 한계가 사라지는 완벽한 Playground입니다.",
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
-        linkUrl: "/culture",
-    linkText: "NSUS Culture",
+        linkUrl: "#/culture",
+    linkText: "Culture",
   },
 ];
 
@@ -113,7 +113,7 @@ export const achievementData: Achievement[] = [
     image: whoweare_iso,
   },
   {
-    title: "GGPoker & WSOP Partnership",
+    title: "Official partner of the WSOP",
     subTitle: "세계 최대 규모의 포커 토너먼트 대회 운영사",
     description:
       "NSUS Group은 세계 최대 규모의 토너먼트 WSOP - World Series of Poker의 운영사로서 \niGaming 산업 전반에서 지속적으로 영향력을 확대해 나가고 있습니다.",
@@ -163,14 +163,14 @@ export const cultureData: Culture[] = [
 
 export const financialSectionText = {
   mainTitle: "Grow Beyond Stability",
-  studioTitle: "NSUSGroup의 개발 스튜디오",
+  studioTitle: "NSUS Group의 개발 스튜디오",
   studioDescription:
-    "외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, NSUSLAB은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다. 또한 투자자의 외압이 없는 독자적이며 신속한 의사결정 구조를 가지고 있습니다.",
+    "외부 투자에 의지하고 성공에 대한 막연한 희망으로 프로젝트를 진행하는 대부분의 게임 개발사와는 달리, 앤서스랩은 성공한 제품과 사업에 의한 안정적 매출을 기반으로 보다 큰 성공을 이루기 위해 달리고 있습니다. 또한 투자자의 외압이 없는 독자적이며 신속한 의사결정 구조를 가지고 있습니다.",
   visualTitle: "Sustainable Growth",
   statsTitle: "데이터로 보는 앤서스랩",
   keyAchivementTitle: "Key Achivement",
   keyAchivementDescription:
-    "NSUSLAB은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에 통합된 경험을 제공합니다. 일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며, AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
+    "앤서스랩은 글로벌 서비스를 하나의 데이터 생태계로 연결해 전 세계 수백만 플레이어에 통합된 경험을 제공합니다. 일일 약 10억 건의 트래픽을 단일 네트워크로 안정적으로 운영할 수 있는 역량을 갖추고 있으며, AI 기반 개발 도구와 빅데이터 기술을 누구나 실험하고 즉시 글로벌 서비스에 적용할 수 있는 혁신적 기술 환경을 구축하였습니다.",
 };
 
 interface StatBoxProps {
@@ -194,16 +194,16 @@ export const financialStatsData: StatBoxProps[] = [
     description: "2025. 09월 기준",
   },
   {
-    title: "전체 유저수 26만명",
+    title: "전체 유저수 260만명",
     value: 2600000,
     unit: "+",
-    description: "900개 이상의 다이나믹 테이블 도입으로 데이터 효율 30% 개선",
+    description: "2025. 09월 기준",
   },
   {
     title: "글로벌 인더스트리 확장",
     value: 20,
-    unit: "+개국",
+    unit: "+ 개국",
     description:
-      "유럽, 미국, 아시아, 남미 등의 주요 국가와의 정식 라이센스 체결",
+      "유럽, 미국, 아시아, 남미 등 주요 국가와의 정식 라이센스 체결",
   },
 ];
