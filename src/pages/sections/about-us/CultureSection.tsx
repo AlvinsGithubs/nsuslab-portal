@@ -32,7 +32,7 @@ const CultureSection: React.FC = () => {
 
     return (
         <section ref={sectionRef} className="w-full bg-white py-12 lg:py-24 px-4 md:px-8 text-black">
-            <div className="max-w-screen-2xl mx-auto">
+            <div className="max-w-screen-xl mx-auto">
                 <h3 className="animated-item  text-black whitespace-pre-line text-center mb-12 lg:mb-24">
                     {t('culture_title')}
                 </h3>
