@@ -3,7 +3,6 @@ import ChevronDownIcon from "../components/icons/ChevronDownIcon";
 import { NavbarThemeContext } from "@/App";
 import { gsap } from "gsap";
 import { processSteps, faqData } from "@/lib/careerData";
-import cardImg2 from "@/asset/imgs/about-us-Img/cardImg2.png";
 
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +39,7 @@ const RoadToNsusPage: React.FC = () => {
 
   useEffect(() => {
     if (navbarContext) {
-      navbarContext.setNavbarTheme("dark");
+      navbarContext.setNavbarTheme("light");
     }
   }, [navbarContext]);
 
@@ -104,16 +103,12 @@ const RoadToNsusPage: React.FC = () => {
 
   return (
     <div className="bg-white mx-auto">
-      <div
-        className="relative bg-cover bg-center min-h-[40vh] flex items-center"
-        style={{ backgroundImage: `url(${cardImg2})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-black/50 z-0"></div>
-        <div className="relative z-10 w-full">
-
-          <section className="bg-transparent hidden lg:block">
-            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-4">
+      <div className="w-full mt-12 mb-24">
+        <h2 className="max-w-screen-xl px-4 sm:px-6 md:px-8 pt-24 py-12 mx-auto font-bold text-nsus-gray-900 pb-20 ">Road to NSUS</h2> 
+        <div className="relative z-10 w-full bg-nsus-gray-200">
+          <section className="max-w-screen-xl mx-auto bg-transparent hidden lg:block ">
+            <div className="max-w-screen-xl mx-auto text-center ">
+              <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-4 md:py-16">
                 {processSteps.map((step, index) => (
                   <React.Fragment key={step.title}>
                     <div className="flex flex-col items-center">
@@ -139,7 +134,7 @@ const RoadToNsusPage: React.FC = () => {
       </div>
 
       <main>
-        <section className="py-12 md:py-24">
+        <section className="md:py-12">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol
               ref={processListRef}

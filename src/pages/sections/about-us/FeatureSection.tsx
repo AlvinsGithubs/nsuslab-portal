@@ -2,6 +2,7 @@ import { forwardRef, useLayoutEffect, useRef, useState } from "react";
 import { featureData } from "@/lib/whoweareData";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 
 const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -203,6 +204,18 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
               <h5 className="mb-4 whitespace-pre-line text-white font-bold !leading-[1.6]">
                 {feature.listItems}
               </h5>
+
+              {feature.linkUrl && feature.linkText && (
+                <div className="mt-6">
+                  <a
+                    href={feature.linkUrl}
+                    className="flex rounded-2xl bg-white px-8 py-2 text-base font-bold text-black transition-colors duration-300 ease-in-out hover:bg-nsus-blue hover:text-white"
+                  >
+                    {feature.linkText}
+                    <ArrowUpRight className="hover:text-white"/>
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>

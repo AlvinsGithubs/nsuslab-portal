@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import cultureImg from '@/asset/imgs/about-us-Img/whoweare_culture.jpg';
+import cultureImg from '@/asset/imgs/culture4.jpg';
 
 type TextBlock = {
   type: 'h3' | 'blockquote';
@@ -17,7 +17,7 @@ const TEXT_BLOCKS: TextBlock[] = [
   { type: 'blockquote', text: "우리가 일하는 방식은, 단순히 최고의 결과를 내기 위한 규칙이 아닙니다.\n최고의 동료들과 함께 최고의 즐거움을 만들어가는 약속입니다." }
 ];
 
-const SCROLL_LENGTH = 5000;
+const SCROLL_LENGTH = 6000;
 const ANIMATION_CONFIG = {
   h3FadeOut: { start: 0.1, duration: 0.4 },
   blockquoteStart: 0.6,
@@ -102,9 +102,8 @@ const CultureTitleSection: React.FC = () => {
         end: `+=${SCROLL_LENGTH}`,
         scrub: 1,
         anticipatePin: 1,
-        // 중요: pinSpacing을 true로 설정하여 다음 섹션이 겹치지 않게 함
         pinSpacing: true,
-        markers: false // 디버깅시 true로 설정
+        markers: false
       });
     }, sectionRef);
 
@@ -114,7 +113,7 @@ const CultureTitleSection: React.FC = () => {
   const renderTextBlock = (block: TextBlock, index: number) => {
     if (block.type === 'h3') {
       return (
-        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line' }}>
+        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line [-webkit-text-stroke:1px_black] shadow-xl' }}>
           {block.text}
         </h2>
       );

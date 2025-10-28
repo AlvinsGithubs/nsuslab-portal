@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 
-import whatwedoVideo from "@/asset/videos/whatwedo-1.mp4";
+import video from "@/asset/videos/whatweDoVideo3.mp4";
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface WhatWeDoTitleSectionProps {
@@ -23,7 +23,7 @@ const WhatWeDoTitleSection = React.forwardRef<HTMLElement, WhatWeDoTitleSectionP
     return (
         <section ref={ref} className="!h-[110svh] w-full flex flex-col items-center justify-center overflow-hidden relative">
             <video autoPlay muted loop playsInline className="absolute top-0 left-0 w-full h-full object-cover z-0">
-                <source src={whatwedoVideo} type="video/mp4" />
+                <source src={video} type="video/mp4" />
             </video>
             <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
                 <div className="main-title section-head text-center max-w-6xl px-4 text-white whitespace-pre-line">
