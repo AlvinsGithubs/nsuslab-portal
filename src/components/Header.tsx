@@ -14,6 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { NavbarThemeContext } from "@/App";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { useAppNavigation } from "@/hooks/useAppNavigation";
+import nsus_logo from "@/asset/imgs/nsus_logo.png"
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -130,9 +131,9 @@ const Header: React.FC = () => {
             className="flex-shrink-0"
           >
             <img
-              src="https://i.ibb.co/MWhTmRr/nsus-logo.png"
+              src={nsus_logo}
               alt="NSUS Logo"
-              className={`h-6 transition-all duration-300 filter ${logoFilter}`}
+              className={`h-4 transition-all duration-300 filter ${logoFilter}`}
             />
           </a>
 

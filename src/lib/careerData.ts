@@ -63,7 +63,7 @@ export const processSteps: ProcessStep[] = [
   },
   {
     title: "최종 합격",
-    description: ["NSUSLAB과 함께할 즐거운 여정에 대하여 안내드립니다."],
+    description: ["앤서스랩과 함께할 즐거운 여정에 대하여 안내드립니다."],
   },
 ];
 
@@ -157,7 +157,7 @@ export const cultureRecruitData: CultureRecruit[] = [
     image: culture3,
   },
   {
-    title: "자신이 사랑했던 일의 ‘재미’를 되찾기 위해",
+    title: "자신이 사랑했던 일의 재미를 되찾기 위해",
     subTitle: "기꺼이 싸울 준비가 된 분",
     description:
       "자신이 사랑했던 일의 ‘재미’를 되찾기 위해, 기꺼이 싸울 준비가 된 분.",

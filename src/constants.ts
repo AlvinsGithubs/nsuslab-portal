@@ -85,6 +85,4 @@ export const FILTER_OPTIONS = {
     location: ['All', ...LOCATION_OPTIONS],
 };
 
-// ✅ 추가된 부분: AboutUsPage에서 필요한 헤더 높이 상수
-// 실제 프로젝트의 헤더 높이에 맞게 픽셀 값을 조절해주세요.
 export const HEADER_FIXED_HEIGHT = 80;

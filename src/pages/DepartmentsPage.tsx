@@ -1,7 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useContext } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 import { NavbarThemeContext } from '@/App';
 import { HEADER_FIXED_HEIGHT } from '@/constants';
@@ -15,7 +14,7 @@ import CPFeatureSection from './sections/what-we-do/CPFeatureSection';
 import PlusFeatureSection from './sections/what-we-do/PlusFeatureSection';
 import WSOPSection from './sections/what-we-do/WSOPSection';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const DepartmentsPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
@@ -24,18 +23,6 @@ const DepartmentsPage: React.FC = () => {
     }, [navbarContext]);
 
     const titleSectionRef = useRef<HTMLElement | null>(null);
-    const ggSectionRef = useRef<HTMLElement | null>(null);
-
-    const scrollToSecondSection = () => {
-        const target = ggSectionRef.current;
-        if (target) {
-            gsap.to(window, {
-                duration: 1.5,
-                scrollTo: { y: target },
-                ease: "power2.inOut",
-            });
-        }
-    };
 
     useLayoutEffect(() => {
         const navHeight = HEADER_FIXED_HEIGHT;
@@ -51,7 +38,7 @@ const DepartmentsPage: React.FC = () => {
 
     return (
         <div className='bg-black text-[#f3f4f6]'>
-            <WhatWeDoTitleSection ref={titleSectionRef} onChevronClick={scrollToSecondSection} />
+            <WhatWeDoTitleSection ref={titleSectionRef} /> 
             <GameFeatureSection />
             <GGVegasTitleSection />
             <GGVegasFeatureSection />

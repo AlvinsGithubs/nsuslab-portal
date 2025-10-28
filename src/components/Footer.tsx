@@ -2,6 +2,7 @@ import React from "react";
 import { useAppNavigation } from "@/hooks/useAppNavigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NAV_LINKS } from "@/constants";
+import nsus_logo from "@/asset/imgs/nsus_logo.png"
 
 interface FooterLinkProps {
   href: string;
@@ -51,9 +52,9 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-12 lg:col-span-4 pb-6 lg:pb-0">
             <div className="mb-6">
               <img
-                src="https://i.ibb.co/MWhTmRr/nsus-logo.png"
+                src={nsus_logo}
                 alt="NSUS Logo"
-                className="h-6 transition-all duration-300 brightness-0"
+                className="h-4 transition-all duration-300 brightness-0"
               />
             </div>
             <div className="caption text-nsus-gray-500 mb-4 ">

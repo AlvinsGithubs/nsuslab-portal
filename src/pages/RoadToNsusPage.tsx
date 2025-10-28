@@ -3,6 +3,7 @@ import ChevronDownIcon from "../components/icons/ChevronDownIcon";
 import { NavbarThemeContext } from "@/App";
 import { gsap } from "gsap";
 import { processSteps, faqData } from "@/lib/careerData";
+import roadtonsus from "@/asset/imgs/RoadtoNSUS.png";
 
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -104,46 +105,28 @@ const RoadToNsusPage: React.FC = () => {
   return (
     <div className="bg-white mx-auto">
       <div className="w-full mt-12 mb-24">
-        <h2 className="max-w-screen-xl px-4 sm:px-6 md:px-8 pt-24 py-12 mx-auto font-bold text-nsus-gray-900 pb-20 ">Road to NSUS</h2> 
-        <div className="relative z-10 w-full bg-nsus-gray-200">
-          <section className="max-w-screen-xl mx-auto bg-transparent hidden lg:block ">
-            <div className="max-w-screen-xl mx-auto text-center ">
-              <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-4 md:py-16">
-                {processSteps.map((step, index) => (
-                  <React.Fragment key={step.title}>
-                    <div className="flex flex-col items-center">
-                      <div
-                        className={`w-28 md:w-36 h-28 md:h-36 rounded-full flex items-center justify-center text-center p-1 md:p-2 shadow-lg bg-gradient-to-br from-white to-neutral-300`}
-                      >
-                        <p className="text-neutral-700 font-semibold">
-                          {step.title.split("+")[0]}
-                          <br />
-                          {step.title.split("+")[1]}
-                        </p>
-                      </div>
-                    </div>
-                    {index < processSteps.length - 1 && (
-                      <div className="w-1 h-1 bg-nsus-gray-300 mx-1 hidden md:block"></div>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          </section>
+        <h2 className="max-w-screen-xl px-4 sm:px-6 md:px-8 pt-24 py-12 mx-auto font-bold text-nsus-gray-900 md:pb-16 ">
+          Road to NSUSLAB
+        </h2>
+        <div className="relative z-10 w-full bg-nsus-gray-100">
+          <div className="max-w-screen-xl mx-auto hidden md:block md:py-4 md:px-24">
+            <img
+              src={roadtonsus}
+              alt="Road to NSUSLAB Process"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </div>
 
       <main>
-        <section className="md:py-12">
+        <section className="md:py-6">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ol
-              ref={processListRef}
-              className="space-y-12 [counter-reset:step]"
-            >
+            <ol ref={processListRef} className="space-y-8 [counter-reset:step]">
               {processSteps.map((step, index) => (
                 <li
                   key={index}
-                  className={`flex flex-col md:flex-row gap-4 md:gap-12 ${
+                  className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
                     index > 0 ? "border-t border-nsus-gray-200 pt-12" : ""
                   }`}
                 >
@@ -160,7 +143,7 @@ const RoadToNsusPage: React.FC = () => {
                       {step.title}
                     </h5>
                   </div>
-                  <div className="md:w-3/4 md:pt-0">
+                  <div className="md:w-3/4 md:pt-0 pb-12">
                     <ul className="text-sm md:text-base space-y-2 text-nsus-gray-700 list-disc list-outside pl-5">
                       {step.description.map((detail, i) => (
                         <li key={i}>{detail}</li>
@@ -171,11 +154,21 @@ const RoadToNsusPage: React.FC = () => {
               ))}
             </ol>
           </div>
+
+          <div className="max-w-screen-xl mx-auto py-8 px-4 md:px-16 border-t border-nsus-gray-200">
+            <ul className="caption space-y-2 text-nsus-gray-700 list-disc list-outside pl-5">
+              {additionalNotices.map((notice, index) => (
+                <li key={index}>{notice}</li>
+              ))}
+            </ul>
+          </div>
         </section>
 
-        <section className="bg-white py-12 md:pb-24">
+        <section className="bg-white py-12 md:py-24">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-nsus-gray-900 mb-4 md:mb-8">FAQ</h3>
+            <h3 className="text-nsus-gray-900 mb-4 md:mb-8">
+              자주 묻는 질문(FAQ)
+            </h3>
             <div ref={faqListRef} className="space-y-4 items-center">
               {faqData.map((faq, index) => (
                 <FaqItem key={index} q={faq.q} a={faq.a} />
@@ -189,3 +182,10 @@ const RoadToNsusPage: React.FC = () => {
 };
 
 export default RoadToNsusPage;
+
+const additionalNotices: string[] = [
+  "위 합류 여정은 기본 프로세스로, 상황에 따라 일부 변경될 수 있습니다.",
+  "세부사항(대상 및 자격기준 등)은 공고별로 상이할 수 있으니 지원하는 공고의 내용을 반드시 확인하시기 바랍니다.",
+  "지원서에 기재된 학력 및 경력사항 등 기재사항이 허위임이 판명될 경우 합격이 취소될 수 있습니다.",
+  "장애인 및 국가유공자 등 취업보호대상자는 관계 법령에 따라 우대합니다.",
+];

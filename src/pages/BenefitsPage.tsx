@@ -60,7 +60,7 @@ const BenefitsPage: React.FC = () => {
               className="benefit-item flex flex-col md:flex-row md:items-start border-t border-gray-300 py-12 lg:py-24 first:pt-0 first:border-t-0"
             >
               {/* 왼쪽 컬럼: 카테고리 제목 및 Lottie (데스크탑 기준) */}
-              <div className="md:w-1/2 md:pr-8 mb-6 md:mb-0">
+              <div className="md:w-2/5 md:pr-8 mb-6 md:mb-0">
                 <div className="sticky top-24">
                   <h4 className="text-nsus-gray-900">{category.title}</h4>
                   <Lottie
