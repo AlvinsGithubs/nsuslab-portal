@@ -3,8 +3,6 @@ import culture2 from "@/asset/imgs/culture2.jpg";
 import culture3 from "@/asset/imgs/culture3.jpg";
 import culture4 from "@/asset/imgs/culture4.jpg";
 
-
-
 interface ProcessStep {
   title: string;
   description: string[];
