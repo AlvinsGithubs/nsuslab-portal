@@ -3,7 +3,7 @@ import ChevronDownIcon from "../components/icons/ChevronDownIcon";
 import { NavbarThemeContext } from "@/App";
 import { gsap } from "gsap";
 import { processSteps, faqData } from "@/lib/careerData";
-import roadtonsus from "@/asset/imgs/RoadtoNSUS.png";
+import roadtonsus from "@/asset/imgs/roadto.png";
 
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
