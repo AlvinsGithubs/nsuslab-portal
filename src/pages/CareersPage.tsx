@@ -35,24 +35,24 @@ const CareersPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#f5f8fb] to-white text-nsus-gray-900">
+    <div className="min-h-screen to-white text-nsus-gray-900">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#e6f2ff_0%,transparent_55%)]" />
+        <div className="absolute inset-0" />
 
-        {/* [수정됨] 
-          flex, flex-col, items-center를 제거했습니다.
-          이제 이 div는 '채용 중인 공고' 섹션의 'max-w-6xl' 컨테이너와 동일하게 동작합니다.
+        {/* 이 부모 div는 'items-center'를 유지합니다. 
+          이 'items-center'가 유일한 자식인 'max-w-3xl' 래퍼를 중앙 정렬시킵니다.
         */}
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-40 sm:px-5 lg:px-8">
-          {/* 이 'max-w-3xl' div는 이제 부모('max-w-6xl')의 왼쪽에 붙으며,
-            '채용 중인 공고'의 <header className="max-w-3xl">과 동일한 너비/정렬을 갖게 됩니다.
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-4 py-40 sm:px-5 lg:px-8">
+          {/* [수정됨] 
+            단 하나의 'w-full max-w-3xl' 래퍼입니다. 
+            모든 왼쪽 정렬 콘텐츠가 이 안에 들어갑니다.
           */}
-          <div className="w-full max-w-3xl">
+          <div className="w-full max-w-7xl">
             <span className="inline-flex items-center rounded-full bg-white/70 px-4 py-1 text-sm font-medium text-nsus-blue shadow-sm backdrop-blur">
               NSUS LAB Careers
             </span>
 
-            <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-4xl text-left">
+            <h1 className="mt-8 text-7xl font-bold tracking-tight sm:text-4xl text-left">
               함께 성장할 동료를 기다리고 있습니다.
             </h1>
 
@@ -68,7 +68,7 @@ const CareersPage = () => {
 
             {/* 이 <p> 태그도 래퍼 안에 있으며, 불필요한 max-w-4xl, mx-0 클래스를 제거했습니다.
              */}
-            <p className="mt-5 text-left text-lg leading-5 text-nsus-gray-600"></p>
+            <p className="mt-6 text-left text-lg leading-4 text-nsus-gray-600"></p>
 
             {/* [수정됨] 'justify-left' -> 'justify-start'
               Tailwind에서 왼쪽 정렬은 'justify-start'입니다.
@@ -91,7 +91,7 @@ const CareersPage = () => {
               구분선을 래퍼 안으로 이동시켜 다른 콘텐츠와 정렬을 맞춥니다.
               w-full, max-w-3xl이 불필요해져서 제거합니다.
             */}
-            <div className="py-20">
+            <div className="py-10">
               <hr className="border-gray-300" />
             </div>
           </div>
@@ -106,8 +106,8 @@ const CareersPage = () => {
       {/* 이 섹션은 이미 'mx-auto max-w-6xl'과 내부 'max-w-3xl' 헤더로
         올바르게 정렬되어 있었으므로, 이제 위 섹션과 정렬이 일치합니다.
       */}
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-        <header className="max-w-3xl">
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <header className="max-w-4xl">
           <h2 className="text-3xl font-semibold text-nsus-gray-900">
             채용 중인 공고
           </h2>
@@ -118,7 +118,7 @@ const CareersPage = () => {
         </header>
 
         <div className="mt-10">
-          <div className="rounded-3xl bg-white/90 p-20 shadow-xl ring-2 ring-black/5 backdrop-blur">
+          <div className="rounded-3xl bg-white/90 p-50 shadow-x0 ring-0 ring-black/5 backdrop-blur">
             <div
               id="round_embed"
               data-job-layout="sidebar"
@@ -132,4 +132,3 @@ const CareersPage = () => {
 };
 
 export default CareersPage;
-
