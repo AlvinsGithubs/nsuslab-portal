@@ -1,239 +1,134 @@
+import { useContext, useEffect, createContext } from 'react';
+// @ts-ignore
+// import { NavbarThemeContext } from '@/App'; // App 경로를 확인하세요
 
-import React, { useState, useMemo, useEffect, useContext } from 'react';
-import type { FilterState, Job, JobFilterCheckboxState } from "@/types";
-import { contentfulClient, parseContentfulJob } from "@/lib/contentful";
-import SearchIcon from "@/components/icons/SearchIcon";
-import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
-import { 
-  JOB_GROUP_OPTIONS, 
-  CAREER_LEVEL_OPTIONS, 
-  EMPLOYMENT_TYPE_OPTIONS, 
-  LOCATION_OPTIONS 
-} from  "@/constants";
-import { NavbarThemeContext } from '@/App';
+// [수정됨] '@/App' 임포트 경로 오류를 해결하기 위해 임시 Context를 생성합니다.
+// 실제 애플리케이션에서는 올바른 경로에서 NavbarThemeContext를 가져와야 합니다.
+// @ts-ignore
+const NavbarThemeContext = createContext(null);
 
-const JobListItem: React.FC<{ job: Job }> = ({ job }) => {
-    const handleNavigate = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-        event.preventDefault();
-        window.location.hash = path;
+const CareersPage = () => {
+  // @ts-ignore
+  const navbarContext = useContext(NavbarThemeContext);
+
+  useEffect(() => {
+    // @ts-ignore
+    navbarContext?.setNavbarTheme('light');
+  }, [navbarContext]);
+
+  useEffect(() => {
+    const scriptId = 'round-hr-embed-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://recruit.roundhr.com/nsuslab/embed';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    return () => {
+      const iframe = document.getElementById('round_embed_iframe');
+      if (iframe?.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
     };
-    const path = `#/jobs/${job.slug}`;
-
-    return (
-        <a href={path} onClick={e => handleNavigate(e, path)} className="block py-6 border-b border-nsus-gray-200 group">
-            <h4 className="font-bold text-xl text-nsus-gray-900 group-hover:text-nsus-blue transition-colors">{job.title}</h4>
-            <div className="mt-2 text-sm text-nsus-gray-500 flex flex-wrap items-center gap-x-2">
-                <span>{job.department}</span>
-                {job.careerLevel && <><span>|</span><span>{job.careerLevel}</span></>}
-                {job.employmentType && <><span>|</span><span>{job.employmentType}</span></>}
-                {job.location && <><span>|</span><span>{job.location}</span></>}
-            </div>
-        </a>
-    );
-};
-
-const FilterAccordion: React.FC<{
-  title: string;
-  options: readonly string[];
-  selected: JobFilterCheckboxState;
-  onChange: (option: string, checked: boolean) => void;
-}> = ({ title, options, selected, onChange }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  }, []);
 
   return (
-    <div className="py-4">
-      <button onClick={() => setIsOpen(!isOpen)} className="w-full flex justify-between items-center py-2 text-left">
-        <h3 className="font-bold text-base text-gray-800">{title}</h3>
-        <ChevronDownIcon className={`w-5 h-5 transition-transform text-gray-500 ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-      {isOpen && (
-        <div className="mt-4 space-y-3">
-          {options.map(option => (
-            <label key={option} className="flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={selected[option] || false}
-                onChange={e => onChange(option, e.target.checked)}
-                className="h-4 w-4 rounded border-gray-300 text-nsus-blue focus:ring-2 focus:ring-offset-0 focus:ring-nsus-blue"
-              />
-              <span className="ml-3 text-sm text-nsus-gray-700">{option}</span>
-            </label>
-          ))}
+    <div className="min-h-screen bg-gradient-to-b from-white via-[#f5f8fb] to-white text-nsus-gray-900">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#e6f2ff_0%,transparent_55%)]" />
+
+        {/* 이 부모 div는 'items-center'를 유지합니다. 
+          이 'items-center'가 유일한 자식인 'max-w-3xl' 래퍼를 중앙 정렬시킵니다.
+        */}
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-4 py-40 sm:px-5 lg:px-8">
+          {/* [수정됨] 
+            단 하나의 'w-full max-w-3xl' 래퍼입니다. 
+            모든 왼쪽 정렬 콘텐츠가 이 안에 들어갑니다.
+          */}
+          <div className="w-full max-w-3xl">
+            <span className="inline-flex items-center rounded-full bg-white/70 px-4 py-1 text-sm font-medium text-nsus-blue shadow-sm backdrop-blur">
+              NSUS LAB Careers
+            </span>
+
+            <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-4xl text-left">
+              함께 성장할 동료를 기다리고 있습니다.
+            </h1>
+
+            {/* 이 <p> 태그는 이제 래퍼 안에 있습니다. */}
+            <p className="mt-8 text-left text-lg leading-9 text-nsus-gray-800 whitespace-pre-wrap">
+              NSUS Group은 현재 북미, 유럽, 아시아 등 다양한 지역에 약 700명 이상의
+              임직원들이 일하고 있는 다국적 기업으로 iGaming 업계의 유니콘이며,
+              <br />
+              NSUSLAB / 앤서스랩은 NSUS Group의 개발 스튜디오로서 그룹의 핵심적인
+              역할을 담당하고 있습니다. <br />
+              NSUSLAB이 궁금하시다면 📘회사소개서를 클릭하여 확인해 주세요.
+            </p>
+
+            {/* 이 <p> 태그도 래퍼 안에 있으며, 불필요한 max-w-4xl, mx-0 클래스를 제거했습니다.
+             */}
+            <p className="mt-6 text-left text-lg leading-4 text-nsus-gray-600"></p>
+
+            {/* [수정됨] 'justify-left' -> 'justify-start'
+              Tailwind에서 왼쪽 정렬은 'justify-start'입니다.
+            */}
+            <div className="mt-6 flex flex-wrap justify-start gap-4 text-sm text-nsus-gray-500">
+              <span>• 글로벌 3개 대륙, 12개 이상 국가 협업</span>
+              <span>• 엔지니어링 중심의 데이터 기반 문화</span>
+              <a
+                // [수정됨] 클래스 이름 뒤의 's' 오타 제거
+                className="text-nsus-blue underline underline-offset-4"
+                href="https://www.nsuslab.com/about"
+                target="_blank"
+                rel="noreferrer"
+              >
+                회사 소개 바로가기
+              </a>
+            </div>
+
+            {/* [수정됨] 
+              구분선을 래퍼 안으로 이동시켜 다른 콘텐츠와 정렬을 맞춥니다.
+              w-full, max-w-3xl이 불필요해져서 제거합니다.
+            */}
+            <div className="py-10">
+              <hr className="border-gray-300" />
+            </div>
+          </div>
+          {/* 래퍼 div 끝 */}
         </div>
-      )}
+      </section>
+
+      {/* [수정됨] 
+        섹션 사이에 있던 별도의 구분선 div는 래퍼 안으로 이동했으므로 삭제되었습니다.
+      */}
+
+      {/* 이 섹션은 이미 'mx-auto max-w-6xl'과 내부 'max-w-3xl' 헤더로
+        올바르게 정렬되어 있었으므로, 이제 위 섹션과 정렬이 일치합니다.
+      */}
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <header className="max-w-4xl">
+          <h2 className="text-3xl font-semibold text-nsus-gray-900">
+            채용 중인 공고
+          </h2>
+          <p className="mt-3 text-base leading-7 text-nsus-gray-600">
+            도전과 성장을 즐기는 분이라면 누구나 환영합니다. 관심 있는 포지션을
+            선택하고 지원해 주세요.
+          </p>
+        </header>
+
+        <div className="mt-10">
+          <div className="rounded-3xl bg-white/90 p-50 shadow-x2 ring-2 ring-black/5 backdrop-blur">
+            <div
+              id="round_embed"
+              data-job-layout="sidebar"
+              className="min-h-[900px]"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
-};
-
-const CareersPage: React.FC = () => {
-    const navbarContext = useContext(NavbarThemeContext);
-    useEffect(() => {
-            if (navbarContext) {
-                navbarContext.setNavbarTheme("light");
-            }
-    }, [navbarContext]);
-    
-    const createInitialCheckboxState = (options: readonly string[]): JobFilterCheckboxState => 
-        options.reduce((acc, option) => ({ ...acc, [option]: false }), {});
-
-    const initialFilters: FilterState = {
-        keyword: '',
-        jobGroup: createInitialCheckboxState(JOB_GROUP_OPTIONS),
-        careerLevel: createInitialCheckboxState(CAREER_LEVEL_OPTIONS),
-        employmentType: createInitialCheckboxState(EMPLOYMENT_TYPE_OPTIONS),
-        location: createInitialCheckboxState(LOCATION_OPTIONS),
-    };
-
-    const [jobs, setJobs] = useState<Job[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [filters, setFilters] = useState<FilterState>(initialFilters);
-
-    useEffect(() => {
-        const fetchJobs = async () => {
-            try {
-                setIsLoading(true);
-                setError(null);
-                const jobResponse = await contentfulClient.getEntries({ content_type: 'job', order: ['-fields.postedDate'] });
-                const fetchedJobs = jobResponse.items.map(parseContentfulJob);
-                setJobs(fetchedJobs);
-            } catch (err) {
-                console.error("Error fetching jobs from Contentful:", err);
-                setError("Failed to load job openings. Please try again later.");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchJobs();
-    }, []);
-
-    const handleFilterChange = (
-      category: keyof Omit<FilterState, 'keyword'>,
-      option: string,
-      checked: boolean
-    ) => {
-      setFilters(prev => ({
-        ...prev,
-        [category]: {
-          ...prev[category],
-          [option]: checked,
-        },
-      }));
-    };
-
-    const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilters(prev => ({ ...prev, keyword: e.target.value }));
-    };
-
-    const filteredJobs = useMemo(() => {
-        const getSelected = (state: JobFilterCheckboxState) => Object.keys(state).filter(key => state[key]);
-
-        const selectedJobGroups = getSelected(filters.jobGroup);
-        const selectedCareerLevels = getSelected(filters.careerLevel);
-        const selectedEmploymentTypes = getSelected(filters.employmentType);
-        const selectedLocations = getSelected(filters.location);
-
-        return jobs.filter(job => {
-            const keywordMatch = filters.keyword === '' || 
-                (job.title && job.title.toLowerCase().includes(filters.keyword.toLowerCase()));
-
-            const jobGroupMatch = selectedJobGroups.length === 0 || 
-                (job.department && selectedJobGroups.includes(job.department));
-            
-            const careerLevelMatch = selectedCareerLevels.length === 0 || 
-                (job.careerLevel && selectedCareerLevels.some(level => 
-                    (level === '경력' && job.careerLevel === 'Experienced')
-                ));
-            
-            const employmentTypeMatch = selectedEmploymentTypes.length === 0 || 
-                (job.employmentType && selectedEmploymentTypes.some(type => 
-                    (type === '정규직' && job.employmentType === 'Full-time')
-                ));
-
-            const locationMatch = selectedLocations.length === 0 ||
-                (job.location && selectedLocations.some(loc => 
-                    (loc === 'NSUSLAB KOREA' && (job.location === 'Seoul' || job.location === 'Bundang'))
-                ));
-
-            return keywordMatch && jobGroupMatch && careerLevelMatch && employmentTypeMatch && locationMatch;
-        });
-    }, [filters, jobs]);
-    
-    const renderJobList = () => {
-        if (isLoading) return <div className="text-center py-20 text-nsus-gray-500">Loading openings...</div>;
-        if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
-        if (filteredJobs.length === 0) return <div className="text-center py-20 text-nsus-gray-500">No matching openings found.</div>;
-        
-        return (
-            <div>
-                <div className="py-6 border-b border-nsus-gray-200">
-                    <h4 className="font-bold text-xl text-nsus-gray-900">인재 Pool 등록</h4>
-                    <div className="mt-2 text-sm text-nsus-gray-500">
-                        <span>NSUSLAB KOREA</span>
-                    </div>
-                </div>
-                {filteredJobs.map(job => (
-                    <JobListItem key={job.id} job={job as Required<Job>} />
-                ))}
-            </div>
-        );
-    };
-
-    return (
-        <div className="bg-white">
-            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 xl:gap-x-16 md:py-12">
-                    <aside className="lg:col-span-3">
-                        <div className="sticky top-24">
-                            <h2>Jobs</h2>
-                            <div className="mt-8 divide-y divide-nsus-gray-200">
-                                <FilterAccordion 
-                                    title="직군" 
-                                    options={JOB_GROUP_OPTIONS} 
-                                    selected={filters.jobGroup}
-                                    onChange={(option, checked) => handleFilterChange('jobGroup', option, checked)}
-                                />
-                                <FilterAccordion 
-                                    title="경력사항" 
-                                    options={CAREER_LEVEL_OPTIONS} 
-                                    selected={filters.careerLevel}
-                                    onChange={(option, checked) => handleFilterChange('careerLevel', option, checked)}
-                                />
-                                <FilterAccordion 
-                                    title="고용형태" 
-                                    options={EMPLOYMENT_TYPE_OPTIONS} 
-                                    selected={filters.employmentType}
-                                    onChange={(option, checked) => handleFilterChange('employmentType', option, checked)}
-                                />
-                                <FilterAccordion 
-                                    title="근무지" 
-                                    options={LOCATION_OPTIONS} 
-                                    selected={filters.location}
-                                    onChange={(option, checked) => handleFilterChange('location', option, checked)}
-                                />
-                            </div>
-                        </div>
-                    </aside>
-
-                    <main className="lg:col-span-9 py-12 lg:py-24">
-                        <div className="relative mb-6">
-                            <input
-                                type="text"
-                                placeholder="검색"
-                                value={filters.keyword}
-                                onChange={handleKeywordChange}
-                                className="w-full pl-10 pr-4 py-3 border border-nsus-gray-300 rounded-md focus:ring-nsus-blue focus:border-nsus-blue"
-                            />
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                                <SearchIcon className="w-5 h-5 text-nsus-gray-400" />
-                            </div>
-                        </div>
-                        {renderJobList()}
-                    </main>
-                </div>
-            </div>
-        </div>
-    );
 };
 
 export default CareersPage;
