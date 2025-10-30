@@ -39,13 +39,13 @@ const CareersPage = () => {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#e6f2ff_0%,transparent_55%)]" />
 
-        {/* 이 부모 div는 'items-center'를 유지합니다. 
-          이 'items-center'가 유일한 자식인 'max-w-3xl' 래퍼를 중앙 정렬시킵니다.
+        {/* [수정됨] 
+          flex, flex-col, items-center를 제거했습니다.
+          이제 이 div는 '채용 중인 공고' 섹션의 'max-w-6xl' 컨테이너와 동일하게 동작합니다.
         */}
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-4 py-40 sm:px-5 lg:px-8">
-          {/* [수정됨] 
-            단 하나의 'w-full max-w-3xl' 래퍼입니다. 
-            모든 왼쪽 정렬 콘텐츠가 이 안에 들어갑니다.
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-40 sm:px-5 lg:px-8">
+          {/* 이 'max-w-3xl' div는 이제 부모('max-w-6xl')의 왼쪽에 붙으며,
+            '채용 중인 공고'의 <header className="max-w-3xl">과 동일한 너비/정렬을 갖게 됩니다.
           */}
           <div className="w-full max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-white/70 px-4 py-1 text-sm font-medium text-nsus-blue shadow-sm backdrop-blur">
