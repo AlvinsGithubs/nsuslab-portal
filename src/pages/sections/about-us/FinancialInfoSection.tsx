@@ -106,8 +106,8 @@ const FinancialInfoSection: React.FC = () => {
     <div className="bg-black text-white py-24">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 border-b border-neutral-800 py-12 lg:py-24">
         <div
-          ref={headerRef} 
-          className="data-header mb-16 lg:mb-32 text-center opacity-0" 
+          ref={headerRef}
+          className="data-header mb-16 lg:mb-32 text-center opacity-0"
         >
           <h1>{financialSectionText.mainTitle}</h1>
         </div>
@@ -125,7 +125,7 @@ const FinancialInfoSection: React.FC = () => {
               </div>
             </div>
             <div
-              ref={studioVisualRef} 
+              ref={studioVisualRef}
               className="item-visual relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-black opacity-0" // ✅ ADDED opacity-0
             >
               <div className="absolute inset-0 z-0">
@@ -333,19 +333,15 @@ const FinancialInfoSection: React.FC = () => {
           <div className="item-point pb-8 md:pb-24 border-b border-neutral-800">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               <div
-                ref={statsTitleRef} 
-                className="item-point-title lg:col-span-1 opacity-0" 
+                ref={statsTitleRef}
+                className="item-point-title lg:col-span-1 opacity-0"
               >
                 <h4>{financialSectionText.statsTitle}</h4>
               </div>
               <div className="grid md:grid-cols-2 gap-4 lg:gap-8 lg:col-span-2">
-                {financialStatsData.map(
-                  (
-                    stat
-                  ) => (
-                    <StatBox key={stat.title} {...stat} />
-                  )
-                )}
+                {financialStatsData.map((stat) => (
+                  <StatBox key={stat.title} {...stat} />
+                ))}
               </div>
             </div>
           </div>
@@ -380,12 +376,11 @@ export default FinancialInfoSection;
 
 const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = ref.current;
-    if (isInView && element) {
+    if (element) {
       const counter = { value: 0 };
+
       const controls = gsap.to(counter, {
         duration: 2,
         value: to,
@@ -393,12 +388,24 @@ const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
         onUpdate: () => {
           element.innerText = Math.round(counter.value).toLocaleString();
         },
+        paused: true, 
       });
+
+      const st = ScrollTrigger.create({
+        trigger: element,
+        start: "top 90%", 
+        once: true,
+        onEnter: () => {
+          gsap.delayedCall(0.2, () => controls.play());
+        },
+      });
+
       return () => {
         controls.kill();
+        st.kill(); 
       };
     }
-  }, [isInView, to]);
+  }, [to]);
 
   return <span ref={ref}>0</span>;
 };
