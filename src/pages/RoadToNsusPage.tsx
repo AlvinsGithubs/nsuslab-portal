@@ -8,25 +8,25 @@ import roadtonsus from "@/asset/imgs/roadto.png";
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="bg-nsus-gray-100 rounded-xl px-4 md:px-8 py-2 md:py-4">
+    <div className="bg-nsus-gray-100 rounded-xl px-2 lg:px-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-start text-left md:px-4"
+        className="w-full flex justify-between items-center text-left px-2 md:px-4 pt-6 py-3"
       >
         <h6 className="font-semibold text-nsus-gray-700">
-          <h4 className="text-nsus-blue mr-4">Q.</h4>
-          <h6>{q}</h6>
+          Q. {q}
         </h6>
+
         <ChevronDownIcon
-          className={`w-6 h-6 text-nsus-gray-500 flex-shrink-0 transition-transform duration-300 items-center ${
+          className={`w-6 h-6 text-nsus-gray-500 flex-shrink-0 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
+
       {isOpen && (
-        <div className="mt-4 text-nsus-gray-700 py-2 md:px-4">
-          <h4 className="font-bold text-nsus-gray-700 mr-2">A.</h4>
-          <p>{a}</p>
+        <div className="text-nsus-gray-700 pb-5 md:pb-6 px-2 md:px-4">
+          <p>A. {a}</p>
         </div>
       )}
     </div>
@@ -120,7 +120,7 @@ const RoadToNsusPage: React.FC = () => {
       </div>
 
       <main>
-        <section className="md:py-6">
+        <section className="md:py-4">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol ref={processListRef} className="space-y-8 [counter-reset:step]">
               {processSteps.map((step, index) => (
@@ -165,7 +165,7 @@ const RoadToNsusPage: React.FC = () => {
         </section>
 
         <section className="bg-white py-12 md:py-24">
-          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-screen-xl mx-auto px-4 md:px-16">
             <h3 className="text-nsus-gray-900 mb-4 md:mb-8">
               자주 묻는 질문(FAQ)
             </h3>
