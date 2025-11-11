@@ -64,7 +64,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ slug }) => {
   });
 
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white py-8 md:py-12">
       <div className="max-w-screen-lg mx-auto px-4 md:px-8 pt-16">
         <Breadcrumb links={[
           { name: 'Newsroom', href: `#/news` },

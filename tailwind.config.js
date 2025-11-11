@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 export default {
-  // ✅ content 경로를 src 폴더를 기준으로 찾도록 수정했습니다.
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Roboto', 'sans-serif'],
+        'sans': ['Pretendard', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         'nsus-blue': '#4779C1',
@@ -30,7 +31,7 @@ export default {
         'xl': '12px',
       },
       screens: {
-        '3xl': '1920px', // 1920px 너비 이상일 때 적용될 3xl 중단점 정의
+        '3xl': '1920px',
       },
     },
   },
