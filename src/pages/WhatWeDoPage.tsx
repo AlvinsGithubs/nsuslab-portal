@@ -5,12 +5,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavbarThemeContext } from '@/App';
 import { HEADER_FIXED_HEIGHT } from '@/constants';
 
-import GGPokerSection from './sections/what-we-do/ggpoker/GGPokerSection';
-import GGPokerCardSection from './sections/what-we-do/ggpoker/GGPokerCardSection';
+import WhatWeDoTitleSection from './sections/what-we-do/WhatWeDoTitleSection';
+import GGVegasTitleSection from './sections/what-we-do/GGVegasTitleSection';
+import GameFeatureSection from './sections/what-we-do/GGPokerFeatureSection';
+import GGVegasFeatureSection from './sections/what-we-do/GGVegasFeatureSection';
+import ClubGGFeatureSection from './sections/what-we-do/ClubGGFeatureSection';
+import CPFeatureSection from './sections/what-we-do/CPFeatureSection';
+import PlusFeatureSection from './sections/what-we-do/PlusFeatureSection';
+import WSOPSection from './sections/what-we-do/ggpoker/WSOPSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const GGPokerPage: React.FC = () => {
+const WhatWeDoPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
     useEffect(() => {
         navbarContext?.setNavbarTheme("dark");
@@ -32,10 +38,16 @@ const GGPokerPage: React.FC = () => {
 
     return (
         <div className='bg-black text-[#f3f4f6]'>
-            <GGPokerSection />
-            <GGPokerCardSection />
+            <WhatWeDoTitleSection ref={titleSectionRef} /> 
+            <GameFeatureSection />
+            <GGVegasTitleSection />
+            <GGVegasFeatureSection />
+            <ClubGGFeatureSection />
+            <CPFeatureSection />
+            <PlusFeatureSection />
+            <WSOPSection />
         </div>
     );
 }
 
-export default GGPokerPage;
+export default WhatWeDoPage;

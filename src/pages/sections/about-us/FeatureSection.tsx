@@ -144,7 +144,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         ref={containerRef}
         className="mx-auto grid max-w-screen-xl grid-cols-1 gap-x-32 px-4 sm:px-6 lg:grid-cols-[0.5fr_0.8fr] lg:px-4"
       >
-        <div className="hidden lg:flex lg:h-screen lg:flex-col lg:justify-start py-20 lg:py-64">
+        <div className="hidden lg:flex lg:h-screen lg:flex-col lg:justify-start lg:py-64">
           <div
             className="relative"
             style={{ color: featureData[activeIndex]?.primaryTextColor }}
