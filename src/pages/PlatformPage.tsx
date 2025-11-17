@@ -5,18 +5,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavbarThemeContext } from '@/App';
 import { HEADER_FIXED_HEIGHT } from '@/constants';
 
-import WhatWeDoTitleSection from './sections/what-we-do/WhatWeDoTitleSection';
-import GGVegasTitleSection from './sections/what-we-do/GGVegasTitleSection';
-import GameFeatureSection from './sections/what-we-do/GGPokerFeatureSection';
-import GGVegasFeatureSection from './sections/what-we-do/GGVegasFeatureSection';
 import ClubGGFeatureSection from './sections/what-we-do/ClubGGFeatureSection';
 import CPFeatureSection from './sections/what-we-do/CPFeatureSection';
 import PlusFeatureSection from './sections/what-we-do/PlusFeatureSection';
-import WSOPSection from './sections/what-we-do/WSOPSection';
+import WSOPSection from './sections/what-we-do/ggpoker/WSOPSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DepartmentsPage: React.FC = () => {
+const PlatformPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
     useEffect(() => {
         navbarContext?.setNavbarTheme("dark");
@@ -38,10 +34,6 @@ const DepartmentsPage: React.FC = () => {
 
     return (
         <div className='bg-black text-[#f3f4f6]'>
-            <WhatWeDoTitleSection ref={titleSectionRef} /> 
-            <GameFeatureSection />
-            <GGVegasTitleSection />
-            <GGVegasFeatureSection />
             <ClubGGFeatureSection />
             <CPFeatureSection />
             <PlusFeatureSection />
@@ -50,4 +42,4 @@ const DepartmentsPage: React.FC = () => {
     );
 }
 
-export default DepartmentsPage;
+export default PlatformPage;

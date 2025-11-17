@@ -5,12 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavbarThemeContext } from '@/App';
 import { HEADER_FIXED_HEIGHT } from '@/constants';
 
-import GGPokerSection from './sections/what-we-do/ggpoker/GGPokerSection';
-import GGPokerCardSection from './sections/what-we-do/ggpoker/GGPokerCardSection';
+import GGVegasTitleSection from './sections/what-we-do/GGVegasTitleSection';
+import GGVegasFeatureSection from './sections/what-we-do/GGVegasFeatureSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const GGPokerPage: React.FC = () => {
+const GGVegasPage: React.FC = () => {
     const navbarContext = useContext(NavbarThemeContext);
     useEffect(() => {
         navbarContext?.setNavbarTheme("dark");
@@ -32,10 +32,10 @@ const GGPokerPage: React.FC = () => {
 
     return (
         <div className='bg-black text-[#f3f4f6]'>
-            <GGPokerSection />
-            <GGPokerCardSection />
+            <GGVegasTitleSection />
+            <GGVegasFeatureSection />
         </div>
     );
 }
 
-export default GGPokerPage;
+export default GGVegasPage;

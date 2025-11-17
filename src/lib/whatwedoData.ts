@@ -47,28 +47,12 @@ export interface BentoGridItem {
 
 export const ggpokerData: BentoGridItem[] = [
   {
-    id: 1,
-    type: "default",
-    className: "border-hsla relative mb-7 h-96 w-full md:h-[65vh]",
-    title: "",
-    description: "",
-    isComingSoon: true,
-    mediaType: "image",
-    mediaSrc: whoweare_ggpoker,
-  },
-  {
-    id: 5,
-    type: "textOnly",
-    className: "",
-    title: "Unique Features That Make Poker Exciting",
-  },
-  {
     id: 2,
     type: "default",
     className: "row-span-1 md:col-span-1 md:row-span-2",
     title: "bounty",
     description:
-      "The only thing more exciting than KOing the villain is discovering the bounty is a Jackpot",
+      "상대방을 쓰러트리는 짜릿한 순간, 잭팟 바운티가 더해져 승리의 기쁨을 극대화합니다.",
     isComingSoon: true,
     mediaType: "video",
     mediaSrc: ggpoker_feature_bounty,
@@ -79,7 +63,7 @@ export const ggpokerData: BentoGridItem[] = [
     className: "row-span-1 md:col-span-1 md:ms-0",
     title: "Splash",
     description:
-      "Express your feelings using new actions. Items can be obtained if you lose a big pot. They can be used on opponents that beat you.",
+      "새로운 '스플래시' 기능으로 테이블 위에서 감정을 생생하게 표현하세요. 큰 팟을 아쉽게 놓쳤을 때 얻는 아이템으로 상대방과 재치 있는 상호작용이 가능합니다.",
     isComingSoon: true,
     mediaType: "video",
     mediaSrc: ggpoker_feature_splash,
@@ -90,7 +74,7 @@ export const ggpokerData: BentoGridItem[] = [
     className: "md:col-span-1 md:me-0",
     title: "Reactions",
     description:
-      "Use the thumbs up/down reaction to express your feelings. All users, including those sitting-out, can send bet reactions.",
+      "'좋아요/싫어요' 리액션으로 자신의 생각을 즉각적으로 표현하세요. 자리를 비운 플레이어를 포함, 테이블의 모든 유저가 베팅에 대한 반응을 실시간으로 공유할 수 있습니다.",
     isComingSoon: true,
     mediaType: "video",
     mediaSrc: ggpoker_feature_splash2,
@@ -102,7 +86,7 @@ export const ggpokerData: BentoGridItem[] = [
     className: "md:col-span-1 md:me-0",
     title: "Time Bank Card",
     description:
-      "When you are at a crossroad, Take some Time and shape your destiny",
+      "승부의 결정적인 순간, '타임 뱅크 카드'로 소중한 시간을 확보하세요. 신중한 결정으로 승리의 흐름을 가져올 수 있습니다.",
     isComingSoon: true,
     mediaType: "video",
     mediaSrc: ggpoker_feature_timebank,
@@ -228,8 +212,7 @@ export const clubGGData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Platinum Membership",
-    description:
-      "Unlimited attempts, win prizes daily",
+    description: "Unlimited attempts, win prizes daily",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: clubgg1,
@@ -239,8 +222,7 @@ export const clubGGData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Live Events",
-    description:
-      "Register to the best LIVE poker tournaments",
+    description: "Register to the best LIVE poker tournaments",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: clubgg2,
@@ -250,8 +232,7 @@ export const clubGGData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Your Own Club",
-    description:
-      "Invite your friends & playing poker, anywhere, anytime.",
+    description: "Invite your friends & playing poker, anywhere, anytime.",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: clubgg3,
@@ -261,8 +242,7 @@ export const clubGGData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Club Features",
-    description:
-      "Customizable game settings & game variation",
+    description: "Customizable game settings & game variation",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: clubgg4,
@@ -285,8 +265,7 @@ export const platformData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Platform Solutions",
-    description:
-      "Distribution and management of thousands of casino games",
+    description: "Distribution and management of thousands of casino games",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: cp1,
@@ -342,8 +321,7 @@ export const plusData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "PokerStake",
-    description:
-      "World's #1 MTT Staking Platform",
+    description: "World's #1 MTT Staking Platform",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: plus1,
@@ -353,8 +331,7 @@ export const plusData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "WSOP+ App",
-    description:
-      "Official WSOP Live Tournament Schedule App",
+    description: "Official WSOP Live Tournament Schedule App",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: plus2,
@@ -364,8 +341,7 @@ export const plusData: BentoGridItem[] = [
     type: "default",
     className: "md:col-span-1 md:me-0",
     title: "Management Tool",
-    description:
-      "Admin Tool for MTT Management",
+    description: "Admin Tool for MTT Management",
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: plus3,

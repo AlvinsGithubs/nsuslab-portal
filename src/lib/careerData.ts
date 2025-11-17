@@ -166,7 +166,6 @@ export const cultureFeatureData: CultureFeature[] = [
   },
 ];
 
-// Key Achievement Section
 interface CultureRecruit {
   title: string;
   subTitle: string;

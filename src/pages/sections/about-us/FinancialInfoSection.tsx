@@ -5,7 +5,7 @@ import React, {
   useContext,
   useLayoutEffect,
 } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { fetchAllFinancialInfo } from "@/lib/contentful";
 import type { FinancialInfo } from "@/types";
 import { gsap } from "gsap";

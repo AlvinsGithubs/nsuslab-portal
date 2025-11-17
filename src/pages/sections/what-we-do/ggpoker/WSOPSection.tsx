@@ -39,7 +39,7 @@ const WSOPSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white py-24 lg:py-48 px-4 sm:px-6 md:px-8 text-black"
+      className="w-full bg-white py-24 px-4 sm:px-6 md:px-8 text-black"
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center">
