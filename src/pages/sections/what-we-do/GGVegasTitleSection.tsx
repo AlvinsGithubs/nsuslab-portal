@@ -9,7 +9,7 @@ import { HEADER_FIXED_HEIGHT } from "@/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const GGVegasTitleSection = forwardRef<HTMLElement>((props, ref) => {
+const GGVegasTitleSection = forwardRef<HTMLElement>((_, ref) => {
   const { t } = useLanguage();
   const headerSectionRef = useRef<HTMLDivElement>(null);
   const internalRef = useRef<HTMLElement>(null);

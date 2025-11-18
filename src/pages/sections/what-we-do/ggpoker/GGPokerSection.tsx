@@ -162,13 +162,17 @@ const GGPokerSection: React.FC = () => {
     <section className="bg-black">
       <div ref={headerSectionRef}>
         <BentoTilt className="w-full">
-          <div className="relative w-full max-w-screen-xl mx-auto overflow-hidden">
-            <img
-              src={whoweare_ggpoker}
-              alt="GGPoker background"
-              className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30"
-            />
+          <div className="relative w-full overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-screen-xl h-full">
+              <img
+                src={whoweare_ggpoker}
+                alt="GGPoker background"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30"
+              />
+            </div>
+
             <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent z-20"></div>
+
             <div className="relative z-10 flex flex-col justify-center py-24 min-h-[300px] lg:min-h-[600px] w-full">
               <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
                 <div className="max-w-screen-xl">
