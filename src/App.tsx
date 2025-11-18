@@ -78,7 +78,7 @@ const App: React.FC = () => {
     if (page === "jobs" && slug) {
       return <JobDetailPage slug={slug} />;
     }
-    if (page === "whatwedo" && slug) {
+    if (page === "departments" && slug) {
       return <DepartmentDetailPage slug={slug} />;
     }
     if (page === "people" && slug) {
@@ -103,7 +103,7 @@ const App: React.FC = () => {
         return <GGVegasPage />;
       case "#/platform":
         return <PlatformPage />;
-      case "#/our-story":
+      case "#/departments":
         return <OurStoryPage />;
       case "#/benefits":
         return <BenefitsPage />;
