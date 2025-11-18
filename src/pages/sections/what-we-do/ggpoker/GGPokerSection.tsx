@@ -159,41 +159,41 @@ const GGPokerSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-black py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* --- 헤더 섹션 --- */}
-        <div>
-          <BentoTilt className="w-full md:py-24">
-            <div className="relative w-full overflow-hidden rounded-lg">
+    <section className="bg-black">
+      <div ref={headerSectionRef}>
+        <BentoTilt className="w-full">
+          <div className="relative w-full overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-screen-xl h-full">
               <img
                 src={whoweare_ggpoker}
                 alt="GGPoker background"
-                className="absolute top-0 right-0 w-2/3 h-full object-cover z-0 rounded-lg"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30"
               />
+            </div>
 
-              <div className="relative z-10 flex flex-col justify-center py-12 min-h-[300px] lg:min-h-[760px]">
-                <div className="w-full md:w-1/2 lg:w-4/5">
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent z-20"></div>
+
+            <div className="relative z-10 flex flex-col justify-center py-24 min-h-[300px] lg:min-h-[600px] w-full">
+              <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
+                <div className="max-w-screen-xl">
                   <img
                     src={ggpoker_logo_big_white}
                     alt="GGPoker Logo"
-                    className="h-9 w-auto lg:h-16 mb-4 md:mb-8 object-contain"
+                    className="h-10 w-auto lg:h-16 mb-4 md:mb-8 object-contain"
                   />
-
                   <div>
                     <h3 className="whitespace-pre-line text-nsus-gray-300">
                       {t("ggpoker_title")}
                     </h3>
-                    <h6 className="mx-auto mt-4 md:mt-8 max-w-screen-lg md:whitespace-pre-line text-white opacity-80">
-                      {t("ggpoker_desc")}
-                    </h6>
                   </div>
                 </div>
               </div>
             </div>
-          </BentoTilt>
-        </div>
+          </div>
+        </BentoTilt>
+      </div>
 
-        {/* --- 아코디언 섹션 1 --- */}
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
         <div
           className="item-point pt-12 md:pt-24 mt-12 md:mt-24 border-t border-neutral-800"
           ref={accordionSectionRef1}
@@ -228,9 +228,7 @@ const GGPokerSection: React.FC = () => {
           </div>
         </div>
 
-        {/* --- 피처 리스트 섹션 --- */}
         <div className="flex flex-col gap-8 md:gap-12 mt-12 md:py-24">
-          {/* 2. "Features" h4 태그에 ref 연결 */}
           <h4 className="text-3xl font-bold text-white" ref={featureHeaderRef}>
             {"Features"}
           </h4>
@@ -268,7 +266,6 @@ const GGPokerSection: React.FC = () => {
           })}
         </div>
 
-        {/* --- 아코디언 섹션 2 --- */}
         <div
           className="item-point py-12 md:pt-24 mt-12 md:mt-24 border-t border-neutral-800"
           ref={accordionSectionRef2}

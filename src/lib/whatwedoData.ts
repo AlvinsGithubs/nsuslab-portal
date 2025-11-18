@@ -101,12 +101,6 @@ export const ggvegasData: BentoGridItem[] = [
     title: "-",
   },
   {
-    id: 2,
-    type: "textOnly",
-    className: "",
-    title: "Where Fun Meets Innovation ",
-  },
-  {
     id: 3,
     type: "default",
     className: "row-span-1 md:col-span-1 md:row-span-2",
@@ -167,12 +161,6 @@ export const ggvegasData: BentoGridItem[] = [
     isComingSoon: true,
     mediaType: "image",
     mediaSrc: ggvegas_mov7,
-  },
-  {
-    id: 8,
-    type: "textOnly",
-    className: "",
-    title: "A Modern Interpretation of Classic Games",
   },
   {
     id: 10,

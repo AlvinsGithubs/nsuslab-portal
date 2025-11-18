@@ -22,7 +22,7 @@ export const translations: Record<"en" | "kr", Record<string, string>> = {
     nav_what_we_do_description: "Global No. 1 iGaming Company",
     nav_what_we_do_sub_ggpoker: "GGPoker",
     nav_what_we_do_sub_ggvegas: "GGVegas",
-    nav_what_we_do_sub_platform: "Platform",
+    nav_what_we_do_sub_wsop: "WSOP",
 
     // Mega Menu Columns
     nav_column_company: "Company",
@@ -118,7 +118,7 @@ export const translations: Record<"en" | "kr", Record<string, string>> = {
     nav_what_we_do_description: "Global No. 1 iGaming Company",
     nav_what_we_do_sub_ggpoker: "GGPoker",
     nav_what_we_do_sub_ggvegas: "GGVegas",
-    nav_what_we_do_sub_platform: "Platform",
+    nav_what_we_do_sub_wsop: "WSOP",
 
     // Mega Menu Columns
     nav_column_company: "Company",
