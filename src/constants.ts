@@ -63,7 +63,7 @@ export const NAV_LINKS: NavLink[] = [
         titleKey: "nav_column_life",
         links: [
           { nameKey: "nav_career_sub_culture", href: "#/culture" },
-          { nameKey: "nav_career_sub_our_story", href: "#/our-story" },
+          { nameKey: "nav_career_sub_our_story", href: "#/departments" },
           { nameKey: "nav_career_sub_benefits", href: "#/benefits" },
         ],
       },

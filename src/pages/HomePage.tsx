@@ -114,7 +114,7 @@ const HomePage: React.FC = () => {
         title={t('home_section_meet_our_people_title')} 
         subtitle={t('home_section_meet_our_people_subtitle')} 
         className="bg-nsus-gray-100"
-        link="#/our-story"
+        link="#/departments"
         linkText={t('home_section_meet_our_people_button')}
       >
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
