@@ -27,7 +27,7 @@ export const NAV_LINKS: NavLink[] = [
         links: [
           { nameKey: "nav_what_we_do_sub_ggpoker", href: "#/ggpoker" },
           { nameKey: "nav_what_we_do_sub_ggvegas", href: "#/ggvegas" },
-          { nameKey: "nav_what_we_do_sub_platform", href: "#/platform" },
+          { nameKey: "nav_what_we_do_sub_wsop", href: "#/wsop" },
         ],
       },
     ],

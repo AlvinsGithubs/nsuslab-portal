@@ -26,7 +26,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GGVegasPage from "./pages/GGVegasPage";
-import PlatformPage from "./pages/PlatformPage";
+import WSOPPage from "./pages/WSOPPage";
 import GGPokerPage from "./pages/GGPokerPage";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
@@ -101,8 +101,8 @@ const App: React.FC = () => {
         return <GGPokerPage />;
       case "#/ggvegas":
         return <GGVegasPage />;
-      case "#/platform":
-        return <PlatformPage />;
+      case "#/wsop":
+        return <WSOPPage />;
       case "#/departments":
         return <OurStoryPage />;
       case "#/benefits":

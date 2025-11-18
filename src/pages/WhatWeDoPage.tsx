@@ -9,10 +9,10 @@ import WhatWeDoTitleSection from './sections/what-we-do/WhatWeDoTitleSection';
 import GGVegasTitleSection from './sections/what-we-do/GGVegasTitleSection';
 import GameFeatureSection from './sections/what-we-do/GGPokerFeatureSection';
 import GGVegasFeatureSection from './sections/what-we-do/GGVegasFeatureSection';
-import ClubGGFeatureSection from './sections/what-we-do/ClubGGFeatureSection';
+import ClubGGFeatureSection from './sections/what-we-do/ggpoker/ClubGGFeatureSection';
 import CPFeatureSection from './sections/what-we-do/CPFeatureSection';
 import PlusFeatureSection from './sections/what-we-do/PlusFeatureSection';
-import WSOPSection from './sections/what-we-do/ggpoker/WSOPSection';
+import WSOPSection from './sections/what-we-do/WSOPSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
