@@ -53,7 +53,7 @@ export const featureData: Feature[] = [
     bgColor: "#000000",
     primaryTextColor: "#ffffff",
     secondaryTextColor: "#ffffff",
-    linkUrl: "#/departments",
+    linkUrl: "#/whatwedo",
     linkText: "주요 Product",
   },
   {
