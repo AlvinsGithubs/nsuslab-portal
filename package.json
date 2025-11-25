@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.21.2",
+    "@contentful/rich-text-react-renderer": "^15.22.11",
+    "@contentful/rich-text-types": "^17.2.5",
     "contentful": "^10.12.2",
     "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",

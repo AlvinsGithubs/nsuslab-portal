@@ -49,6 +49,7 @@ export interface TeamMember {
   quote: string;
   imageUrl: string;
   fullStory: { q: string; a: string }[];
+  content?: any;
 }
 
 export interface Benefit {

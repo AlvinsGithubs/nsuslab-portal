@@ -1,9 +1,9 @@
 export const translations: Record<"en" | "kr", Record<string, string>> = {
   en: {
     // Nav
-    nav_about_us: "About us",
+    nav_about_us: "About Us",
     nav_about_us_description: "iGaming으로 세상을 연결하고 또 즐거움을 줍니다",
-    nav_about_us_sub_who_we_are: "Who we are",
+    nav_about_us_sub_who_we_are: "Who We Are",
     nav_about_us_sub_history: "History",
     nav_about_us_sub_contact: "Contact",
     nav_what_we_do: "What We Do",
@@ -97,12 +97,12 @@ export const translations: Record<"en" | "kr", Record<string, string>> = {
   },
   kr: {
     // Nav
-    nav_about_us: "About us",
+    nav_about_us: "About Us",
     nav_about_us_description: "iGaming으로 세상을 연결하고 또 즐거움을 줍니다",
-    nav_about_us_sub_who_we_are: "Who we are",
+    nav_about_us_sub_who_we_are: "Who We Are",
     nav_about_us_sub_history: "History",
     nav_about_us_sub_contact: "Contact",
-    nav_what_we_do: "What we do",
+    nav_what_we_do: "What We Do",
     nav_newsroom: "Newsroom",
     nav_newsroom_description: "NSUS의 소식을 공유합니다",
     nav_newsroom_sub_press_release: "Press Release",
@@ -192,31 +192,3 @@ export const translations: Record<"en" | "kr", Record<string, string>> = {
       "NSUS Group은 세계 최대 규모의 토너먼트 WSOP의 운영사로서 iGaming Industry 전반에서 지속적으로 영향력을 확대하고 있습니다",
   },
 };
-
-/*
-    // Nav
-    nav_about_us: '회사소개',
-    nav_about_us_sub_who_we_are: 'Who We Are',
-    nav_about_us_sub_history: 'History',
-    nav_about_us_sub_contact: 'Contact',
-    nav_what_we_do: 'WHAT WE DO',
-    nav_newsroom: '뉴스룸',
-    nav_newsroom_sub_press_release: '보도자료',
-    nav_newsroom_sub_business_updates: '비즈니스 업데이트',
-    nav_career: '인재영입',
-    nav_career_sub_jobs: '채용공고',
-    nav_career_sub_road_to_nsus: '합류여정',
-    nav_career_sub_culture: '기업문화',
-    nav_career_sub_our_story: 'Our Story',
-    nav_career_sub_benefits: '복지 및 혜택',
-    nav_career_sub_financial_info: '재무정보',
-
-    // Mega Menu Columns
-    nav_column_company: '회사',
-    nav_column_ir: '투자 정보',
-    nav_column_news: '뉴스',
-    nav_column_recruitment: '채용',
-    nav_column_life: '회사 생활',
-
-    header_login: '로그인',
-*/
