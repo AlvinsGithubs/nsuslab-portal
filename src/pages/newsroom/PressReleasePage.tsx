@@ -40,7 +40,7 @@ const PressReleasePage: React.FC = () => {
   const renderContent = () => {
     if (isLoading) {
       return (
-        <div className="text-center py-24 text-xl text-nsus-gray-500">
+        <div className="text-center text-xl text-nsus-gray-500">
           Loading news...
         </div>
       );

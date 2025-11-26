@@ -16,6 +16,7 @@ import {
   financialSectionText,
   achievementData,
 } from "@/lib/whoweareData";
+import { ArrowUpRight, ChevronDown } from "lucide-react"; // ChevronDown 추가
 
 const FinancialInfoSection: React.FC = () => {
   const navbarContext = useContext(NavbarThemeContext);
@@ -24,6 +25,13 @@ const FinancialInfoSection: React.FC = () => {
   const studioVisualRef = useRef<HTMLDivElement>(null);
   const statsTitleRef = useRef<HTMLDivElement>(null);
   const achievementTitleRef = useRef<HTMLDivElement>(null);
+
+  // [New] 모바일 아코디언 상태 관리 (0번 인덱스 기본 열림)
+  const [activeAchievementIndex, setActiveAchievementIndex] = useState<number | null>(0);
+
+  const toggleAccordion = (index: number) => {
+    setActiveAchievementIndex((prev) => (prev === index ? null : index));
+  };
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -126,7 +134,7 @@ const FinancialInfoSection: React.FC = () => {
             </div>
             <div
               ref={studioVisualRef}
-              className="item-visual relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-black opacity-0" // ✅ ADDED opacity-0
+              className="item-visual relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-black opacity-0"
             >
               <div className="absolute inset-0 z-0">
                 <svg
@@ -349,20 +357,22 @@ const FinancialInfoSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex flex-col gap-8 md:pr-64">
                 <div
-                  ref={achievementTitleRef} // ✅ ADDED Ref
-                  className="item-title opacity-0" // ✅ ADDED opacity-0
+                  ref={achievementTitleRef}
+                  className="item-title opacity-0"
                 >
-                  <h4>{financialSectionText.keyAchivementTitle}</h4> 
+                  <h4>{financialSectionText.keyAchivementTitle}</h4>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-12">
-                {achievementData.map(
-                  (
-                    achievement // AchievementBox도 이미 자체적으로 애니메이션을 가집니다.
-                  ) => (
-                    <AchievementBox key={achievement.title} {...achievement} />
-                  )
-                )}
+              {/* [수정됨] 간격을 조절하고 상태를 전달 */}
+              <div className="grid grid-cols-1 gap-6 lg:gap-12">
+                {achievementData.map((achievement, index) => (
+                  <AchievementBox
+                    key={achievement.title}
+                    {...achievement}
+                    isOpen={activeAchievementIndex === index}
+                    onClick={() => toggleAccordion(index)}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -388,12 +398,12 @@ const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
         onUpdate: () => {
           element.innerText = Math.round(counter.value).toLocaleString();
         },
-        paused: true, 
+        paused: true,
       });
 
       const st = ScrollTrigger.create({
         trigger: element,
-        start: "top 90%", 
+        start: "top 90%",
         once: true,
         onEnter: () => {
           gsap.delayedCall(0.2, () => controls.play());
@@ -402,7 +412,7 @@ const AnimatedCounter: React.FC<{ to: number }> = ({ to }) => {
 
       return () => {
         controls.kill();
-        st.kill(); 
+        st.kill();
       };
     }
   }, [to]);
@@ -459,9 +469,11 @@ const StatBox: React.FC<StatBoxProps> = ({
   return (
     <div
       ref={ref}
-      className="bg-neutral-950 p-6 lg:p-10 rounded-2xl flex flex-col h-full opacity-0"
+      className="bg-neutral-950 p-4 lg:p-10 rounded-2xl flex flex-col h-full opacity-0"
     >
-      <p className="box-title text-gray-200 mb-8 font-semibold">{title}</p>
+      <p className="box-title text-gray-200 mb-4 lg:mb-8 font-semibold">
+        {title}
+      </p>
       <div className="box-value text-4xl md:text-5xl font-bold mb-6 flex items-baseline">
         <AnimatedCounter to={value} />
         <span className="text-2xl md:text-3xl ml-1">{unit}</span>
@@ -473,20 +485,27 @@ const StatBox: React.FC<StatBoxProps> = ({
   );
 };
 
+// [수정됨] AchievementBox: 아코디언 로직 추가
 interface AchievementBoxProps {
   title: string;
   subTitle: string;
   description: string;
+  isOpen: boolean; // 추가
+  onClick: () => void; // 추가
 }
 
 const AchievementBox: React.FC<AchievementBoxProps> = ({
   title,
   description,
+  isOpen,
+  onClick,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
+  // 1. 기존: 스크롤 시 전체 박스 페이드인 효과
   useLayoutEffect(() => {
-    const el = ref.current;
+    const el = containerRef.current;
     if (el) {
       gsap.set(el, { opacity: 0, y: 50 });
 
@@ -504,10 +523,69 @@ const AchievementBox: React.FC<AchievementBoxProps> = ({
     }
   }, []);
 
+  // 2. 신규: 모바일 아코디언 애니메이션
+  useEffect(() => {
+    // 데스크탑 체크: 데스크탑일 경우 아코디언 애니메이션 무시 및 스타일 초기화
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (isDesktop) {
+      gsap.set(contentRef.current, { clearProps: "height,opacity" });
+      return;
+    }
+
+    // 모바일일 경우 아코디언 동작
+    if (contentRef.current) {
+      if (isOpen) {
+        gsap.to(contentRef.current, {
+          height: "auto",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(contentRef.current, {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.in",
+        });
+      }
+    }
+  }, [isOpen]);
+
   return (
-    <div ref={ref} className="flex flex-col opacity-0">
-      <h4 className=" text-white md:whitespace-pre-line">{title}</h4>
-      <p className="text-gray-400 md:whitespace-pre-line">{description}</p>
+    <div
+      ref={containerRef}
+      className="flex flex-col opacity-0 border-b border-neutral-800 lg:border-none pb-6 lg:pb-0"
+    >
+      {/* Mobile Header (Clickable) */}
+      <div
+        onClick={onClick}
+        className="flex items-center justify-between lg:hidden cursor-pointer group w-full"
+      >
+        <h4 className="text-white font-bold text-lg md:text-xl">{title}</h4>
+        <ChevronDown
+          className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </div>
+
+      {/* Desktop Header (Always Visible, Non-clickable) */}
+      <div className="hidden lg:block">
+        <h4 className="text-white md:whitespace-pre-line mb-4">{title}</h4>
+      </div>
+
+      {/* Content (Animated on Mobile, Static on Desktop) */}
+      <div
+        ref={contentRef}
+        className="overflow-hidden lg:h-auto lg:opacity-100 h-0 opacity-0"
+      >
+        <div className="pt-4 lg:pt-0">
+          <p className="text-gray-400 md:whitespace-pre-line leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -4,8 +4,8 @@ import React, { useContext, useEffect } from 'react';
 
 const InfoRow: React.FC<{ label: string; children: React.ReactNode; className?: string }> = ({ label, children, className }) => (
     <div className={`flex flex-col md:flex-row items-start ${className}`}>
-        <h6 className="w-full md:w-28 flex-shrink-0 font-bold text-nsus-gray-700 uppercase mr-24">{label}</h6>
-        <h6 className="mt-1 md:mt-0 text-nsus-gray-900">{children}</h6>
+        <h6 className="w-full md:w-28 flex-shrink-0 font-bold text-nsus-gray-700 uppercase md:mr-24">{label}</h6>
+        <h6 className="text-sm md:h6 mt-1 md:mt-0 text-nsus-gray-900">{children}</h6>
     </div>
 );
 

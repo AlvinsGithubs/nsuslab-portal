@@ -62,9 +62,9 @@ const HistoryPage: React.FC = () => {
         </video>
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
-          <h1 className="main-title text-center max-w-screen-2xl !leading-tight text-white whitespace-pre-line">
+          <h2 className="text-center max-w-screen-2xl !leading-tight text-white whitespace-pre-line">
             {"우리가 가장 잘하고 좋아하는 \niGaming을 통해 세상을 \n더욱 즐겁게 만들어 갑니다"}
-          </h1>
+          </h2>
         </div>
         <div
           onClick={scrollToHistory}
@@ -117,13 +117,13 @@ const HistoryPage: React.FC = () => {
                             key={month}
                             className="flex items-start space-x-8 md:space-x-16 pt-4 md:pt-8"
                           >
-                            <h6 className="w-12 font-bold text-gray-400 md:mr-8">{`${month.padStart(
+                            <h6 className="text-sm md:h6 w-12 font-bold text-gray-400 md:mr-8">{`${month.padStart(
                               2,
                               "0"
                             )}월`}</h6>
                             <div className="flex-1">
                               {monthEvents.map((event, index) => (
-                                <h6 key={index} className="text-nsus-gray-700">
+                                <h6 key={index} className="text-nsus-gray-700 text-sm md:h6">
                                   {event.description}
                                 </h6>
                               ))}

@@ -37,7 +37,7 @@ const CareersPage = () => {
   return (
     <div className="bg-gradient-to-b from-white via-[#f5f8fb] to-white text-nsus-gray-900">
       <section className="relative overflow-hidden pt-12 pb-6">
-        <h2 className="max-w-screen-xl mx-auto px-4 md:px-8 text-nsus-gray-900 py-12 md:pt-24">
+        <h2 className="max-w-screen-xl mx-auto px-4 md:px-8 text-nsus-gray-900 mt-24">
           We're Hiring
         </h2>
       </section>

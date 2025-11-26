@@ -31,9 +31,9 @@ const CultureRecruitCard: React.FC<CultureRecruitCardProps> = ({
         className="absolute inset-0 bg-black opacity-30 duration-500 ease-in-out group-hover:opacity-50"
         aria-hidden="true"
       ></div>
-      <div className="relative flex flex-col h-full p-6 lg:p-8">
-        <h4 className="mt-auto font-bold text-white">{title}</h4>
-        <h4 className="font-bold text-white">{subTitle}</h4>
+      <div className="relative flex flex-col h-full p-4 lg:p-8">
+        <h5 className="mt-auto font-bold text-white">{title}</h5>
+        <h5 className="font-bold text-white">{subTitle}</h5>
       </div>
     </div>
   );

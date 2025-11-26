@@ -1,11 +1,15 @@
-import { forwardRef, useLayoutEffect, useRef, useState } from "react";
+import { forwardRef, useLayoutEffect, useRef, useState, useEffect } from "react";
 import { featureData } from "@/lib/whoweareData";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
+  // Desktop용 Scroll Active Index
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Mobile용 Click Active Index (초기값 0: 첫번째 항목 열림)
+  const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(0);
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -14,11 +18,15 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const progressFillRefs = useRef<(HTMLDivElement | null)[]>([]);
   const progressIndicatorRef = useRef<HTMLDivElement | null>(null);
+  
+  // 모바일 아코디언 컨텐츠 Refs
+  const mobileContentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // 1. Desktop & Initial GSAP Setup
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const mm = gsap.matchMedia(); // 미디어 쿼리 분리 핵심
+    const mm = gsap.matchMedia();
     const section = sectionRef.current;
     const container = containerRef.current;
     const rightCol = rightColRef.current;
@@ -30,13 +38,19 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
     if (!section || !container || !features.length) return;
 
     const ctx = gsap.context(() => {
+      // ---------------------------------------------------------
+      // Desktop Animation
+      // ---------------------------------------------------------
       mm.add("(min-width: 1024px)", () => {
+        // [추가된 부분] 데스크탑 진입 시 모바일 아코디언 스타일 강제 초기화
+        gsap.set(mobileContentRefs.current, { clearProps: "height,opacity" });
+
         gsap.set(features, { position: "absolute", inset: 0, opacity: 0, y: 0 });
         gsap.set(features[0], { opacity: 1, y: 0 });
         gsap.set(leftTitles, { opacity: 0, yPercent: 100 });
         gsap.set(leftTitles[0], { opacity: 1, yPercent: 0 });
         gsap.set(progressFills, { width: "0%" });
-        gsap.set(progressIndicator, { opacity: 1, display: "block" }); // 데스크탑에선 보임
+        gsap.set(progressIndicator, { opacity: 1, display: "block" });
 
         const tl = gsap.timeline();
 
@@ -92,7 +106,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
             { width: "100%", ease: "none" }
           );
           ScrollTrigger.create({
-            trigger: rightCol, // rightColRef 사용
+            trigger: rightCol,
             start: `top+=${i * 1200} top`,
             end: `top+=${(i + 1) * 1200} top`,
             scrub: true,
@@ -103,24 +117,57 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         });
       });
 
+      // ---------------------------------------------------------
+      // Mobile Reset
+      // ---------------------------------------------------------
       mm.add("(max-width: 1023px)", () => {
-        gsap.set(features, { clearProps: "all" }); 
-        gsap.set(progressIndicator, { display: "none" }); // 모바일에서 인디케이터 숨김
-
-        features.forEach((feature, i) => {
-          ScrollTrigger.create({
-            trigger: feature,
-            start: "top 60%", 
-            end: "bottom 60%",
-            onEnter: () => setActiveIndex(i),
-            onEnterBack: () => setActiveIndex(i),
-          });
-        });
+        gsap.set(features, { clearProps: "all" });
+        gsap.set(progressIndicator, { display: "none" });
       });
     });
 
     return () => ctx.revert();
   }, []);
+
+  // 2. Mobile Accordion Animation (수정됨)
+  useEffect(() => {
+    // [수정 핵심] 데스크탑인지 확인
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    // 데스크탑이면 아코디언 로직 실행 방지 및 스타일 초기화
+    if (isDesktop) {
+        gsap.set(mobileContentRefs.current, { clearProps: "height,opacity" });
+        return; 
+    }
+
+    mobileContentRefs.current.forEach((content, index) => {
+      if (!content) return;
+      
+      const isOpen = index === mobileExpandedIndex;
+      
+      if (isOpen) {
+        gsap.to(content, {
+          height: "auto",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(content, {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.in",
+        });
+      }
+    });
+  }, [mobileExpandedIndex]);
+
+  const toggleAccordion = (index: number) => {
+    setMobileExpandedIndex((prev) => (prev === index ? null : index));
+    // 모바일 클릭 시에는 activeIndex도 업데이트 해줘야 배경색 변경 등이 자연스러움
+    setActiveIndex(index);
+  };
 
   return (
     <section
@@ -129,8 +176,7 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         if (typeof ref === "function") ref(el);
         else if (ref) ref.current = el;
       }}
-      // 모바일: min-h-screen (내용따라 늘어남), 데스크탑: h-screen (고정)
-      className="w-full transition-colors duration-500 ease-in-out relative min-h-screen lg:h-screen"
+      className="w-full transition-colors duration-500 ease-in-out relative min-h-0 py-12 lg:py-0 lg:h-screen lg:min-h-screen"
       style={{
         backgroundColor: featureData[activeIndex]?.bgColor || featureData[0].bgColor,
       }}
@@ -139,7 +185,16 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
         ref={containerRef}
         className="mx-auto grid max-w-screen-xl grid-cols-1 gap-x-32 px-4 sm:px-6 lg:grid-cols-[0.5fr_0.8fr] lg:px-4"
       >
-        {/* Left Column (Desktop Titles) - 모바일에서는 숨김 */}
+        {/* ===========================
+            Mobile Title (New) 
+            =========================== 
+        */}
+        <h1 className="w-full text-center text-4xl font-extrabold text-white my-12 lg:hidden">
+          Who We Are
+        </h1>
+
+
+        {/* Left Column (Desktop Only Titles) */}
         <div className="hidden lg:flex lg:h-screen lg:flex-col lg:justify-start lg:py-64">
           <div
             className="relative"
@@ -168,54 +223,84 @@ const FeatureSection = forwardRef<HTMLElement, {}>((_props, ref) => {
             <div
               key={index}
               ref={(el) => { if (el) featureRefs.current[index] = el; }}
-              className="flex min-h-screen flex-col items-start justify-start py-24 lg:py-64"
+              className={`
+                flex flex-col justify-start 
+                border-b border-white/20 last:border-none lg:border-none
+                py-6 lg:py-64 lg:min-h-screen
+              `}
             >
-              {/* Mobile Title (데스크탑 hidden) */}
-              <div className="mb-8 flex items-center gap-4 pr-20 lg:hidden">
-                <p
-                  className="whitespace-pre-line text-6xl font-extrabold opacity-20"
-                  style={{ color: feature.primaryTextColor }}
-                >
-                  {(index + 1).toString().padStart(2, "0")}
-                </p>
-                <h3
-                  className="whitespace-pre-line text-2xl font-bold"
-                  style={{ color: feature.primaryTextColor }}
-                >
-                  {feature.title}
-                </h3>
+              {/* Mobile Header (Clickable) */}
+              <div 
+                onClick={() => toggleAccordion(index)}
+                className="lg:hidden flex cursor-pointer items-start justify-between gap-4 w-full group"
+              >
+                <div className="flex flex-col gap-2">
+                  <span 
+                    className="text-sm font-bold uppercase opacity-60" 
+                    style={{ color: feature.primaryTextColor }}
+                  >
+                    {feature.title}
+                  </span>
+                  
+                  <h3
+                    className="whitespace-pre-line text-2xl font-bold md:text-3xl mt-1"
+                    style={{ color: feature.primaryTextColor }}
+                  >
+                    {feature.heading}
+                  </h3>
+                </div>
+
+                <div className="pt-2">
+                    <ChevronDown 
+                        className={`w-6 h-6 transition-transform duration-300 ${mobileExpandedIndex === index ? "rotate-180" : "rotate-0"}`}
+                        style={{ color: feature.primaryTextColor }}
+                    />
+                </div>
               </div>
 
-              <h3
-                className="whitespace-pre-line py-4 font-bold md:py-8 text-3xl lg:text-4xl"
-                style={{ color: feature.primaryTextColor }}
-              >
-                {feature.heading}
-              </h3>
-              <h5 className="mb-4 whitespace-pre-line text-gray-200 !leading-[1.6] text-lg">
-                {feature.description}
-              </h5>
-              <h5 className="mb-4 whitespace-pre-line text-white font-bold !leading-[1.6] text-lg">
-                {feature.listItems}
-              </h5>
-
-              {feature.linkUrl && feature.linkText && (
-                <div className="mt-6">
-                  <a
-                    href={feature.linkUrl}
-                    className="flex items-center gap-2 rounded-2xl bg-white px-8 py-2 text-base font-bold text-black transition-colors duration-300 ease-in-out hover:bg-nsus-blue hover:text-white"
+              {/* Desktop Header */}
+              <div className="hidden lg:block">
+                  <h3
+                    className="whitespace-pre-line py-4 font-bold md:py-8 text-3xl lg:text-4xl"
+                    style={{ color: feature.primaryTextColor }}
                   >
-                    {feature.linkText}
-                    <ArrowUpRight className="w-5 h-5 hover:text-white" />
-                  </a>
+                    {feature.heading}
+                  </h3>
+              </div>
+
+              {/* Content Body */}
+              <div
+                ref={(el) => { if (el) mobileContentRefs.current[index] = el; }}
+                className="overflow-hidden h-0 opacity-0 lg:h-auto lg:opacity-100 lg:block"
+              >
+                <div className="pt-4 pb-2 lg:pt-0 lg:pb-0"> 
+                    <h5 className="mb-4 whitespace-pre-line text-gray-200 !leading-[1.6] text-base lg:text-lg">
+                    {feature.description}
+                    </h5>
+                    <h5 className="mb-4 whitespace-pre-line text-white font-bold !leading-[1.6] text-base lg:text-lg">
+                    {feature.listItems}
+                    </h5>
+
+                    {feature.linkUrl && feature.linkText && (
+                    <div className="mt-6">
+                        <a
+                        href={feature.linkUrl}
+                        className="flex w-fit items-center gap-2 rounded-2xl bg-white px-6 py-2 text-sm lg:px-8 lg:text-base font-bold text-black transition-colors duration-300 ease-in-out hover:bg-nsus-blue hover:text-white"
+                        >
+                        {feature.linkText}
+                        <ArrowUpRight className="w-4 h-4 lg:w-5 lg:h-5 hover:text-white" />
+                        </a>
+                    </div>
+                    )}
                 </div>
-              )}
+              </div>
+
             </div>
           ))}
         </div>
       </div>
 
-      {/* Progress Indicator */}
+      {/* Progress Indicator (Desktop Only) */}
       <div
         ref={progressIndicatorRef}
         className="hidden lg:block absolute bottom-16 left-1/2 z-10 -translate-x-1/2"

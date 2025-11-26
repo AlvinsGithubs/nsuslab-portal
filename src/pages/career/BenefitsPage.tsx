@@ -46,7 +46,7 @@ const BenefitsPage: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-white py-24 md:py-32" ref={main}>
+    <section className="bg-white py-24 mt-12" ref={main}>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
         <h2 className="font-bold text-nsus-gray-900 mb-12 md:mb-24">
           Benefits
