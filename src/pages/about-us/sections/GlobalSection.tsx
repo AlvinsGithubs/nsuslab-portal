@@ -100,7 +100,7 @@ const GlobalSection = forwardRef<HTMLElement, {}>((_props, ref) => {
   }, [isLoading, licenses]);
 
   return (
-    <section ref={ref} className="w-full bg-black overflow-hidden">
+    <section ref={ref} className="hidden lg:block w-full bg-black overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div className="item-title">
           <h4>{t("global_title")}</h4>

@@ -117,7 +117,7 @@ const CultureTitleSection: React.FC = () => {
   const renderTextBlock = (block: TextBlock, index: number) => {
     if (block.type === 'h3') {
       return (
-        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line' }} className="text-4xl md:text-6xl font-bold shadow-xl">
+        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line' }} className="text-3xl md:text-6xl font-bold shadow-xl">
           {block.text}
         </h2>
       );
@@ -127,8 +127,8 @@ const CultureTitleSection: React.FC = () => {
       <blockquote
         key={index}
         ref={addBlockquoteRef}
-        className="h4 leading-relaxed opacity-0 translate-y-5 font-medium text-xl md:text-3xl"
-        style={{ whiteSpace: 'pre-line' }}
+        className="h4 leading-relaxed opacity-0 translate-y-5 font-medium text-base md:text-2xl"
+
       >
         {block.text}
       </blockquote>
@@ -146,7 +146,7 @@ const CultureTitleSection: React.FC = () => {
         />
         <div ref={overlayRef} className="absolute inset-0 bg-black z-20" />
         <div className="absolute inset-0 z-30 flex justify-center items-center text-white text-center p-4">
-          <div className="flex flex-col gap-6 max-w-screen-xl">
+          <div className="flex flex-col gap-6 max-w-screen-xl md:whitespace-pre-line">
             {TEXT_BLOCKS.map((block, index) => renderTextBlock(block, index))}
           </div>
         </div>

@@ -122,11 +122,11 @@ const RoadToNsusPage: React.FC = () => {
       <main>
         <section className="md:py-4">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ol ref={processListRef} className="space-y-8 [counter-reset:step]">
+            <ol ref={processListRef} className="[counter-reset:step]">
               {processSteps.map((step, index) => (
                 <li
                   key={index}
-                  className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
+                  className={`flex flex-col md:flex-row md:gap-8 ${
                     index > 0 ? "border-t border-nsus-gray-200 pt-12" : ""
                   }`}
                 >
