@@ -119,7 +119,10 @@ const CultureSection: React.FC = () => {
                 <p className="mb-3 md:mb-4 font-bold text-lg md:text-xl">
                   {card.title}
                 </p>
-                <p className="text-gray-600 text-sm md:text-base flex-grow line-clamp-3 md:line-clamp-none">
+                {/* [수정됨] line-clamp-3 -> line-clamp-4 
+                    모바일에서 텍스트가 4줄까지 보이도록 수정했습니다. 
+                */}
+                <p className="text-gray-600 text-sm md:text-base flex-grow line-clamp-4 md:line-clamp-none">
                   {card.description}
                 </p>
 

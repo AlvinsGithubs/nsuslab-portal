@@ -214,7 +214,7 @@ const GGVegasFeatureSection: React.FC = () => {
         
         {/* --- 아코디언 섹션 1 --- */}
         <div
-          className="item-point pt-12 md:pt-24 mt-12 md:mt-24 border-t border-neutral-800"
+          className="item-point pt-12 md:pt-24 mt-12"
           ref={accordionSectionRef1}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

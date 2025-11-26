@@ -170,7 +170,7 @@ const WSOPContentSection = React.forwardRef<HTMLDivElement, ContentSectionProps>
 
     return (
       <div
-        className="item-point pt-12 md:pt-24 mt-12 md:mt-24 border-t border-neutral-800"
+        className="item-point pt-12 md:pt-24 mt-12"
         ref={ref}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-8 md:gap-28 w-full">

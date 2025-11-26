@@ -16,7 +16,7 @@ import {
   financialSectionText,
   achievementData,
 } from "@/lib/whoweareData";
-import { ArrowUpRight, ChevronDown } from "lucide-react"; // ChevronDown 추가
+import { ChevronDown } from "lucide-react"; // ChevronDown 추가
 
 const FinancialInfoSection: React.FC = () => {
   const navbarContext = useContext(NavbarThemeContext);
@@ -112,7 +112,7 @@ const FinancialInfoSection: React.FC = () => {
 
   return (
     <div className="bg-black text-white py-24">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8 border-b border-neutral-800 py-12 lg:py-24">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 md:border-b md:border-neutral-800 py-12 lg:py-24">
         <div
           ref={headerRef}
           className="data-header mb-16 lg:mb-32 text-center opacity-0"
@@ -338,7 +338,7 @@ const FinancialInfoSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="item-point pb-8 md:pb-24 border-b border-neutral-800">
+          <div className="item-point pb-8 md:pb-24 md:border-b md:border-neutral-800">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               <div
                 ref={statsTitleRef}

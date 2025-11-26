@@ -328,7 +328,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="flex justify-between items-center mb-8">
-            <h3 className="text-lg font-semibold text-black">Menu</h3>
+            <h3 className="text-lg font-semibold text-black"></h3>
             <button onClick={() => setIsOpen(false)} className="text-black">
               <X size={24} />
             </button>
