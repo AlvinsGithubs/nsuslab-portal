@@ -86,7 +86,7 @@ const LifeDetailPage: React.FC<LifeDetailPageProps> = ({ slug }) => {
       ),
       [BLOCKS.PARAGRAPH]: (_node: any, children: any) => {
         return (
-          <h6 className="mb-4 text-nsus-gray-700 leading-loose min-h-[1.625rem]">
+          <h6 className="mb-4 text-nsus-gray-700 leading-relaxed min-h-[1.625rem]">
             {children}
           </h6>
         );

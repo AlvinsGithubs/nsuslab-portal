@@ -195,7 +195,7 @@ const GGPokerSection: React.FC = () => {
 
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
         <div
-          className="item-point pt-12 md:pt-24 mt-12 md:mt-24 border-t border-neutral-800"
+          className="item-point pt-12 md:pt-24 mt-12"
           ref={accordionSectionRef1}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

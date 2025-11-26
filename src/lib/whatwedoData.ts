@@ -7,11 +7,7 @@ import whoweare_ggpoker from "@/asset/imgs/about-us-Img/whoweare_ggpoker.webp";
 import ggvegas_mov1 from "@/asset/imgs/slotImg/ggvegas_mov1.gif";
 import ggvegas_mov2 from "@/asset/imgs/slotImg/ggvegas_mov2.gif";
 import ggvegas_mov3 from "@/asset/imgs/slotImg/ggvegas_mov3.gif";
-import ggvegas_mov4 from "@/asset/imgs/slotImg/ggvegas_mov4.gif";
 import ggvegas_mov5 from "@/asset/imgs/slotImg/ggvegas_mov5.gif";
-import ggvegas_mov7 from "@/asset/imgs/slotImg/ggvegas_mov7.gif";
-import ggvegas_mov8 from "@/asset/imgs/slotImg/ggvegas_mov8.gif";
-import ggvegas_mov9 from "@/asset/imgs/slotImg/ggvegas_mov9.gif";
 
 import clubgg1 from "@/asset/imgs/clubggImg/clubgg1.png";
 import clubgg2 from "@/asset/imgs/clubggImg/clubgg2.jpg";

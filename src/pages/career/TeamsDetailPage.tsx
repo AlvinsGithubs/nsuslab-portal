@@ -111,7 +111,7 @@ const TeamsDetailPage: React.FC<TeamsDetailPageProps> = ({ slug }) => {
 
               p: ({ node, ...props }) => (
                 <h6
-                  className="mb-4 text-nsus-gray-700 leading-loose min-h-[1.625rem]"
+                  className="mb-4 text-nsus-gray-700 leading-relaxed min-h-[1.625rem]"
                   {...props}
                 />
               ),

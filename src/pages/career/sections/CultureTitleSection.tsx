@@ -10,11 +10,10 @@ type TextBlock = {
 
 const TEXT_BLOCKS: TextBlock[] = [
   { type: 'h3', text: "최고의 동료와 함께 완벽한 승리를 거둔 경험이 있나요?" },
-  { type: 'blockquote', text: "시간 가는 줄 모르고 무엇인가에 깊게 빠져드는 경험.\n서로의 눈빛만 봐도 전략을 이해하고, 하나의 목표를 향해 함께 몰아붙이는 희열.\n마침내 최고의 결과를 함께 만들어냈을 때의 짜릿함과 기쁨." },
+  { type: 'blockquote', text: "시간 가는 줄 모르고 깊게 빠져드는 경험.\n서로의 눈빛만 봐도 전략을 이해하고, 하나의 목표를 향해 함께 몰아붙이는 희열.\n마침내 최고의 결과를 함께 만들어냈을 때의 짜릿함." },
   { type: 'blockquote', text: "만약, 이 모든 경험이 당신의 '일'이 될 수 있다면 어떨까요?" },
-  { type: 'blockquote', text: "일을 방해하는 불필요한 과정이 사라지고,\n오직 최고의 동료들과 최고의 성과를 만드는 데에만 집중할 수 있다면 어떨까요?" },
-  { type: 'blockquote', text: "NSUSLAB의 사람들은 일에 몰입하는 즐거움과 성장의 기쁨을 느끼며,\n새로운 역사를 만들고 있습니다." },
-  { type: 'blockquote', text: "우리가 일하는 방식은, 단순히 최고의 결과를 내기 위한 규칙이 아닙니다.\n최고의 동료들과 함께 최고의 즐거움을 만들어가는 약속입니다." }
+  { type: 'blockquote', text: "일을 방해하는 불필요한 과정이 사라지고,\n오직 동료들과 최고의 성과를 만드는 데에만 집중할 수 있다면 어떨까요?" },
+  { type: 'blockquote', text: "앤서스랩의 사람들은 일에 몰입하는 즐거움과 성장의 기쁨을 느끼며,\n새로운 역사를 만들고 있습니다." }
 ];
 
 const SCROLL_LENGTH = 6000;
@@ -117,7 +116,7 @@ const CultureTitleSection: React.FC = () => {
   const renderTextBlock = (block: TextBlock, index: number) => {
     if (block.type === 'h3') {
       return (
-        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line' }} className="text-3xl md:text-6xl font-bold shadow-xl">
+        <h2 key={index} ref={h3Ref} style={{ whiteSpace: 'pre-line' }} className="text-3xl md:text-6xl font-bold">
           {block.text}
         </h2>
       );
